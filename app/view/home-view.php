@@ -1,5 +1,5 @@
 
-
+<?php include($_SERVER['DOCUMENT_ROOT'].'/php-automation/app/view/nav-view.php');?>
   <div class="content-wrapper">
     <div class="container-fluid">
           <!-- Breadcrumbs-->
@@ -75,13 +75,13 @@
           <div class="modal-header">
             <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
             <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">×</span>
+              <span aria-hidden="true">X</span>
             </button>
           </div>
-          <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+          <div class="modal-body">Proceed To Log out?</div>
           <div class="modal-footer">
             <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-            <a class="btn btn-primary" href="login.php">Logout</a>
+            <a class="btn btn-primary" href="logout">Logout</a>
           </div>
         </div>
       </div>

@@ -1,6 +1,8 @@
 
-<?php include($_SERVER['DOCUMENT_ROOT'].'/php-project/app/classes/server.php') ?>
-
+<?php include($_SERVER['DOCUMENT_ROOT'].'/php-automation/app/classes/server.php') ?>
+<?php 
+// echo password_hash('admin',PASSWORD_BCRYPT);
+ ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,7 +12,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
+  <link href="./style-view/login.css" rel="stylesheet">
   <title>Php & RaspberryPI</title>
+  
   <!-- Bootstrap core CSS-->
   <!-- <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet"> -->
   <!-- Custom fonts for this template-->
@@ -19,18 +23,18 @@
   <!-- <link href="css/sb-admin.css" rel="stylesheet"> -->
 </head>
 
-<body class="bg-dark">
+<body class="bg-dark" >
   <div class="container">
 
-    <div class="card card-login mx-auto mt-3">
+    <div class="card card-login mx-auto mt-3" style="background-image: url('/images/android.jpg');">
 
         <div class="card-header">Login</div>
       
         <div class="card-body">
       
-            <form method="post" action="login-view.php">
+            <form method="post" action="login-view.php" enctype="multipart/form-data" >
 
-                <?php include($_SERVER['DOCUMENT_ROOT'].'/php-project/app/common/errors.php'); ?>
+                <?php include($_SERVER['DOCUMENT_ROOT'].'/php-automation/app/common/errors.php'); ?>
 
                 <div class="form-group">
                     <label for="InputUsername">Username</label>

@@ -1,4 +1,4 @@
-
+<?php include($_SERVER['DOCUMENT_ROOT'].'/php-automation/app/view/nav-view.php');?>
 
 <div class="content-wrapper">
     <div class="container-fluid">

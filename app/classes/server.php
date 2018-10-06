@@ -1,8 +1,9 @@
 <?php
   if(!isset($_SESSION)) 
   { 
-      session_start(); 
+      session_start();
   } 
+
 
 // initializing variables
 
@@ -81,15 +82,22 @@ if (isset($_POST['login_user'])) {
   }
 
   if (count($errors) == 0) {
-    $password = md5($password);
-    $query = "SELECT * FROM users WHERE username='$username' AND password='$password'";
+    // $password = md5($password);
+    $query = "SELECT * FROM users WHERE username='$username' ";
     $results = mysqli_query($db, $query);
     if (mysqli_num_rows($results) == 1) {
-      $_SESSION['username'] = $username;
-      $_SESSION['success'] = "You are now logged in";
-      header('location: index.php');
+      $row = mysqli_fetch_array($results);
+      $password_hash = $row['password'];
+      if(password_verify($password,$password_hash))
+      {
+        $_SESSION['username'] = $username;
+        $_SESSION['success'] = "You are now logged in";
+        header('location: home');
+      }
+    
     }else {
-      array_push($errors, "Wrong username/password combination");
+      // array_push($errors, "Wrong username/password combination");
+      alert("Incorrect Username/password");
     }
   }
 }

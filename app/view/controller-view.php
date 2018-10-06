@@ -1,45 +1,6 @@
 <div>
-                
+<?php include($_SERVER['DOCUMENT_ROOT'].'/php-automation/app/view/nav-view.php');?>            
    
-       
-    <?php 
-
-        $servername = "localhost";
-        $username = "root";
-        $password = "root";
-        $dbname = "dbtest";
-
-        //Create connection
-        $conn = new mysqli($servername, $username, $password, $dbname);
-
-        $sqll = "SELECT  * from controllers ";
-
-        if (mysqli_query($conn, $sqll)) 
-        {
-          echo "";
-        } 
-        else 
-        {
-          echo "Error: " . $sqll . "<br>" . mysqli_error($conn);
-        }
-
-        $result = mysqli_query($conn, $sqll);
-
-        if (mysqli_num_rows($result) > 0)
-        {
-          
-          // output data of each row
-          while($row = mysqli_fetch_assoc($result))
-          { 
-    ?>
-    <?php
-          }
-        } 
-          else
-        {
-          echo '0 results';
-        }
-    ?>
       <div class="content-wrapper">
        <div class="container-fluid" >
           <div class="row">

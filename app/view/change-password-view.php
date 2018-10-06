@@ -1,3 +1,4 @@
+<?php include($_SERVER['DOCUMENT_ROOT'].'/php-automation/app/view/nav-view.php');?>       
 <div class="content-wrapper" >
 
     <div class="container-fluid">
@@ -17,8 +18,8 @@
             <div class="card-body">
               <form method="post" action="register.php">
                 <?php 
-                include($_SERVER['DOCUMENT_ROOT'].'/php-project/app/classes/server.php');
-                include($_SERVER['DOCUMENT_ROOT'].'/php-project/app/common/errors.php');
+                include($_SERVER['DOCUMENT_ROOT'].'/php-automation/app/classes/server.php');
+                include($_SERVER['DOCUMENT_ROOT'].'/php-automation/app/common/errors.php');
                 ?>
                 <div class="form-group">
                   <div class="form-row">
