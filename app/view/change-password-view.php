@@ -16,7 +16,7 @@
           <div class="card card-register mx-auto mt-5" style="background-color:dimgray;">
             <div class="card-header">Register an Account</div>
             <div class="card-body">
-              <form method="post" action="register.php">
+              <form method="post" action="change-password.php">
                 <?php 
                 include($_SERVER['DOCUMENT_ROOT'].'/php-automation/app/classes/server.php');
                 include($_SERVER['DOCUMENT_ROOT'].'/php-automation/app/common/errors.php');
@@ -25,7 +25,7 @@
                   <div class="form-row">
                     <div class="col-md-12">
                       <label for="exampleInputName">Username</label>
-                      <input class="form-control" id="exampleInputName" type="text"  name="username" value="<?php echo $username; ?>" disabled>
+                      <input class="form-control" id="exampleInputName" type="text"  name="username" value="<?php echo "admin"; ?>" disabled>
                     </div>
                     
                   </div>
@@ -46,7 +46,7 @@
 
                   </div>
                 </div>
-                <button type="submit" class="btn btn-primary btn-block" name="reg_user">Update Password</button>
+                <button type="submit" class="btn btn-primary btn-block" name="change_pass">Update Password</button>
               </form>
             </div>
       </div>

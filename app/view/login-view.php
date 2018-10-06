@@ -26,7 +26,7 @@
 <body class="bg-dark" >
   <div class="container">
 
-    <div class="card card-login mx-auto mt-3" style="background-image: url('/images/android.jpg');">
+    <div class="card card-login mx-auto mt-3">
 
         <div class="card-header">Login</div>
       

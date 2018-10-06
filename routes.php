@@ -1,7 +1,6 @@
 <?php
 
     require_once __DIR__ . '/app/classes/route.php';
-    require_once __DIR__ . '/app/classes/database.php';
     require_once __DIR__ . '/app/controller/controller.php';
     require_once __DIR__ . '/app/controller/home.php';
     require_once __DIR__ . '/app/controller/settings.php';

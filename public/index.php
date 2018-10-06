@@ -20,7 +20,7 @@
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 </head>
 
-<body class="fixed-nav sticky-footer bg-dark" id="page-top">
+<body class="fixed-nav sticky-footer bg-dark" id="page-top" >
     <?php 
 
 
@@ -30,11 +30,12 @@
 
             spl_autoload_register(function($class_name){
             
-                if(file_exists('../app/model/'.$class_name.'php')){
-                    require_once(__DIR__.'../app/model/'.$class_name.'php');
-                } else if (file_exists('../app/controller/'.$class_name.'php')){
+                 if (file_exists('../app/controller/'.$class_name.'php')){
                     require_once(__DIR__.'../app/controller/'.$class_name.'php');
                 }
+                // if(file_exists('../app/model/'.$class_name.'php')){
+                //     require_once(__DIR__.'../app/model/'.$class_name.'php');
+                // } else
 
             });
 
