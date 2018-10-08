@@ -1,5 +1,5 @@
 
-<?php include($_SERVER['DOCUMENT_ROOT'].'/php-automation/app/classes/server.php') ?>
+<?php include($_SERVER['DOCUMENT_ROOT'].'/php-automation/version1.0/app/classes/server.php') ?>
 <?php 
 // echo password_hash('admin',PASSWORD_BCRYPT);
  ?>
@@ -34,7 +34,7 @@
       
             <form method="post" action="login-view.php" enctype="multipart/form-data" >
 
-                <?php include($_SERVER['DOCUMENT_ROOT'].'/php-automation/app/common/errors.php'); ?>
+                <?php include($_SERVER['DOCUMENT_ROOT'].'/php-automation/version1.0/app/common/errors.php'); ?>
 
                 <div class="form-group">
                     <label for="InputUsername">Username</label>

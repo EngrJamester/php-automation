@@ -3,7 +3,7 @@
     {
         header("Location:home");
      
-            include_once($_SERVER['DOCUMENT_ROOT'].'/php-automation/app/view/nav-view.php');
+            include_once($_SERVER['DOCUMENT_ROOT'].'/php-automation/app/view/nav/nav-view.php');
 
     }else{
         header("Location:login");

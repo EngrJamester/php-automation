@@ -22,9 +22,6 @@
 
 <body class="fixed-nav sticky-footer bg-dark" id="page-top" >
     <?php 
-
-
-            // include('./../app/view/nav-view.php');
          
             require_once('../routes.php');
 
@@ -33,13 +30,9 @@
                  if (file_exists('../app/controller/'.$class_name.'php')){
                     require_once(__DIR__.'../app/controller/'.$class_name.'php');
                 }
-                // if(file_exists('../app/model/'.$class_name.'php')){
-                //     require_once(__DIR__.'../app/model/'.$class_name.'php');
-                // } else
 
             });
-
-           
+ 
     ?>
     <!-- Bootstrap core JavaScript-->
     <script src="../styles/vendor/jquery/jquery.min.js"></script>

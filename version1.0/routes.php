@@ -2,45 +2,70 @@
 
     require_once __DIR__ . '/app/classes/route.php';
     require_once __DIR__ . '/app/controller/controller.php';
-    require_once __DIR__ . '/app/controller/home.php';
-    require_once __DIR__ . '/app/controller/settings.php';
-    require_once __DIR__ . '/app/controller/login.php';
-    require_once __DIR__ . '/app/controller/logout.php';
-    require_once __DIR__ . '/app/controller/main.php';
-    require_once __DIR__ . '/app/controller/change-password.php';
+    
+    Route::set('login',function(){
+        if(session_status() == PHP_SESSION_NONE)
+        {
 
+            Controller::CreateView('login-view');
+        }else{
+            
+            Controller::CreateView('home-view');
+        }
+    });
 
     Route::set('index.php',function(){
-        Main::CreateView('main-view');
+        if(session_status() == PHP_SESSION_NONE)
+        {
+            Controller::CreateView('login-view');
+        }else{
+            Controller::CreateView('home-view');
+        }
+       
     });
 
     Route::set('home',function(){
-        Home::CreateView('home-view');
+        if(session_status() == PHP_SESSION_NONE)
+        {
+            Controller::CreateView('login-view');
+        }else{
+            Controller::CreateView('home-view');
+        }
     });
 
-    Route::set('login',function(){
-        Login::CreateView('login-view');
-    });
-    
-    Route::set('logout',function(){
-        Logout::CreateView('logout-view');
-        
-    });
     Route::set('controller',function(){
-        Controller::CreateView('controller-view');
-        Controller::InitiateDB();
+        if(session_status() == PHP_SESSION_NONE)
+        {
+            Controller::CreateView('login-view');
+        }else{
+            Controller::CreateView('controller-view');
+        }
     });
 
     Route::set('settings',function(){
-        Settings::CreateView('settings-view');
+        if(session_status() == PHP_SESSION_NONE)
+        {
+            Controller::CreateView('login-view');
+        }else{
+            Controller::CreateView('settings-view');
+        }
+     });
+  
+    Route::set('logout',function(){
+        if(session_status() == PHP_SESSION_NONE)
+        {
+            Controller::CreateView('login-view');
+        }else{
+            Controller::CreateView('logout-view');
+        }
     });
 
-    Route::set('user',function(){
-        ChangePassword::CreateView('change-password-view');
+    Route::set('change-password',function(){
+        if(session_status() == PHP_SESSION_NONE)
+        {
+            Controller::CreateView('login-view');
+        }else{
+            Controller::CreateView('change-password-view');
+        }
     });
-
-
-
-    
-
 ?>

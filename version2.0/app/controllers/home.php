@@ -25,7 +25,7 @@
 
                     <div class="col-md-5">
                         <div class="card" style="min-width: 21rem;margin-right: 10px;">
-                            <img class="card-img-top" src="../../assets/images/IoT3.jpg" alt="Card image cap">
+                            <!-- <img class="card-img-top" src="../../assets/images/IoT3.jpg" alt="Card image cap"> -->
                             <div class="card-body">
                               <h5 class="card-title">Power Status</h5>
                               <!-- <p class="card-text">Status of Raspebrry PI.</p> -->
@@ -36,7 +36,7 @@
                     
                     <div class="col-md-6">
                         <div class="card" style="min-width: 23rem;margin-left:20px;">
-                            <img class="card-img-top" src="../../assets/images/self-service.jpg" alt="Card image cap">
+                            <!-- <img class="card-img-top" src="../../assets/images/self-service.jpg" alt="Card image cap"> -->
                             <div class="card-body">
                               <h5 class="card-title">No of Hrs Online</h5>
                               <!-- <p class="card-text">Display the No Of hrs Raspberry has been On.</p> -->

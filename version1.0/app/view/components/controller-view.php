@@ -1,5 +1,5 @@
 <div>
-<?php include($_SERVER['DOCUMENT_ROOT'].'/php-automation/app/view/nav-view.php');?>            
+<?php include($_SERVER['DOCUMENT_ROOT'].'/php-automation/version1.0/app/view/nav/nav-view.php');?>            
    
       <div class="content-wrapper">
        <div class="container-fluid" >
