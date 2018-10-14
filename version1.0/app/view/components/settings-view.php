@@ -8,7 +8,7 @@
                 <a href="settings">Controller Settings</a>
             </li>
             <li class="breadcrumb-item active">
-                <a href="user">Change User password</a>
+                <a href="change-password">Change User password</a>
             </li>
           </ol>
           <div class="row" >

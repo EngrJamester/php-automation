@@ -1,0 +1,5 @@
+body{
+    background-image: url(../../node_modules/moment/moment.js);
+    background-image: url(../app/common/status-modal.php);
+    background-image: url(../styles/toggle-button/bootstrap-toggle.min.css);
+}

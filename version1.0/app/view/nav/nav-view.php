@@ -10,16 +10,16 @@
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
 
-                    <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
+                    <!-- <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
                         <a class="nav-link" href="home">
-                            <!-- <i class="fa fa-fw fa-dashboard"></i> -->
+                            <i class="fa fa-fw fa-dashboard"></i>
                             <i class="fas fa-home"></i>
                             <span class="nav-link-text">Home</span>
                         </a>
-                    </li>
+                    </li> -->
 
                     <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Charts">
-                        <a class="nav-link" href="controller">
+                        <a class="nav-link" href="controller" style="font-size:1.5rem;">
                             <!-- <i class="fa fa-check-gamepad"></i> -->
                             <i class="fas fa-gamepad"></i>
                             <span class="nav-link-text">Controller</span>
@@ -27,7 +27,7 @@
                     </li>
 
                     <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Charts">
-                        <a class="nav-link" href="settings">
+                        <a class="nav-link" href="settings" style="font-size:1.5rem;">
                             <!-- <i class="fa fas fa-user"></i> -->
                             <i class="fas fa-cogs"></i>
                             <span class="nav-link-text">Settings</span>
@@ -53,6 +53,7 @@
                             <a class="nav-link" data-toggle="modal" data-target="#exampleModal">
                             <i class="fas fa-user-circle" style="font-size:1.5rem;"></i> Logout</a>
                         </li>
+                        
                     </ul>
                 </ul>
             </div>
