@@ -18,7 +18,7 @@
                         </a>
                     </li> -->
 
-                    <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Charts">
+                    <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Controller">
                         <a class="nav-link" href="controller" style="font-size:1.5rem;">
                             <!-- <i class="fa fa-check-gamepad"></i> -->
                             <i class="fas fa-gamepad"></i>
@@ -26,7 +26,7 @@
                         </a>
                     </li>
 
-                    <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Charts">
+                    <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Settings">
                         <a class="nav-link" href="settings" style="font-size:1.5rem;">
                             <!-- <i class="fa fas fa-user"></i> -->
                             <i class="fas fa-cogs"></i>
@@ -34,10 +34,18 @@
                         </a>
                     </li>
 
+                    <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Logout">
+                        <a class="nav-link" data-toggle="modal" data-target="#exampleModal" style="font-size:1.5rem;">
+                            <!-- <i class="fa fas fa-user"></i> -->
+                            <i class="fas fa-user-circle" style="font-size:1.5rem;"></i>
+                            <span class="nav-link-text">Logout</span>
+                        </a>
+                            
+                    </li>
                    
                 </ul>
                 <ul class="navbar-nav ml-auto">
-                        <li class="nav-item">
+                        <!-- <li class="nav-item">
                             <form class="form-inline my-2 my-lg-0 mr-lg-2">
                                 <div class="input-group">
                                 <input class="form-control" type="text" placeholder="Search for...">
@@ -52,7 +60,7 @@
                         <li class="nav-item">
                             <a class="nav-link" data-toggle="modal" data-target="#exampleModal">
                             <i class="fas fa-user-circle" style="font-size:1.5rem;"></i> Logout</a>
-                        </li>
+                        </li> -->
                         
                     </ul>
                 </ul>

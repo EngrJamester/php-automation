@@ -29,6 +29,7 @@
 
 <body class="fixed-nav sticky-footer bg-dark" id="page-top" >
     <?php 
+            incluede('../app/GPIO/light.php');
             include('../app/common/status-modal.php');
             require_once('../routes.php');
 
@@ -94,8 +95,28 @@
             // });
             
              $("#controller").change(function(){
-                controller = 0;
-                console.log($(this).prop('checked'));
+                
+                var obj = new Object();
+                if($('#controller').prop('checked')){
+                            obj = "on";
+                }
+                else{
+                            obj = "off";
+                }
+
+                        $.ajax({
+                            type: "GET",
+                            url: '../app/GPIO/light.php',
+                            data: obj,
+                            success: function (newdata) {
+                                
+                            },
+                            error: function (request, textStatus, errorThrown) {
+                                bootbox.alert("AJAX error: " + request.statusText);
+                            }
+                        });
+    
+                
                 if($(this).prop('checked') == false)
                 {
                     timer = new _timer(function (time) {
@@ -230,6 +251,8 @@
 
                     // This methode will render the time variable to hour:minute:second format
                     function generateTime() {
+
+
                         var second = time % 60;
                         var minute = Math.floor(time / 60) % 60;
                         var hour = Math.floor(time / 3600) % 60;
@@ -244,7 +267,9 @@
                         //$('div.timer span.minute').html(minute);
                         //$('div.timer span.hour').html(hour);
 
-                        $('#timer').html('<span><strong> Remaining Days :  </strong >' +days+'day(s):'+hour+'hr(s):'+ minute+ 'min(s):' + second + ' second(s)</span >');
+                        $('#timer').html('<span><strong> Remaining Days :  </strong >' +days+'day(s):'+hour+'hr(s)</span >');
+                    
+                       
                     }
                     
             }
