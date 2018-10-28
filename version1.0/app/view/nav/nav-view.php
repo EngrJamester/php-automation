@@ -45,6 +45,7 @@
                    
                 </ul>
                 <ul class="navbar-nav ml-auto">
+
                         <!-- <li class="nav-item">
                             <form class="form-inline my-2 my-lg-0 mr-lg-2">
                                 <div class="input-group">
@@ -56,11 +57,11 @@
                                 </span>
                                 </div>
                             </form>
-                        </li>
+                        </li> -->
                         <li class="nav-item">
                             <a class="nav-link" data-toggle="modal" data-target="#exampleModal">
-                            <i class="fas fa-user-circle" style="font-size:1.5rem;"></i> Logout</a>
-                        </li> -->
+                            <i class="far fa-bell"></i> Updates</a>
+                        </li>
                         
                     </ul>
                 </ul>

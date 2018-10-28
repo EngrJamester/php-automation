@@ -1,8 +1,5 @@
 <?php
-  // if(!isset($_SESSION)) 
-  // { 
-  //     session_start();
-  // } 
+ 
   if(session_status() == PHP_SESSION_NONE)
   {
     session_start();
@@ -28,23 +25,20 @@
     $sqlQuery = mysqli_query( $db,$user_query);
     $rowValue = mysqli_fetch_assoc($sqlQuery);
     $login_username = $rowValue['username'];
-    // if(!isset($login_session)){
-    //     mysql_close($connection); // Closing Connection
-    //     header('Location: index.php'); // Redirecting To Home Page
-    // }
+
 
 
   // CHANGE PASSWORD FOR USER
   if (isset($_POST['change_pass'])) {
     // receive all input values from the form
-    // $username = mysqli_real_escape_string($db, $_POST['username']);
+    
     $password_1 = mysqli_real_escape_string($db, $_POST['password_1']);
     $password_2 = mysqli_real_escape_string($db, $_POST['password_2']);
 
 
     // form validation: ensure that the form is correctly filled ...
     // by adding (array_push()) corresponding error unto $errors array
-    // if (empty($username)) { array_push($errors, "Username is required"); }
+    
     if (empty($password_1)) { array_push($errors, "Password is required"); }
     if ($password_1 != $password_2) {
     array_push($errors, "The two passwords do not match");
@@ -57,15 +51,7 @@
     $user = mysqli_fetch_assoc($result);
     
     
-    // if ($user) { // if user exists
-    //   if ($user['username'] === $username) {
-    //     array_push($errors, "Username already exists");
-    //   }
-
-    //   if ($user['email'] === $email) {
-    //     array_push($errors, "email already exists");
-    //   }
-    // }
+    
 
     // Finally, update user if there are no errors in the form
     
@@ -96,7 +82,6 @@
     }
   }
 
-// ... 
 
   // LOGIN USER
   if (isset($_POST['login_user'])) {
@@ -132,8 +117,11 @@
     }
   }
 
+  //Check Session
   if(session_status() == PHP_SESSION_ACTIVE){
-    require_once "session.php";
+    require_once("session.php");
   }
+
+ 
   
 ?>

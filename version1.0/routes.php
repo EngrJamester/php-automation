@@ -14,7 +14,7 @@
             Controller::CreateView('home-view');
         }else{
             Controller::UserCreateView('login-view');
-            
+            // header("Location: login_view.php");  
         }
     });
 
@@ -24,6 +24,7 @@
             Controller::CreateView('controller-view');
         }else{
             Controller::UserCreateView('login-view');
+            // header("Location: login_view.php"); 
         }
        
     });
@@ -34,43 +35,44 @@
         {
             Controller::CreateView('home-view');
         }else{
+            // header("Location: login_view.php"); 
             Controller::UserCreateView('login-view');
         }
     });
 
     Route::set('controller',function(){
-        if(!isset($_SESSION['login_user']))
+        if(isset($_SESSION['login_user']))
         {
-            Controller::UserCreateView('login-view');
-        }else{
             Controller::CreateView('controller-view');
+        }else{
+            Controller::UserCreateView('login-view');
         }
     });
 
     Route::set('settings',function(){
-        if(!isset($_SESSION['login_user']))
+        if(isset($_SESSION['login_user']))
         {
-            Controller::UserCreateView('login-view');
-        }else{
             Controller::CreateView('settings-view');
+        }else{
+            Controller::UserCreateView('login-view');
         }
     });
   
     Route::set('logout',function(){
         if(!isset($_SESSION['login_user']))
         {
-            Controller::UserCreateView('login-view');
+            Controller::UserCreateView('logout-view');
         }else{
             Controller::UserCreateView('logout-view');
         }
     });
 
     Route::set('change-password',function(){
-        if(!isset($_SESSION['login_user']))
+        if(isset($_SESSION['login_user']))
         {
-            Controller::UserCreateView('login-view');
-        }else{
             Controller::UserCreateView('change-password-view');
+        }else{
+            header("Location: login_view.php"); 
         }
     });
 ?>

@@ -12,7 +12,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
-  <link href="./style-view/login.css" rel="stylesheet">
+  <link href="../../../public/style-test.css" rel="stylesheet">
   <title>Php & RaspberryPI</title>
   
   <!-- Bootstrap core CSS-->
@@ -23,8 +23,8 @@
   <!-- <link href="css/sb-admin.css" rel="stylesheet"> -->
 </head>
 
-<body class="bg-dark" >
-  <div class="container" style="background-color:yellow;">
+<body >
+  <div class="container" id="loginForm">
 
     <div class="card card-login mx-auto mt-3" >
 

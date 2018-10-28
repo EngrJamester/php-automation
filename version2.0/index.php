@@ -24,8 +24,8 @@
 
       <?php 
         session_start();
-        echo $_SESSION['login_user'];
-        // include_once('routing.php');
+       
+        include_once('routing.php');
       ?>
     
       <!-- Bootstrap core JavaScript-->
