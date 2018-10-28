@@ -16,7 +16,7 @@
     $server = 'localhost';
     $user_name = 'root';
     $password = 'root';
-    $database = 'dbtest';
+    $database = 'db_permentation';
 
     $db = mysqli_connect( $server,$user_name,$password, $database);
 
