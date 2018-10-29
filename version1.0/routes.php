@@ -33,7 +33,7 @@
 
         if(isset($_SESSION['login_user']))
         {
-            Controller::CreateView('home-view');
+            Controller::CreateView('controller-view');
         }else{
             // header("Location: login_view.php"); 
             Controller::UserCreateView('login-view');

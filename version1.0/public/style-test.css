@@ -10,14 +10,14 @@ body{
     background-repeat: no-repeat;
     background-size: 100% 720px;
    }
-   #loginForm{
+   /* #loginForm{
     margin: 0 auto;
     background-image: url("../images/android.jpg");
     background-repeat: no-repeat;
     background-size: 100% 720px;
-   }
+   } */
     
-   .container{
+   /* .container{
     width: 500px;
     height: 450px;
     text-align: center;
@@ -61,4 +61,4 @@ body{
     border: none;
     background-color: #27ae60;
     color: #fff;
-   }
+   } */
