@@ -2,6 +2,7 @@
 <?php 
   include($_SERVER['DOCUMENT_ROOT'].'/php-automation/version1.0/app/view/nav/nav-view.php');
   include($_SERVER['DOCUMENT_ROOT'].'/php-automation/version1.0/app/classes/server.php');
+  
 ?>            
    
 <div class="content-wrapper">
@@ -52,7 +53,7 @@
                                       
                               </div>
                               <p class="card-text" id="timer"><b>Remaining Day(s):</b> 7 Days </p>
-                              <p class="card-text"><b>Temperature:</b> 100 deg </p>
+                              <p class="card-text"><b>Temperature:</b> 100</p>
                               <p class="card-text"><b>Fan:</b> Off </p>
                             </div>
                           

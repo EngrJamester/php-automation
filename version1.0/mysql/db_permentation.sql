@@ -6,7 +6,6 @@ create table if not exists users(
 id int not null auto_increment,
 username varchar(20) not null,
 password varchar(255) not null,
-
 constraint PK_ID primary key (id)
 );
 
@@ -16,9 +15,16 @@ create table if not exists controllers(
 
 	id int not null auto_increment,
     name varchar(30) not null,
-    time_left date null ,
+    time_left date null,
+    duration int null,
+    threshold int null,
     constraint PK_ID primary key (id)
 );
+alter table controllers
+add column duration int null;
+
+alter table controllers
+add column threshold int null;
 
 insert into controllers(`name`) values 
 ('controller1'),
@@ -28,3 +34,6 @@ insert into controllers(`name`) values
 ('controller5'),
 ('controller6'),
 ('controller7');
+
+select * from controllers;
+update controllers set time_left='2018-11-02' where id=1;

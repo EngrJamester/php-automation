@@ -1,4 +1,8 @@
-<?php include($_SERVER['DOCUMENT_ROOT'].'/php-automation/version1.0/app/view/nav/nav-view.php');?>
+<?php 
+    include($_SERVER['DOCUMENT_ROOT'].'/php-automation/version1.0/app/view/nav/nav-view.php');
+    include($_SERVER['DOCUMENT_ROOT'].'/php-automation/version1.0/app/classes/loadthreshold.php');
+    include($_SERVER['DOCUMENT_ROOT'].'/php-automation/version1.0/app/classes/threshold.php');
+?>
 
 <div class="content-wrapper">
     <div class="container-fluid">
@@ -39,9 +43,12 @@
                             </script>
                             <label>Threshold (degrees)</label>
                                 <div>
-                                    <input type="number" name="points" min="0" max="100" step="1" value="00" id="ThresField" disabled>
-                                    <button type="submit"  onclick="myFunction()" id="editBtn" ><span class="fas fa-edit"></span></button>
-                                    <button type="submit"  onclick="save()" id="saveBtn" disabled><span class="fas fa-save"></span></button>
+                                    <form method="post">
+                                        
+                                        <input type="number" name="points" min="0" max="100" step="1"  id="ThresField" value="<?php echo $c1_threshold; ?>" disabled>
+                                        <button type="submit"  onclick="myFunction()" id="editBtn" ><span class="fas fa-edit"></span></button>
+                                        <button type="submit"   name="box1_threshold" onclick="save()" id="saveBtn" disabled><span class="fas fa-save"></span></button>
+                                    </form>
                                 </div>
                             </div>
                         </div>
@@ -75,7 +82,7 @@
                             </script>
                             <label>Threshold (degrees)</label>
                                 <div>
-                                    <input type="number" name="points" min="0" max="100" step="1" value="00" id="ThresField1" disabled>
+                                    <input type="number" name="points" min="0" max="100" step="1" value="<?php echo  $c2_threshold; ?>" id="ThresField1" disabled>
                                     <button type="submit"  onclick="myFunction1()" id="editBtn1"><i class="fas fa-edit"></i></button>
                                     <button type="submit"  onclick="save1()" id="saveBtn1" disabled><span class="fas fa-save"></span></button>
                                 </div>
@@ -110,7 +117,7 @@
                             </script>
                             <label>Threshold (degrees)</label>
                                 <div>
-                                    <input type="number" name="points" min="0" max="100" step="1" value="00" id="ThresField2" disabled>
+                                    <input type="number" name="points" min="0" max="100" step="1" value="<?php echo $c3_threshold;?>" id="ThresField2" disabled>
                                     <button type="submit"  onclick="myFunction2()" id="editBtn2"><i class="fas fa-edit"></i></button>
                                     <button type="submit"  onclick="save2()" id="saveBtn2" disabled><span class="fas fa-save"></span></button>
                                 </div>
@@ -146,7 +153,7 @@
                             </script>
                             <label>Threshold (degrees)</label>
                                 <div>
-                                    <input type="number" name="points" min="0" max="100" step="1" value="00" id="ThresField3" disabled>
+                                    <input type="number" name="points" min="0" max="100" step="1" value="<?php echo $c4_threshold;?>" id="ThresField3" disabled>
                                     <button type="submit"  onclick="myFunction3()" id="editBtn3"><i class="fas fa-edit"></i></button>
                                     <button type="submit"  onclick="save3()" id="saveBtn3" disabled><span class="fas fa-save"></span></button>
                                 </div>
@@ -181,7 +188,7 @@
                             </script>
                             <label>Threshold (degrees)</label>
                             <div>
-                            <input type="number" name="points" min="0" max="100" step="1" value="00" id="ThresField4" disabled>
+                            <input type="number" name="points" min="0" max="100" step="1" value="<?php echo $c5_threshold;?>" id="ThresField4" disabled>
                             <button type="submit"  onclick="myFunction4()" id="editBtn4"><i class="fas fa-edit"></i></button>
                             <button type="submit"  onclick="save4()" id="saveBtn4" disabled><span class="fas fa-save"></span></button>
                             </div>
@@ -216,7 +223,7 @@
                             </script>
                             <label>Threshold (degrees)</label>
                                 <div>
-                                    <input type="number" name="points" min="0" max="100" step="1" value="00" id="ThresField5" disabled>
+                                    <input type="number" name="points" min="0" max="100" step="1" value="<?php echo $c6_threshold;?>" id="ThresField5" disabled>
                                     <button type="submit"  onclick="myFunction5()" id="editBtn5"><i class="fas fa-edit"></i></button>
                                     <button type="submit"  onclick="save5()" id="saveBtn5" disabled><span class="fas fa-save"></span></button>
                                 </div>
@@ -251,7 +258,7 @@
                             </script>
                             <label>Threshold (degrees)</label>
                             <div>
-                                <input type="number" name="points" min="0" max="100" step="1" value="00" id="ThresField6" disabled>
+                                <input type="number" name="points" min="0" max="100" step="1" value="<?php echo $c7_threshold;?>" id="ThresField6" disabled>
                                 <button type="submit"  onclick="myFunction6()" id="editBtn6"><i class="fas fa-edit"></i></button>
                             <button type="submit"  onclick="save6()" id="saveBtn6" disabled><span class="fas fa-save"></span></button>
                             </div>
