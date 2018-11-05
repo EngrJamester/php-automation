@@ -273,10 +273,10 @@
 
           <div class="container">
                 <div  style="margin-bottom:10px;">
-                    <div class="card" style="max-width: 17rem;margin-top:10px;margin:auto;">
+                    <div class="card" style="max-width: 25rem;margin-top:20px;margin:auto;">
                         <i class="fas fa-spa" style="margin:auto;font-size:6rem;margin-top:5px;"></i>
                         <div class="card-body">
-                        <h5 class="card-title">Controller 1</h5>
+                        <h5 class="card-title">Threshold Value for Temperature</h5>
                 
                         <div style="margin:auto;">
                             <script>
@@ -301,8 +301,8 @@
                                 <div>
                                     <form method="post">
                                         
-                                        <input type="number" name="points" min="0" max="100" step="1"  id="ThresField" value="<?php echo $c1_threshold; ?>" disabled>
-                                        <button type="submit"  onclick="myFunction()" id="editBtn" ><span class="fas fa-edit"></span></button>
+                                        <input type="number" min="0" max="100" step="1"  id="ThresField" name="ThresField_val" value="<?php echo $c1_threshold; ?>">
+                                        <!-- <button type="submit"  onclick="myFunction()" id="editBtn" ><span class="fas fa-edit"></span></button> -->
                                         <button type="submit"   name="box1_threshold"  id="saveBtn" ><span class="fas fa-save"></span></button>
                                     </form>
                                 </div>

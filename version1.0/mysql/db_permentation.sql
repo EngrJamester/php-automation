@@ -45,7 +45,10 @@ insert into controllers(`name`) values
 ('controller6'),
 ('controller7');
 
-select * from controllers;
-update controllers set time_left='2018-11-02' where id=1;
+select * from controllers;	
+update controllers set time_left='2018-11-04' where id=1;
 update controllers set threshold='100';
 SET SQL_SAFE_UPDATES=0;
+
+update controllers set temperature = 50;
+update controllers set humidity = 50;

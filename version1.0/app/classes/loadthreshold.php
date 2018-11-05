@@ -29,11 +29,5 @@
     $varay = array_column($cont,'threshold');
 
     $c1_threshold = $varay[0];
-    $c2_threshold = $varay[1];
-    $c3_threshold = $varay[2];
-    $c4_threshold = $varay[3];
-    $c5_threshold = $varay[4];
-    $c6_threshold = $varay[5];
-    $c7_threshold = $varay[6];
 
 ?>

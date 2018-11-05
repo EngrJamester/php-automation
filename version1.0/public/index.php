@@ -119,8 +119,8 @@
             var DayDiff = <?php echo $c1_daydiff; ?>; 
             var controller = <?php echo $c1_timerVal; ?>;
 
-            if(DayDiff >= 0){
-               console.log('pasok ba?');
+            if(DayDiff > 0){
+               console.log('ct1 down');
                 $('#controller').prop('checked',false);
                  timer_c1 = new _timer(function (time) {
                     UpdateTempAndHumidity();
@@ -131,11 +131,10 @@
                         
                         alert('Box 1 is harvest ready!');
                        
-                        // $('#AlertModal').modal('show');
                         //location.reload();
                     }
                  });
-                 
+
                 timer_c1.reset(controller);
                 timer_c1.mode(0);
                 timer_c1.start(1000);
@@ -148,52 +147,139 @@
             var c2_DayDiff = <?php echo $c2_daydiff; ?>; 
             var c2_controller = <?php echo $c2_timerVal; ?>;
 
-            if(c2_DayDiff >= 1){
+            if(c2_DayDiff > 0){
+                console.log('ct1 down');
                 $('#controller1').prop('checked',false);
-                 timer = new _timer(function (time) {
+                 timer_c2 = new _timer1(function (time) {
                     if (time == 0) {
-                        timer.stop();
+                        timer_c2.stop();
                         alert('Box 2 is harvest ready!');
                         // $('#AlertModal').modal('show');
                         //location.reload();
                     }
                  });
 
-                timer.reset(c2_controller);
-                timer.mode(0);
-                timer.start(1000);
+                timer_c2.reset(c2_controller);
+                timer_c2.mode(0);
+                timer_c2.start(1000);
             }else{
-                // $('#AlertModal').modal('show');
+                
                 alert('Box 2 is harvest ready!');
             }
 
             //check controller3
-
             var c3_DayDiff = <?php echo $c3_daydiff; ?>; 
             var c3_controller = <?php echo $c3_timerVal; ?>;
 
-            if(c3_DayDiff >= 1){
+            if(c3_DayDiff > 0){
                 $('#controller2').prop('checked',false);
-                 timer = new _timer(function (time) {
+                 timer_c3 = new _timer2(function (time) {
                     if (time == 0) {
-                        timer.stop();
-                        //alert('Hello!');
-                        // $('#AlertModal').modal('show');
+                        timer_c3.stop();
                         
                         // alert('Code Expired');
                         //location.reload();
                     }
                  });
 
-                timer.reset(c3_controller);
-                timer.mode(0);
-                timer.start(1000);
+                timer_c3.reset(c3_controller);
+                timer_c3.mode(0);
+                timer_c3.start(1000);
             }else{
                 // $('#AlertModal').modal('show');
                 alert('Box 3 is harvest ready!');
             }
 
+            //Check Controller 4
+            var c4_DayDiff = <?php echo $c4_daydiff; ?>; 
+            var c4_controller = <?php echo $c4_timerVal; ?>;
 
+            if(c4_DayDiff > 0){
+                $('#controller3').prop('checked',false);
+                 timer_c4 = new _timer3(function (time) {
+                    if (time == 0) {
+                        timer_c4.stop();
+                        
+                        // alert('Code Expired');
+                        //location.reload();
+                    }
+                 });
+
+                timer_c4.reset(c4_controller);
+                timer_c4.mode(0);
+                timer_c4.start(1000);
+            }else{
+                // $('#AlertModal').modal('show');
+                alert('Box 3 is harvest ready!');
+            }
+
+            //Check Controller 5
+            var c5_DayDiff = <?php echo $c5_daydiff; ?>; 
+            var c5_controller = <?php echo $c5_timerVal; ?>;
+
+            if(c5_DayDiff > 0){
+                $('#controller4').prop('checked',false);
+                 timer_c5 = new _timer4(function (time) {
+                    if (time == 0) {
+                        timer_c5.stop();
+                        
+                        // alert('Code Expired');
+                        //location.reload();
+                    }
+                 });
+
+                timer_c5.reset(c5_controller);
+                timer_c5.mode(0);
+                timer_c5.start(1000);
+            }else{
+                // $('#AlertModal').modal('show');
+                alert('Box 3 is harvest ready!');
+            }
+
+            //Check Controller 6
+            var c6_DayDiff = <?php echo $c6_daydiff; ?>; 
+            var c6_controller = <?php echo $c6_timerVal; ?>;
+
+            if(c6_DayDiff > 0){
+                $('#controller5').prop('checked',false);
+                 timer_c6 = new _timer5(function (time) {
+                    if (time == 0) {
+                        timer_c6.stop();
+                        
+                        // alert('Code Expired');
+                        //location.reload();
+                    }
+                 });
+
+                timer_c6.reset(c5_controller);
+                timer_c6.mode(0);
+                timer_c6.start(1000);
+            }else{
+                // $('#AlertModal').modal('show');
+                alert('Box 3 is harvest ready!');
+            }
+
+            // Check Controller 7
+            var c7_DayDiff = <?php echo $c7_daydiff; ?>; 
+            var c7_controller = <?php echo $c7_timerVal; ?>;
+
+            if(c7_DayDiff > 0){
+                $('#controller6').prop('checked',false);
+                 timer_c7 = new _timer6(function (time) {
+                    if (time == 0) {
+                        timer_c7.stop();
+                        
+                        // alert('Code Expired');
+                        //location.reload();
+                    }
+                 });
+
+                timer_c7.reset(c7_controller);
+                timer_c7.mode(0);
+                timer_c7.start(1000);
+            }else{
+                alert('Box 3 is harvest ready!');
+            }
            
             
             $("#controller").change(function(){
@@ -571,8 +657,8 @@
                         //$('div.timer span.minute').html(minute);
                         //$('div.timer span.hour').html(hour);
                         
-                        // $('#timer1').html('<span><strong> Remaining Days : </strong >' +days+'day(s):'+hour+'hr(s)</span >');
-                        $('#timer1').html('<span><strong> Remaining Days :  </strong >' +hour+'hr(s):'+minute+'min(s)'+second+'sec(s)</span >');
+                        $('#timer1').html('<span><strong> Remaining Days : </strong >' +days+'day(s):'+hour+'hr(s)</span >');
+                        // $('#timer1').html('<span><strong> Remaining Days :  </strong >' +hour+'hr(s):'+minute+'min(s)'+second+'sec(s)</span >');
                     }
             }
 
@@ -664,8 +750,8 @@
                         //$('div.timer span.minute').html(minute);
                         //$('div.timer span.hour').html(hour);
                         
-                        // $('#timer2').html('<span><strong> Remaining Days :   </strong >' +days+'day(s):'+hour+'hr(s)</span >');
-                        $('#timer2').html('<span><strong> Remaining Days :  </strong >' +days+hour+'hr(s):'+minute+'min(s)'+second+'sec(s)</span >');
+                        $('#timer2').html('<span><strong> Remaining Days :   </strong >' +days+'day(s):'+hour+'hr(s)</span >');
+                        // $('#timer2').html('<span><strong> Remaining Days :  </strong >' +days+hour+'hr(s):'+minute+'min(s)'+second+'sec(s)</span >');
                     }
             }
 

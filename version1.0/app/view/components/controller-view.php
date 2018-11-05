@@ -63,14 +63,11 @@
                             Controller 2</h5>
                         </div>
                         <div class="card-body">
-                          
-                          <div class="row">
-                                <input type="checkbox" id="controller1" checked data-toggle="toggle" data-onstyle="success" data-offstyle="danger">
-                        </div>
-                        <p class="card-text" id="timer1"><b>Remaining Day(s):</b> 7 Days</p>
-                        <p class="card-text" id="temp2"><b>Temperature:</b> 100 deg </p>
-                        <p class="card-text" id="humid2"><b>Humidity:</b> 100 deg </p>
-                        <p class="card-text" ><b>Fan:</b> Off </p>
+                          <input type="checkbox" id="controller1" checked data-toggle="toggle" data-onstyle="success" data-offstyle="danger">
+                          <p class="card-text" id="timer1"><b>Remaining Day(s):</b> 7 Days</p>
+                          <p class="card-text" id="temp2"><b>Temperature:</b> 100 deg </p>
+                          <p class="card-text" id="humid2"><b>Humidity:</b> 100 deg </p>
+                          <p class="card-text" ><b>Fan:</b> Off </p>
                           <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
                         </div>
                       </div>
@@ -87,13 +84,11 @@
                        
                         <div class="card-body">
                           
-                          <div class="row"> 
-                                <input type="checkbox" id="controller2" checked data-toggle="toggle" data-onstyle="success" data-offstyle="danger">
-                          </div>
-                        <p class="card-text" id="timer2"><b>Remaining Day(s):</b> 7 Days </p>
-                        <p class="card-text" id="temp3"><b>Temperature:</b> N/A</p>
-                        <p class="card-text" id="humid3"><b>Humidity:</b> N/A</p>
-                        <p class="card-text"><b>Fan:</b> Off </p>
+                          <input type="checkbox" id="controller2" checked data-toggle="toggle" data-onstyle="success" data-offstyle="danger">
+                          <p class="card-text" id="timer2"><b>Remaining Day(s):</b> 7 Days </p>
+                          <p class="card-text" id="temp3"><b>Temperature:</b> N/A</p>
+                          <p class="card-text" id="humid3"><b>Humidity:</b> N/A</p>
+                          <p class="card-text"><b>Fan:</b> Off </p>
                           <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
                         </div>
                       </div>
@@ -108,14 +103,11 @@
                         </div>
                         
                         <div class="card-body">
-                         
-                          <div class="row"> 
-                                <input type="checkbox" id="controller3" checked data-toggle="toggle" data-onstyle="success" data-offstyle="danger">
-                        </div>
-                        <p class="card-text" id="timer3"><b>Remaining Day(s):</b> 7 Days </p>
-                        <p class="card-text" id="temp4"><b>Temperature:</b> N/A</p>
-                        <p class="card-text" id="humid4"><b>Humidity:</b> N/A</p>
-                        <p class="card-text"><b>Fan:</b> Off </p>
+                          <input type="checkbox" id="controller3" checked data-toggle="toggle" data-onstyle="success" data-offstyle="danger">
+                          <p class="card-text" id="timer3"><b>Remaining Day(s):</b> 7 Days </p>
+                          <p class="card-text" id="temp4"><b>Temperature:</b> N/A</p>
+                          <p class="card-text" id="humid4"><b>Humidity:</b> N/A</p>
+                          <p class="card-text"><b>Fan:</b> Off </p>
                           <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
                         </div>
                       </div>
@@ -131,14 +123,11 @@
                        
                         <div class="card-body">
                           
-                          <div class="row"> 
-    
-                                <input type="checkbox" id="controller4" checked data-toggle="toggle" data-onstyle="success" data-offstyle="danger">
-                          </div>
-                        <p class="card-text" id="timer4"><b>Remaining Day(s):</b> 7 Days </p>
-                        <p class="card-text" id="temp5"><b>Temperature:</b> N/A</p>
-                        <p class="card-text" id="humid5"><b>Humidity:</b> N/A</p>
-                        <p class="card-text"><b>Fan:</b> Off </p>
+                          <input type="checkbox" id="controller4" checked data-toggle="toggle" data-onstyle="success" data-offstyle="danger">
+                          <p class="card-text" id="timer4"><b>Remaining Day(s):</b> 7 Days </p>
+                          <p class="card-text" id="temp5"><b>Temperature:</b> N/A</p>
+                          <p class="card-text" id="humid5"><b>Humidity:</b> N/A</p>
+                          <p class="card-text"><b>Fan:</b> Off </p>
                           
                         </div>
                       </div>
@@ -154,13 +143,13 @@
                        
                         <div class="card-body">
                           
-                          <div class="row"> 
-                                <input type="checkbox" id="controller5" checked data-toggle="toggle" data-onstyle="success" data-offstyle="danger">
-                          </div>
-                        <p class="card-text" id="timer5"><b>Remaining Day(s):</b> 7 Days </p>
-                        <p class="card-text" id="temp6"><b>Temperature:</b> N/A</p>
-                        <p class="card-text" id="humid6"><b>Humidity:</b> N/A</p>
-                        <p class="card-text"><b>Fan:</b> Off </p>
+                        
+                          <input type="checkbox" id="controller5" checked data-toggle="toggle" data-onstyle="success" data-offstyle="danger">
+                    
+                          <p class="card-text" id="timer5"><b>Remaining Day(s):</b> 7 Days </p>
+                          <p class="card-text" id="temp6"><b>Temperature:</b> N/A</p>
+                          <p class="card-text" id="humid6"><b>Humidity:</b> N/A</p>
+                          <p class="card-text"><b>Fan:</b> Off </p>
                          
                         </div>
                       </div>
@@ -175,14 +164,11 @@
                         </div>
                         <div class="card-body">
                          
-                          <div class="row"> 
-                               
-                                <input type="checkbox" id="controller6" checked data-toggle="toggle" data-onstyle="success" data-offstyle="danger">
-                          </div>
-                        <p class="card-text" id="timer6"><b>Remaining Day(s):</b> 7 Days </p>
-                        <p class="card-text" id="temp7"><b>Temperature:</b> N/A</p>
-                        <p class="card-text" id="humid7"><b>Humidity:</b> N/A</p>
-                        <p class="card-text"><b>Fan:</b> Off </p>
+                          <input type="checkbox" id="controller6" checked data-toggle="toggle" data-onstyle="success" data-offstyle="danger">
+                          <p class="card-text" id="timer6"><b>Remaining Day(s):</b> 7 Days </p>
+                          <p class="card-text" id="temp7"><b>Temperature:</b> N/A</p>
+                          <p class="card-text" id="humid7"><b>Humidity:</b> N/A</p>
+                          <p class="card-text"><b>Fan:</b> Off </p>
                          
                         </div>
                       </div>
