@@ -15,7 +15,7 @@
                 <a href="change-password">Change User password</a>
             </li>
           </ol>
-          <div class="row" >
+          <!-- <div class="row" >
             <div class="col-md-3" style="margin-bottom:10px;">
                     <div class="card" style="max-width: 17rem;margin-top:10px;margin:auto;">
                         <i class="fas fa-spa" style="margin:auto;font-size:6rem;margin-top:5px;"></i>
@@ -264,6 +264,48 @@
                             </div>
                             
                             
+                            </div>
+                        </div>
+                    </div>
+                    
+            </div>
+          </div> -->
+
+          <div class="container">
+                <div  style="margin-bottom:10px;">
+                    <div class="card" style="max-width: 17rem;margin-top:10px;margin:auto;">
+                        <i class="fas fa-spa" style="margin:auto;font-size:6rem;margin-top:5px;"></i>
+                        <div class="card-body">
+                        <h5 class="card-title">Controller 1</h5>
+                
+                        <div style="margin:auto;">
+                            <script>
+                               function myFunction() {
+                                    document.getElementById("ThresField").disabled = false;
+                                    document.getElementById("saveBtn").disabled = false;
+                                    document.getElementById("editBtn").disabled = true;
+                                    // document.getElementById('editBtn1').style.visibility = 'hidden';
+                                    // document.getElementById("saveBtn1").hidden = false;
+                                }
+                                function save(){
+                                    document.getElementById("ThresField").disabled = true;
+                                    document.getElementById("saveBtn").disabled = true;
+                                    document.getElementById("editBtn").disabled = false;
+                                    // document.getElementById("editBtn1").style.visibility = "visible";
+                                    // document.getElementById("saveBtn1").hidden = true;
+                                } 
+                                
+                               
+                            </script>
+                            <label>Threshold (degrees)</label>
+                                <div>
+                                    <form method="post">
+                                        
+                                        <input type="number" name="points" min="0" max="100" step="1"  id="ThresField" value="<?php echo $c1_threshold; ?>" disabled>
+                                        <button type="submit"  onclick="myFunction()" id="editBtn" ><span class="fas fa-edit"></span></button>
+                                        <button type="submit"   name="box1_threshold"  id="saveBtn" ><span class="fas fa-save"></span></button>
+                                    </form>
+                                </div>
                             </div>
                         </div>
                     </div>

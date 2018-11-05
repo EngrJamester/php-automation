@@ -38,6 +38,7 @@
             include('../app/GPIO/light.php');
             include('../app/common/status-modal.php');
             require_once('../routes.php');
+            include('../app/classes/tempandhumidity.php');
             // include('../app/classes/load.php');
 
             spl_autoload_register(function($class_name){
@@ -71,14 +72,14 @@
     <script src="../addons/p5.sound.min.js"></script>
     <script src="../addons/timer.js"></script> -->
     <!--momnet.js-->
-    <script src="../../../node_modules/moment/min/moment.min.js"></script>
+    <script src="../../node_modules/moment/min/moment.min.js"></script>
     <script src="../../node_modules/moment/moment.js"></script>
     <!--bootStrap Toggle-->
-    <script src="../stylee/toggle-button/doc/script.js"></script>
+    <script src="../styles/toggle-button/doc/script.js"></script>
     <script src="../styles/toggle-button/js/bootstrap-toggle.js"></script>
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.3/highlight.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script> -->
-
+    <script src="../styles/"></script>
     <!--Timer Script-->
     <!-- <script src="../javascript/timer.js"></script> -->
     <script type="text/javascript">
@@ -88,15 +89,42 @@
 
             <?php include('../app/classes/load.php');?>
 
-          
+            function UpdateTempAndHumidity()
+            {
+                
+                var obj = new Object();
+                obj.getTempAndHumidity = 'ok';
+
+                $.ajax({
+                    url: '../app/classes/tempandhumidity.php',
+                    type: 'POST',
+                    data: obj,
+                    dataType: 'json',
+                    success : function(data){
+                        
+                        $.each(data.data,function(index,temp){
+                            $('#temp'+temp.id).text('Temperature: '+temp.temp).append('&deg;C');
+                            $('#humid'+temp.id).text('Humidity: '+temp.humid+'%');
+                        });
+                    },
+                    
+                    error: function (request, textStatus, errorThrown) {
+                        console.log('EpicFail');
+                    
+                    }
+                });
+            }
+
             //check controller box1
             var DayDiff = <?php echo $c1_daydiff; ?>; 
             var controller = <?php echo $c1_timerVal; ?>;
 
             if(DayDiff >= 0){
-
+               console.log('pasok ba?');
                 $('#controller').prop('checked',false);
                  timer_c1 = new _timer(function (time) {
+                    UpdateTempAndHumidity();
+                
                     if (time == 0) {
                         // $('#controller').prop('checked',true);
                         timer_c1.stop();
@@ -107,8 +135,8 @@
                         //location.reload();
                     }
                  });
-
-                timer_c1.reset(5);
+                 
+                timer_c1.reset(controller);
                 timer_c1.mode(0);
                 timer_c1.start(1000);
             }else{
@@ -194,24 +222,26 @@
                
                 if($(this).prop('checked') == false)
                 {
-                    console.log('im in again');
                     timer = new _timer(function (time) {
-                        if (time == 0) {
-                            timer.stop();
+                       
+                       if (time == 0) {
+                           timer.stop();
 
-                            alert('Box 1 is harvest Ready!');
-                            // location.reload();
-                        }
+                           alert('Box 1 is harvest Ready!');
+                           // location.reload();
+                       }
                     });
                   //day = 86400(s)
                   //7 days = 604800
-                  console.log('Anoteher 5');
-                    timer.reset(5);
+                  
+                    timer.reset(604800);
                     timer.mode(0);
                     timer.start(1000);
                 }else{
                     console.log('this should stop');
-                    timer.reset(5);
+                    // timer.reset(604800);
+                    // timer.mode(0);
+                    time = 0 ;
                     timer.stop();
                     
                 }
@@ -232,7 +262,7 @@
                             // location.reload();
                         }
                     });
-                    timer1.reset(5);
+                    timer1.reset(604800);
                     timer1.mode(0);
                     timer1.start(1000);
                 }else{
@@ -446,8 +476,8 @@
                         //$('div.timer span.minute').html(minute);
                         //$('div.timer span.hour').html(hour);
 
-                        // $('#timer').html('<span><strong> Remaining Days :  </strong >' +days+'day(s):'+hour+'hr(s)</span >');
-                        $('#timer').html('<span><strong> Remaining Days :  </strong >' +days+hour+'hr(s):'+minute+'min(s)'+second+'sec(s)</span >');
+                        $('#timer').html('<span><strong> Remaining Days :  </strong >' +days+'day(s):'+hour+'hr(s)</span >');
+                        // $('#timer').html('<span><strong> Remaining Days :  </strong >' +days+hour+'hr(s):'+minute+'min(s)'+second+'sec(s)</span >');
                        
                     }
                     
@@ -1008,103 +1038,6 @@
             }
 
 
-
-            function _timer_c1(callback) {
-                    var time = 0;     //  The default time of the timer
-                    var mode = 1;     //    Mode: count up or count down
-                    var status = 0;    //    Status: timer is running or stoped
-                    var timer_id;    //    This is used by setInterval function
-
-                    // this will start the timer ex. start the timer with 1 second interval timer.start(1000) 
-                    this.start = function (interval) {
-                        interval = (typeof (interval) !== 'undefined') ? interval : 1000;
-
-                        if (status == 0) {
-                            status = 1;
-                            timer_id = setInterval(function () {
-                                switch (mode) {
-                                    default:
-                                        if (time) {
-                                            time--;
-                                             generateTime();
-                                 
-                                            if (typeof (callback) === 'function') callback(time);
-                                        }
-                                        break;
-
-                                    case 1:
-                                        if (time < 86400) {
-                                            time++;
-                                            generateTime();
-
-                                            if (typeof (callback) === 'function') callback(time);
-                                        }
-                                        break;
-                                }
-                            }, interval);
-                        }
-                    }
-
-                    //  Same as the name, this will stop or pause the timer ex. timer.stop()
-                    this.stop = function () {
-                        if (status == 1) {
-                            status = 0;
-                            clearInterval(timer_id);
-                        }
-                    }
-
-                    // Reset the timer to zero or reset it to your own custom time ex. reset to zero second timer.reset(0)
-                    this.reset = function (sec) {
-                        sec = (typeof (sec) !== 'undefined') ? sec : 0;
-                        time = sec;
-                        generateTime(time);
-                    }
-
-                    // Change the mode of the timer, count-up (1) or countdown (0)
-                    this.mode = function (tmode) {
-                        mode = tmode;
-                    }
-
-                    // This methode return the current value of the timer
-                    this.getTime = function () {
-                        return time;
-                    }
-
-                    // This methode return the current mode of the timer count-up (1) or countdown (0)
-                    this.getMode = function () {
-                        return mode;
-                    }
-
-                    // This methode return the status of the timer running (1) or stoped (1)
-                    this.getStatus
-                    {
-                        return status;
-                    }
-
-                    // This methode will render the time variable to hour:minute:second format
-                    function generateTime() {
-
-
-                        var second = time % 60;
-                        var minute = Math.floor(time / 60) % 60;
-                        var hour = Math.floor(time / 3600) % 60;
-                        var days = Math.floor(time/86400) ;
-
-                        second = (second < 10) ? '0' + second : second;
-                        minute = (minute < 10) ? '0' + minute : minute;
-                        hour = (hour < 10) ? '0' + hour : hour;
-                        days = (days < 10) ? '0' + days : days;
-                        //$('div.timer span.second').html(second);
-                        //$('div.timer span.minute').html(minute);
-                        //$('div.timer span.hour').html(hour);
-
-                        // $('#timer').html('<span><strong> Remaining Days :  </strong >' +days+'day(s):'+hour+'hr(s)</span >');
-                        $('#timer').html('<span><strong> Remaining Days :  </strong >' +days+hour+'hr(s):'+minute+'min(s)'+second+'sec(s)</span >');
-                       
-                    }
-                    
-            }
-                  
 
    
    </script>

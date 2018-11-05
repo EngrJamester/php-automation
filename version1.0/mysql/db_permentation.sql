@@ -18,6 +18,8 @@ create table if not exists controllers(
     time_left date null,
     duration int null,
     threshold int null,
+    temperature varchar(20) null,
+    humidity varchar(20) null,
     constraint PK_ID primary key (id)
 );
 alter table controllers
@@ -25,6 +27,14 @@ add column duration int null;
 
 alter table controllers
 add column threshold int null;
+
+
+alter table controllers
+add column temperature varchar(20) null;
+
+
+alter table controllers
+add column humidity varchar(20) null;
 
 insert into controllers(`name`) values 
 ('controller1'),
@@ -37,3 +47,5 @@ insert into controllers(`name`) values
 
 select * from controllers;
 update controllers set time_left='2018-11-02' where id=1;
+update controllers set threshold='100';
+SET SQL_SAFE_UPDATES=0;

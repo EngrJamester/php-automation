@@ -2,7 +2,7 @@
 <?php 
   include($_SERVER['DOCUMENT_ROOT'].'/php-automation/version1.0/app/view/nav/nav-view.php');
   include($_SERVER['DOCUMENT_ROOT'].'/php-automation/version1.0/app/classes/server.php');
-  
+
 ?>            
    
 <div class="content-wrapper">
@@ -34,26 +34,21 @@
                     <div class="col-md-3" style="margin-bottom:10px;">
                         <div class="card" style="margin-top:10px;margin:auto;">
                           
-                            <div class="card-header">
+                            <div class="card-header" >
                               <h5 class="card-title">
-                              <i class="fas fa-spa"style="margin:auto;" ></i>
-                              Controller 1</h5>
+                                <i class="fas fa-spa"style="margin:auto;" ></i>
+                                Controller 1
+                               
+                              </h5>
+                              
                             </div>
                             <div class="card-body">
-                              <div class="row"> 
-                                      <!-- <div [hidden]="control"class="col">
-                                          <i class="fas fa-lightbulb"></i>
-                                      </div>
-                                      <div [hidden]="!control" class="col">
-                                          <i class="far fa-lightbulb"></i>
-                                      </div> -->
-                                      <form method="post">
-                                        <input type="checkbox" id="controller" name="time_left" value="yes"checked data-toggle="toggle" data-onstyle="success" data-offstyle="danger">
-                                      </form>
-                                      
-                              </div>
+                              <form method="post">
+                                  <input type="checkbox" id="controller" name="time_left" value="yes"checked data-toggle="toggle" data-onstyle="success" data-offstyle="danger">
+                              </form>
                               <p class="card-text" id="timer"><b>Remaining Day(s):</b> 7 Days </p>
-                              <p class="card-text"><b>Temperature:</b> 100</p>
+                              <p class="card-text" id="temp1"><b>Temperature:</b> N/A</p>
+                              <p class="card-text" id="humid1"><b>Humidity:</b> N/A</p>
                               <p class="card-text"><b>Fan:</b> Off </p>
                             </div>
                           
@@ -69,18 +64,13 @@
                         </div>
                         <div class="card-body">
                           
-                          <div class="row"> 
-                                <!-- <div [hidden]="control"class="col">
-                                    <i class="fas fa-lightbulb"></i>
-                                </div>
-                                <div [hidden]="!control" class="col">
-                                    <i class="far fa-lightbulb"></i>
-                                </div> -->
+                          <div class="row">
                                 <input type="checkbox" id="controller1" checked data-toggle="toggle" data-onstyle="success" data-offstyle="danger">
                         </div>
                         <p class="card-text" id="timer1"><b>Remaining Day(s):</b> 7 Days</p>
-                        <p class="card-text"><b>Temperature:</b> 100 deg </p>
-                        <p class="card-text"><b>Fan:</b> Off </p>
+                        <p class="card-text" id="temp2"><b>Temperature:</b> 100 deg </p>
+                        <p class="card-text" id="humid2"><b>Humidity:</b> 100 deg </p>
+                        <p class="card-text" ><b>Fan:</b> Off </p>
                           <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
                         </div>
                       </div>
@@ -98,16 +88,11 @@
                         <div class="card-body">
                           
                           <div class="row"> 
-                                <!-- <div [hidden]="control"class="col">
-                                    <i class="fas fa-lightbulb"></i>
-                                </div>
-                                <div [hidden]="!control" class="col">
-                                    <i class="far fa-lightbulb"></i>
-                                </div> -->
                                 <input type="checkbox" id="controller2" checked data-toggle="toggle" data-onstyle="success" data-offstyle="danger">
-                        </div>
+                          </div>
                         <p class="card-text" id="timer2"><b>Remaining Day(s):</b> 7 Days </p>
-                        <p class="card-text"><b>Temperature:</b> 100 deg </p>
+                        <p class="card-text" id="temp3"><b>Temperature:</b> N/A</p>
+                        <p class="card-text" id="humid3"><b>Humidity:</b> N/A</p>
                         <p class="card-text"><b>Fan:</b> Off </p>
                           <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
                         </div>
@@ -125,16 +110,11 @@
                         <div class="card-body">
                          
                           <div class="row"> 
-                                <!-- <div [hidden]="control"class="col">
-                                    <i class="fas fa-lightbulb"></i>
-                                </div>
-                                <div [hidden]="!control" class="col">
-                                    <i class="far fa-lightbulb"></i>
-                                </div> -->
                                 <input type="checkbox" id="controller3" checked data-toggle="toggle" data-onstyle="success" data-offstyle="danger">
                         </div>
                         <p class="card-text" id="timer3"><b>Remaining Day(s):</b> 7 Days </p>
-                        <p class="card-text"><b>Temperature:</b> 100 deg </p>
+                        <p class="card-text" id="temp4"><b>Temperature:</b> N/A</p>
+                        <p class="card-text" id="humid4"><b>Humidity:</b> N/A</p>
                         <p class="card-text"><b>Fan:</b> Off </p>
                           <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
                         </div>
@@ -156,7 +136,8 @@
                                 <input type="checkbox" id="controller4" checked data-toggle="toggle" data-onstyle="success" data-offstyle="danger">
                           </div>
                         <p class="card-text" id="timer4"><b>Remaining Day(s):</b> 7 Days </p>
-                        <p class="card-text"><b>Temperature:</b> 100 deg </p>
+                        <p class="card-text" id="temp5"><b>Temperature:</b> N/A</p>
+                        <p class="card-text" id="humid5"><b>Humidity:</b> N/A</p>
                         <p class="card-text"><b>Fan:</b> Off </p>
                           
                         </div>
@@ -174,16 +155,11 @@
                         <div class="card-body">
                           
                           <div class="row"> 
-                                <!-- <div [hidden]="control"class="col">
-                                    <i class="fas fa-lightbulb"></i>
-                                </div>
-                                <div [hidden]="!control" class="col">
-                                    <i class="far fa-lightbulb"></i>
-                                </div> -->
                                 <input type="checkbox" id="controller5" checked data-toggle="toggle" data-onstyle="success" data-offstyle="danger">
-                        </div>
+                          </div>
                         <p class="card-text" id="timer5"><b>Remaining Day(s):</b> 7 Days </p>
-                        <p class="card-text"><b>Temperature:</b> 100 deg </p>
+                        <p class="card-text" id="temp6"><b>Temperature:</b> N/A</p>
+                        <p class="card-text" id="humid6"><b>Humidity:</b> N/A</p>
                         <p class="card-text"><b>Fan:</b> Off </p>
                          
                         </div>
@@ -202,9 +178,10 @@
                           <div class="row"> 
                                
                                 <input type="checkbox" id="controller6" checked data-toggle="toggle" data-onstyle="success" data-offstyle="danger">
-                        </div>
+                          </div>
                         <p class="card-text" id="timer6"><b>Remaining Day(s):</b> 7 Days </p>
-                        <p class="card-text"><b>Temperature:</b> 100 deg </p>
+                        <p class="card-text" id="temp7"><b>Temperature:</b> N/A</p>
+                        <p class="card-text" id="humid7"><b>Humidity:</b> N/A</p>
                         <p class="card-text"><b>Fan:</b> Off </p>
                          
                         </div>

@@ -41,9 +41,21 @@
      
         //controller1
         $c1_interval = $dateNow->diff($c1_datetime);
-        $datediff=$c1_interval->format('%d days');
-        $c1_daydiff=$c1_interval->format('%d');
-        $c1_timerVal = $c1_daydiff * 5;
+        // $datediff = $c1_interval->format('%d days');
+        $c1_daydiff = $c1_interval->format('%d');
+
+        $c1_daydiff_total = 7 - $c1_daydiff;
+ 
+        $c1_timerVal_sec = $c1_daydiff_total * 86400;//1 day = 86400 sec(s)
+        $hr_var = date('h');
+        $min_var = date('i');
+
+        $hr_var_to_sec = $hr_var * 3600;
+        $min_var_to_sec = $min_var *60;
+
+        $total_hr_min_to_sec = $hr_var_to_sec + $min_var_to_sec;
+
+        $c1_timerVal =  $c1_timerVal_sec;
 
         //controller2
         $c2_interval = $dateNow->diff($c2_datetime);
