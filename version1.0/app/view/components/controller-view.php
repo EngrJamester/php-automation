@@ -37,7 +37,7 @@
                             <div class="card-header" >
                               <h5 class="card-title">
                                 <i class="fas fa-spa"style="margin:auto;" ></i>
-                                Controller 1
+                                Box 1
                                
                               </h5>
                               
@@ -60,7 +60,7 @@
                         <div class="card-header">
                           <h5 class="card-title">
                             <i class="fas fa-spa" style="margin:auto;margin-top:5px;"></i>
-                            Controller 2</h5>
+                            Box 2</h5>
                         </div>
                         <div class="card-body">
                           <input type="checkbox" id="controller1" checked data-toggle="toggle" data-onstyle="success" data-offstyle="danger">
@@ -79,7 +79,7 @@
                       <div class="card-header">
                         <h5 class="card-title">
                           <i class="fas fa-spa" style="margin:auto;margin-top:5px;"></i>
-                        Controller 3</h5>
+                        Box 3</h5>
                       </div>
                        
                         <div class="card-body">
@@ -99,7 +99,7 @@
                         <div class="card-header">
                           <h5 class="card-title">
                           <i class="fas fa-spa" style="margin:auto;margin-top:5px;"></i>
-                          Controller 4</h5>
+                          Box 4</h5>
                         </div>
                         
                         <div class="card-body">
@@ -118,7 +118,7 @@
                         <div class="card-header">
                           <h5 class="card-title">
                             <i class="fas fa-spa" style="margin:auto;margin-top:5px;"></i>
-                          Controller 5</h5>
+                          Box 5</h5>
                         </div>
                        
                         <div class="card-body">
@@ -138,7 +138,7 @@
                         <div class="card-header">
                           <h5 class="card-title">
                             <i class="fas fa-spa" style="margin:auto;margin-top:5px;"></i>
-                          Controller 6</h5>
+                          Box 6</h5>
                         </div>
                        
                         <div class="card-body">
@@ -160,7 +160,7 @@
                         <div class="card-header">
                           <h5 class="card-title">
                             <i class="fas fa-spa" style="margin:auto;margin-top:5px;"></i>
-                          Controller 7</h5>
+                          Box 7</h5>
                         </div>
                         <div class="card-body">
                          

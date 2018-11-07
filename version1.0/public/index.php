@@ -115,14 +115,10 @@
                 });
             }
 
-            //check controller box1
+            //check Box controller box1
             var DayDiff = <?php echo $c1_daydiff; ?>; 
             var controller = <?php echo $c1_timerVal; ?>;
-
-            if(DayDiff > 0){
-               console.log('ct1 down');
-                $('#controller').prop('checked',false);
-                 timer_c1 = new _timer(function (time) {
+            timer = new _timer(function (time) {
                     UpdateTempAndHumidity();
                 
                     if (time == 0) {
@@ -133,139 +129,129 @@
                        
                         //location.reload();
                     }
-                 });
-
-                timer_c1.reset(controller);
-                timer_c1.mode(0);
-                timer_c1.start(1000);
+            });
+            if(DayDiff >= 0){
+               console.log('ct1 down');
+                $('#controller').prop('checked',false);
+                timer.reset(controller);
+                timer.mode(0);
+                timer.start(1000);
             }else{
                 // $('#AlertModal').modal('show');
                 alert('Box 1 is harvest ready!');
             }
 
-            //check controller2
+            //check Box controller2
             var c2_DayDiff = <?php echo $c2_daydiff; ?>; 
             var c2_controller = <?php echo $c2_timerVal; ?>;
-
-            if(c2_DayDiff > 0){
-                console.log('ct1 down');
-                $('#controller1').prop('checked',false);
-                 timer_c2 = new _timer1(function (time) {
+            timer1 = new _timer1(function (time) {
                     if (time == 0) {
-                        timer_c2.stop();
+                        timer1.stop();
                         alert('Box 2 is harvest ready!');
                         // $('#AlertModal').modal('show');
                         //location.reload();
                     }
-                 });
+            });
+            if(c2_DayDiff >= 0){
+                console.log('ct1 down');
+                $('#controller1').prop('checked',false);
 
-                timer_c2.reset(c2_controller);
-                timer_c2.mode(0);
-                timer_c2.start(1000);
+                timer1.reset(c2_controller);
+                timer1.mode(0);
+                timer1.start(1000);
             }else{
                 
                 alert('Box 2 is harvest ready!');
             }
 
-            //check controller3
+            //check Box controller3
             var c3_DayDiff = <?php echo $c3_daydiff; ?>; 
             var c3_controller = <?php echo $c3_timerVal; ?>;
-
-            if(c3_DayDiff > 0){
-                $('#controller2').prop('checked',false);
-                 timer_c3 = new _timer2(function (time) {
+            timer2 = new _timer2(function (time) {
                     if (time == 0) {
-                        timer_c3.stop();
+                        timer2.stop();
                         
                         // alert('Code Expired');
                         //location.reload();
                     }
-                 });
-
-                timer_c3.reset(c3_controller);
-                timer_c3.mode(0);
-                timer_c3.start(1000);
+            });
+            if(c3_DayDiff >= 0){
+                $('#controller2').prop('checked',false);
+                timer2.reset(c3_controller);
+                timer2.mode(0);
+                timer2.start(1000);
             }else{
                 // $('#AlertModal').modal('show');
                 alert('Box 3 is harvest ready!');
             }
 
-            //Check Controller 4
+            //Check Box Controller 4
             var c4_DayDiff = <?php echo $c4_daydiff; ?>; 
             var c4_controller = <?php echo $c4_timerVal; ?>;
-
-            if(c4_DayDiff > 0){
-                $('#controller3').prop('checked',false);
-                 timer_c4 = new _timer3(function (time) {
+            timer3 = new _timer3(function (time) {
                     if (time == 0) {
                         timer_c4.stop();
                         
                         // alert('Code Expired');
                         //location.reload();
                     }
-                 });
-
-                timer_c4.reset(c4_controller);
-                timer_c4.mode(0);
-                timer_c4.start(1000);
+            });
+            if(c4_DayDiff >= 0){
+                $('#controller3').prop('checked',false);
+                timer3.reset(c4_controller);
+                timer3.mode(0);
+                timer3.start(1000);
             }else{
                 // $('#AlertModal').modal('show');
                 alert('Box 3 is harvest ready!');
             }
 
-            //Check Controller 5
+            //Check Box Controller 5
             var c5_DayDiff = <?php echo $c5_daydiff; ?>; 
             var c5_controller = <?php echo $c5_timerVal; ?>;
-
-            if(c5_DayDiff > 0){
-                $('#controller4').prop('checked',false);
-                 timer_c5 = new _timer4(function (time) {
+            timer4 = new _timer4(function (time) {
                     if (time == 0) {
-                        timer_c5.stop();
+                        timer4.stop();
                         
                         // alert('Code Expired');
                         //location.reload();
                     }
-                 });
-
-                timer_c5.reset(c5_controller);
-                timer_c5.mode(0);
-                timer_c5.start(1000);
+            });
+            if(c5_DayDiff >= 0){
+                $('#controller4').prop('checked',false);
+                timer4.reset(c5_controller);
+                timer4.mode(0);
+                timer4.start(1000);
             }else{
                 // $('#AlertModal').modal('show');
-                alert('Box 3 is harvest ready!');
+                alert('Box 5 is harvest ready!');
             }
 
             //Check Controller 6
             var c6_DayDiff = <?php echo $c6_daydiff; ?>; 
             var c6_controller = <?php echo $c6_timerVal; ?>;
-
-            if(c6_DayDiff > 0){
-                $('#controller5').prop('checked',false);
-                 timer_c6 = new _timer5(function (time) {
+            timer5 = new _timer5(function (time) {
                     if (time == 0) {
-                        timer_c6.stop();
+                        timer5.stop();
                         
                         // alert('Code Expired');
                         //location.reload();
                     }
                  });
-
-                timer_c6.reset(c5_controller);
-                timer_c6.mode(0);
-                timer_c6.start(1000);
+            if(c6_DayDiff >= 0){
+                $('#controller5').prop('checked',false);
+                timer5.reset(c5_controller);
+                timer5.mode(0);
+                timer5.start(1000);
             }else{
                 // $('#AlertModal').modal('show');
-                alert('Box 3 is harvest ready!');
+                alert('Box 6 is harvest ready!');
             }
 
             // Check Controller 7
             var c7_DayDiff = <?php echo $c7_daydiff; ?>; 
             var c7_controller = <?php echo $c7_timerVal; ?>;
-
-            if(c7_DayDiff > 0){
-                $('#controller6').prop('checked',false);
-                 timer_c7 = new _timer6(function (time) {
+            timer6 = new _timer6(function (time) {
                     if (time == 0) {
                         timer_c7.stop();
                         
@@ -273,10 +259,11 @@
                         //location.reload();
                     }
                  });
-
-                timer_c7.reset(c7_controller);
-                timer_c7.mode(0);
-                timer_c7.start(1000);
+            if(c7_DayDiff > 0){
+                $('#controller6').prop('checked',false);
+                timer6.reset(c7_controller);
+                timer6.mode(0);
+                timer6.start(1000);
             }else{
                 alert('Box 3 is harvest ready!');
             }
@@ -308,15 +295,15 @@
                
                 if($(this).prop('checked') == false)
                 {
-                    timer = new _timer(function (time) {
+                    // timer = new _timer(function (time) {
                        
-                       if (time == 0) {
-                           timer.stop();
+                    //    if (time == 0) {
+                    //        timer.stop();
 
-                           alert('Box 1 is harvest Ready!');
-                           // location.reload();
-                       }
-                    });
+                    //        alert('Box 1 is harvest Ready!');
+                    //        // location.reload();
+                    //    }
+                    // });
                   //day = 86400(s)
                   //7 days = 604800
                   
@@ -337,84 +324,85 @@
             $("#controller1").change(function(){
                 if($(this).prop('checked') == false)
                 {
-                    timer1 = new _timer1(function (time) {
+                    // timer1 = new _timer1(function (time) {
                        
-                        if (time == 0) {
-                            timer1.stop();
+                    //     if (time == 0) {
+                    //         timer1.stop();
                         
-                            // $('#AlertModal').modal('show');
+                    //         // $('#AlertModal').modal('show');
                             
-                            alert('Box 2 is harvest ready!');
-                            // location.reload();
-                        }
-                    });
+                    //         alert('Box 2 is harvest ready!');
+                    //         // location.reload();
+                    //     }
+                    // });
                     timer1.reset(604800);
                     timer1.mode(0);
                     timer1.start(1000);
                 }else{
-                    timer.stop();
+                    console.log('timer1 stop');
+                    timer1.stop();
                 }
             });
 
             $("#controller2").change(function(){
                 if($(this).prop('checked') == false)
                 {
-                    timer2 = new _timer2(function (time) {
+                    // timer2 = new _timer2(function (time) {
                        
-                        if (time == 0) {
-                            timer2.stop();
+                    //     if (time == 0) {
+                    //         timer2.stop();
                         
-                            $('#AlertModal').modal('show');
+                    //         $('#AlertModal').modal('show');
                             
-                            // alert('Code Expired');
-                            // location.reload();
-                        }
-                    });
-                    timer2.reset(86400);
+                    //         // alert('Code Expired');
+                    //         // location.reload();
+                    //     }
+                    // });
+                    timer2.reset(604800);
                     timer2.mode(0);
                     timer2.start(1000);
                 }else{
-                    timer.stop();
+                    timer2.stop();
                 }
             });
 
             $("#controller3").change(function(){
                 if($(this).prop('checked') == false)
                 {
-                    timer3 = new _timer3(function (time) {
+                    // timer3 = new _timer3(function (time) {
                        
-                        if (time == 0) {
-                            timer3.stop();
+                    //     if (time == 0) {
+                    //         timer3.stop();
                         
-                            $('#AlertModal').modal('show');
+                    //         $('#AlertModal').modal('show');
                             
-                            // alert('Code Expired');
-                            // location.reload();
-                        }
-                    });
-                    timer3.reset(86400);
+                    //         // alert('Code Expired');
+                    //         // location.reload();
+                    //     }
+                    // });
+                    timer3.reset(604800);
                     timer3.mode(0);
                     timer3.start(1000);
                 }else{
-                    timer.stop();
+                    timer3.stop();
                 }
             });
 
             $("#controller4").change(function(){
                 if($(this).prop('checked') == false)
                 {
-                    timer4 = new _timer4(function (time) {
+                    // timer4 = new _timer4(function (time) {
                        
-                        if (time == 0) {
-                            timer4.stop();
+                    //     if (time == 0) {
+                    //         timer4.stop();
                         
-                            $('#AlertModal').modal('show');
+                    //         $('#AlertModal').modal('show');
                             
-                            // alert('Code Expired');
-                            // location.reload();
-                        }
-                    });
-                    timer4.reset(86400);
+                    //         // alert('Code Expired');
+                    //         // location.reload();
+                    //     }
+                    // });
+                    timer4.reset(604800);
                     timer4.mode(0);
                     timer4.start(1000);
                 }else{
@@ -425,18 +413,18 @@
             $("#controller5").change(function(){
                 if($(this).prop('checked') == false)
                 {
-                    timer5 = new _timer5(function (time) {
+                    // timer5 = new _timer5(function (time) {
                        
-                        if (time == 0) {
-                            timer5.stop();
+                    //     if (time == 0) {
+                    //         timer5.stop();
                         
-                            $('#AlertModal').modal('show');
+                    //         $('#AlertModal').modal('show');
                             
-                            // alert('Code Expired');
-                            // location.reload();
-                        }
-                    });
-                    timer5.reset(86400);
+                    //         // alert('Code Expired');
+                    //         // location.reload();
+                    //     }
+                    // });
+                    timer5.reset(604800);
                     timer5.mode(0);
                     timer5.start(1000);
                 }else{
@@ -447,18 +435,18 @@
             $("#controller6").change(function(){
                 if($(this).prop('checked') == false)
                 {
-                    timer6 = new _timer6(function (time) {
+                    // timer6 = new _timer6(function (time) {
                        
-                        if (time == 0) {
-                            timer5.stop();
+                    //     if (time == 0) {
+                    //         timer5.stop();
                         
-                            $('#AlertModal').modal('show');
+                    //         $('#AlertModal').modal('show');
                             
-                            // alert('Code Expired');
-                            // location.reload();
-                        }
-                    });
-                    timer6.reset(86400);
+                    //         // alert('Code Expired');
+                    //         // location.reload();
+                    //     }
+                    // });
+                    timer6.reset(604800);
                     timer6.mode(0);
                     timer6.start(1000);
                 }else{
@@ -516,12 +504,6 @@
                         sec = (typeof (sec) !== 'undefined') ? sec : 0;
                         time = sec;
                         generateTime(time);
-                        // generateTime2(time);
-                        // generateTime3(time);
-                        // generateTime4(time);
-                        // generateTime5(time);
-                        // generateTime6(time);
-                        // generateTime7(time);
                     }
 
                     // Change the mode of the timer, count-up (1) or countdown (0)
@@ -563,7 +545,7 @@
                         //$('div.timer span.hour').html(hour);
 
                         $('#timer').html('<span><strong> Remaining Days :  </strong >' +days+'day(s):'+hour+'hr(s)</span >');
-                        // $('#timer').html('<span><strong> Remaining Days :  </strong >' +days+hour+'hr(s):'+minute+'min(s)'+second+'sec(s)</span >');
+                        // $('#timer').html('<span><strong> Remaining Days :  </strong >' +days+'day(s)'+hour+'hr(s):'+minute+'min(s)'+second+'sec(s)</span >');
                        
                     }
                     
@@ -658,7 +640,7 @@
                         //$('div.timer span.hour').html(hour);
                         
                         $('#timer1').html('<span><strong> Remaining Days : </strong >' +days+'day(s):'+hour+'hr(s)</span >');
-                        // $('#timer1').html('<span><strong> Remaining Days :  </strong >' +hour+'hr(s):'+minute+'min(s)'+second+'sec(s)</span >');
+                        // $('#timer1').html('<span><strong> Remaining Days :  </strong >' +days+'day(s)'+hour+'hr(s):'+minute+'min(s)'+second+'sec(s)</span >');
                     }
             }
 
