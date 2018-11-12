@@ -15,6 +15,7 @@
     }
     else if(isset($_GET['off-controller1'])){
         $name="controller1";
+        // echo "<script type='text/javascript'>console.log('This was executed');</script>";
         require_once $_SERVER['DOCUMENT_ROOT'].'/php-automation/version1.0/app/classes/savetimer.php';
 
         //This is to turn LED Red off
@@ -221,5 +222,7 @@
 
         // </script>';
     }
+
+
 
 ?>

@@ -8,17 +8,25 @@
         $db = mysqli_connect( $server,$user_name,$password, $database);
 
         // SQL Query To Fetch Complete Information Of User
-        $query = "Select * from controllers";
+        $query = "Select time_left from controllers";
+
 
         $cont = array(); 
 
         $result = mysqli_query($db, $query);   
         
         if (mysqli_num_rows($result) <> null) {
-            $row = mysqli_fetch_array($result);
+            
+            // $row = mysqli_fetch_array($result);
             $row_count = 7;
+            $id = 1;
             while($row_count !== 0){
-                array_push($cont ,$row);
+
+                $query_id = "Select time_left from controllers where id='$id'";
+                $result_id = mysqli_query($db, $query_id);  
+                $row_id = mysqli_fetch_array($result_id);
+                array_push($cont ,$row_id);
+                $id++;
                 $row_count--;
                 
             }

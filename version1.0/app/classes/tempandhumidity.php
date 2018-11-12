@@ -12,7 +12,7 @@
             {
                 $arr =  array();
                 while($row = $result->fetch_assoc()){
-                    array_push($arr,array('id'=> $row['id'],'temp' => $row['temperature'],'humid' => $row['humidity']));
+                    array_push($arr,array('id'=> $row['id'],'temp' => $row['temperature'],'humid' => $row['humidity'],'thres' => $row['threshold']));
                 }
                 $data = array('ok'=> true,'data' => $arr);
                 $data["json"] = json_encode($data);

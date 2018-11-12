@@ -32,7 +32,7 @@
       
         <div class="card-body">
       
-            <form method="post" action="login" enctype="multipart/form-data" >
+            <form method="post"  enctype="multipart/form-data" >
 
                 <?php include($_SERVER['DOCUMENT_ROOT'].'/php-automation/version1.0/app/common/errors.php'); ?>
 

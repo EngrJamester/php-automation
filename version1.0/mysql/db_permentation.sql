@@ -44,9 +44,9 @@ insert into controllers(`name`) values
 ('controller5'),
 ('controller6'),
 ('controller7');
-
-select * from controllers;	
-update controllers set time_left='2018-11-04' where id=1;
+delete from controllers where id in (8,9,10,11,12,13,14);
+select time_left from controllers;	
+update controllers set time_left='2018-11-04' ;
 update controllers set threshold='100';
 SET SQL_SAFE_UPDATES=0;
 

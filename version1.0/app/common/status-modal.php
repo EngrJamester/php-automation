@@ -4,12 +4,12 @@
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="AlertModalLabel">Transaction Status</h5>
+            <h5 class="modal-title" id="AlertModalLabel">Login Status</h5>
             <button class="close" type="button" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">X</span>
             </button>
           </div>
-          <div class="modal-body">Status </div>
+          <div class="modal-body">Incorrect Username or Password</div>
           <div class="modal-footer">
             <button class="btn btn-primary" type="button" data-dismiss="modal">Cancel</button>
           </div>

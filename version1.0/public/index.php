@@ -33,10 +33,12 @@
 <body class="fixed-nav sticky-footer bg-dark" id="page-top" style="
     background-image: url('../images/android.jpg');
     background-repeat: no-repeat;
-    background-size: 100% 720px;">
+    background-size: 100% 820px;">
     <?php 
+            $status = "";
             include('../app/GPIO/light.php');
             include('../app/common/status-modal.php');
+            // require_once('../app/common/login-status-modal.php');
             require_once('../routes.php');
             include('../app/classes/tempandhumidity.php');
             // include('../app/classes/load.php');
@@ -103,8 +105,14 @@
                     success : function(data){
                         
                         $.each(data.data,function(index,temp){
+                            if(temp.thres > temp.temp)
+                            {
+                                console.log('thres is less than temp');
+                                console.log(temp.temp+' '+temp.thres);
+                            }
                             $('#temp'+temp.id).text('Temperature: '+temp.temp).append('&deg;C');
                             $('#humid'+temp.id).text('Humidity: '+temp.humid+'%');
+                            $('#fan'+temp.id).text('fan: '+temp.thres);
                         });
                     },
                     
@@ -115,34 +123,69 @@
                 });
             }
 
+           
             //check Box controller box1
-            var DayDiff = <?php echo $c1_daydiff; ?>; 
-            var controller = <?php echo $c1_timerVal; ?>;
+            var DayDiff     = <?php echo 7-$c1_daydiff; ?>; 
+            var controller  = <?php echo $c1_timerVal; ?>;
+            var obj         = new Object();
             timer = new _timer(function (time) {
                     UpdateTempAndHumidity();
-                
+                    
                     if (time == 0) {
-                        // $('#controller').prop('checked',true);
-                        timer_c1.stop();
-                        
-                        alert('Box 1 is harvest ready!');
+                        $('#controller').prop('checked',true);
                        
+                        obj = "off-controller1";
+                        $.ajax({
+                            type: "GET",
+                            url: '../app/GPIO/light.php',
+                            data: obj,
+                            success: function (newdata) {
+                                        // alert('Green Light');
+                                        console.log('Execution was OK');
+                            },
+                            error: function (request, textStatus, errorThrown) {
+                                bootbox.alert("AJAX error: " + request.statusText);
+                            }
+                        });
+                        timer.stop();
+                        console.log('Stop the box 1');
+                        alert('Box 1 is harvest ready!');
                         //location.reload();
                     }
             });
             if(DayDiff >= 0){
-               console.log('ct1 down');
+                
+                if($('#controller').prop('checked')){
+                            obj = "on-controller1";
+                            // alert('On'); 
+                }
+                else{
+                            obj = "off-controller1";
+                            // alert('On');
+                }
+
+                $.ajax({
+                    type: "GET",
+                    url: '../app/GPIO/light.php',
+                    data: obj,
+                    success: function (newdata) {
+                                // alert('Red Light');
+                    },
+                    error: function (request, textStatus, errorThrown) {
+                        bootbox.alert("AJAX error: " + request.statusText);
+                    }
+                });
                 $('#controller').prop('checked',false);
                 timer.reset(controller);
                 timer.mode(0);
                 timer.start(1000);
             }else{
                 // $('#AlertModal').modal('show');
-                alert('Box 1 is harvest ready!');
+                alert('Box 1 ready to be harvest !');
             }
 
             //check Box controller2
-            var c2_DayDiff = <?php echo $c2_daydiff; ?>; 
+            var c2_DayDiff = <?php echo 7- $c2_daydiff; ?>; 
             var c2_controller = <?php echo $c2_timerVal; ?>;
             timer1 = new _timer1(function (time) {
                     if (time == 0) {
@@ -153,19 +196,16 @@
                     }
             });
             if(c2_DayDiff >= 0){
-                console.log('ct1 down');
                 $('#controller1').prop('checked',false);
-
                 timer1.reset(c2_controller);
                 timer1.mode(0);
                 timer1.start(1000);
             }else{
-                
-                alert('Box 2 is harvest ready!');
+                alert('Box 2 ready to be harvest !');
             }
 
             //check Box controller3
-            var c3_DayDiff = <?php echo $c3_daydiff; ?>; 
+            var c3_DayDiff = <?php echo 7-$c3_daydiff; ?>; 
             var c3_controller = <?php echo $c3_timerVal; ?>;
             timer2 = new _timer2(function (time) {
                     if (time == 0) {
@@ -182,11 +222,11 @@
                 timer2.start(1000);
             }else{
                 // $('#AlertModal').modal('show');
-                alert('Box 3 is harvest ready!');
+                alert('Box 3 ready to be harvest !');
             }
 
             //Check Box Controller 4
-            var c4_DayDiff = <?php echo $c4_daydiff; ?>; 
+            var c4_DayDiff = <?php echo 7-$c4_daydiff; ?>; 
             var c4_controller = <?php echo $c4_timerVal; ?>;
             timer3 = new _timer3(function (time) {
                     if (time == 0) {
@@ -203,11 +243,11 @@
                 timer3.start(1000);
             }else{
                 // $('#AlertModal').modal('show');
-                alert('Box 3 is harvest ready!');
+                alert('Box 4 ready to be harvest !');
             }
 
             //Check Box Controller 5
-            var c5_DayDiff = <?php echo $c5_daydiff; ?>; 
+            var c5_DayDiff = <?php echo 7-$c5_daydiff; ?>; 
             var c5_controller = <?php echo $c5_timerVal; ?>;
             timer4 = new _timer4(function (time) {
                     if (time == 0) {
@@ -224,11 +264,11 @@
                 timer4.start(1000);
             }else{
                 // $('#AlertModal').modal('show');
-                alert('Box 5 is harvest ready!');
+                alert('Box 5 ready to be harvest !');
             }
 
             //Check Controller 6
-            var c6_DayDiff = <?php echo $c6_daydiff; ?>; 
+            var c6_DayDiff = <?php echo 7-$c6_daydiff; ?>; 
             var c6_controller = <?php echo $c6_timerVal; ?>;
             timer5 = new _timer5(function (time) {
                     if (time == 0) {
@@ -245,11 +285,11 @@
                 timer5.start(1000);
             }else{
                 // $('#AlertModal').modal('show');
-                alert('Box 6 is harvest ready!');
+                alert('Box 6 ready to be harvest !');
             }
 
             // Check Controller 7
-            var c7_DayDiff = <?php echo $c7_daydiff; ?>; 
+            var c7_DayDiff = <?php echo 7-$c7_daydiff; ?>; 
             var c7_controller = <?php echo $c7_timerVal; ?>;
             timer6 = new _timer6(function (time) {
                     if (time == 0) {
@@ -259,13 +299,13 @@
                         //location.reload();
                     }
                  });
-            if(c7_DayDiff > 0){
+            if(c7_DayDiff >= 0){
                 $('#controller6').prop('checked',false);
                 timer6.reset(c7_controller);
                 timer6.mode(0);
                 timer6.start(1000);
             }else{
-                alert('Box 3 is harvest ready!');
+                alert('Box 7 ready to be harvest !');
             }
            
             
@@ -544,7 +584,7 @@
                         //$('div.timer span.minute').html(minute);
                         //$('div.timer span.hour').html(hour);
 
-                        $('#timer').html('<span><strong> Remaining Days :  </strong >' +days+'day(s):'+hour+'hr(s)</span >');
+                        $('#timer').html('<span><strong> Remaining Days :  </strong >' +days+'day(s):'+hour+'hr(s)'+second+'</span >');
                         // $('#timer').html('<span><strong> Remaining Days :  </strong >' +days+'day(s)'+hour+'hr(s):'+minute+'min(s)'+second+'sec(s)</span >');
                        
                     }

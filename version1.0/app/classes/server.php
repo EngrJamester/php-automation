@@ -106,11 +106,16 @@
         {
           $_SESSION['login_user'] = $username;
           $_SESSION['success'] = "You are now logged in";
+        
           header('location: home');
+        }else{
+          // echo "<script type='text/javascript'> $('#AlertModal').modal('show');</script>";
+          echo "<script>alert('Incorrect Username or Password');</script>";
         }
-      
       }else {
         array_push($errors, "Wrong username/password combination");
+        $status = "Invalid Username or Password";
+        
         header('location: home');
         //alert("Incorrect Username/password");
       }
@@ -118,10 +123,10 @@
   }
 
   //Check Session
+ 
   if(session_status() == PHP_SESSION_ACTIVE){
     require_once("session.php");
   }
-
  
   
 ?>
