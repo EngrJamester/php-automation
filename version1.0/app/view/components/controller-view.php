@@ -44,8 +44,14 @@
                             </div>
                             <div class="card-body">
                               <form method="post">
-                                  <input type="checkbox" id="controller" name="time_left" value="yes"checked data-toggle="toggle" data-onstyle="success" data-offstyle="danger">
+                                  <!-- <input type="checkbox" id="controller" name="time_left" value="yes"checked data-toggle="toggle" data-onstyle="success" data-offstyle="danger"> -->
+                                  <label class="switch">
+                                    <input type="checkbox" id="controller">
+                                    <span class="slider2 round" data-on="start" data-off="stop"></span>
+                                  </label>
+                                  
                               </form>
+                              <label id="contStatus1">Status: Start</label>
                               <p class="card-text" id="timer"><b>Remaining Day(s):</b> 7 Days </p>
                               <p class="card-text" id="temp1"><b>Temperature:</b> N/A</p>
                               <p class="card-text" id="humid1"><b>Humidity:</b> N/A</p>
@@ -63,7 +69,14 @@
                             Box 2</h5>
                         </div>
                         <div class="card-body">
-                          <input type="checkbox" id="controller1" checked data-toggle="toggle" data-onstyle="success" data-offstyle="danger">
+                          <form method="post">
+                          <!-- <input type="checkbox" id="controller1" checked data-toggle="toggle" data-onstyle="success" data-offstyle="danger"> -->
+                            <label class="switch">
+                                    <input type="checkbox" id="controller1">
+                                    <span class="slider2 round" ></span>
+                            </label>
+                          </form>
+                          <label id="contStatus2">Status: Start</label>
                           <p class="card-text" id="timer1"><b>Remaining Day(s):</b> 7 Days</p>
                           <p class="card-text" id="temp2"><b>Temperature:</b> 100 deg </p>
                           <p class="card-text" id="humid2"><b>Humidity:</b> 100 deg </p>
@@ -83,8 +96,14 @@
                       </div>
                        
                         <div class="card-body">
-                          
-                          <input type="checkbox" id="controller2" checked data-toggle="toggle" data-onstyle="success" data-offstyle="danger">
+                          <form method="post">
+                             <!-- <input type="checkbox" id="controller2" checked data-toggle="toggle" data-onstyle="success" data-offstyle="danger"> -->
+                             <label class="switch">
+                                    <input type="checkbox" id="controller2">
+                                    <span class="slider2 round" ></span>
+                             </label>
+                          </form>
+                          <label id="contStatus3">Status: Start</label>
                           <p class="card-text" id="timer2"><b>Remaining Day(s):</b> 7 Days </p>
                           <p class="card-text" id="temp3"><b>Temperature:</b> N/A</p>
                           <p class="card-text" id="humid3"><b>Humidity:</b> N/A</p>
@@ -103,7 +122,14 @@
                         </div>
                         
                         <div class="card-body">
-                          <input type="checkbox" id="controller3" checked data-toggle="toggle" data-onstyle="success" data-offstyle="danger">
+                          <form method="post">
+                          <!-- <input type="checkbox" id="controller3" checked data-toggle="toggle" data-onstyle="success" data-offstyle="danger"> -->
+                              <label class="switch">
+                                    <input type="checkbox" id="controller3">
+                                    <span class="slider2 round" ></span>
+                              </label>
+                          </form>
+                          <label id="contStatus4">Status: Start</label>
                           <p class="card-text" id="timer3"><b>Remaining Day(s):</b> 7 Days </p>
                           <p class="card-text" id="temp4"><b>Temperature:</b> N/A</p>
                           <p class="card-text" id="humid4"><b>Humidity:</b> N/A</p>
@@ -122,8 +148,14 @@
                         </div>
                        
                         <div class="card-body">
-                          
-                          <input type="checkbox" id="controller4" checked data-toggle="toggle" data-onstyle="success" data-offstyle="danger">
+                          <form method="post">
+                             <!-- <input type="checkbox" id="controller4" checked data-toggle="toggle" data-onstyle="success" data-offstyle="danger"> -->
+                             <label class="switch">
+                                    <input type="checkbox" id="controller4">
+                                    <span class="slider2 round" ></span>
+                             </label>
+                          </form>
+                          <label id="contStatus5">Status: Start</label>
                           <p class="card-text" id="timer4"><b>Remaining Day(s):</b> 7 Days </p>
                           <p class="card-text" id="temp5"><b>Temperature:</b> N/A</p>
                           <p class="card-text" id="humid5"><b>Humidity:</b> N/A</p>
@@ -143,9 +175,15 @@
                        
                         <div class="card-body">
                           
-                        
-                          <input type="checkbox" id="controller5" checked data-toggle="toggle" data-onstyle="success" data-offstyle="danger">
-                    
+                          <form method="post">
+                              <!-- <input type="checkbox" id="controller5" checked data-toggle="toggle" data-onstyle="success" data-offstyle="danger"> -->
+                              <label class="switch">
+                                    <input type="checkbox" id="controller5">
+                                    <span class="slider2 round" ></span>
+                              </label>
+                          </form>
+                          
+                          <label id="contStatus6">Status: Start</label>
                           <p class="card-text" id="timer5"><b>Remaining Day(s):</b> 7 Days </p>
                           <p class="card-text" id="temp6"><b>Temperature:</b> N/A</p>
                           <p class="card-text" id="humid6"><b>Humidity:</b> N/A</p>
@@ -163,8 +201,14 @@
                           Box 7</h5>
                         </div>
                         <div class="card-body">
-                         
-                          <input type="checkbox" id="controller6" checked data-toggle="toggle" data-onstyle="success" data-offstyle="danger">
+                          <form method="post">
+                          <!-- <input type="checkbox" id="controller6" checked data-toggle="toggle" data-onstyle="success" data-offstyle="danger"> -->
+                              <label class="switch">
+                                    <input type="checkbox" id="controller6">
+                                    <span class="slider2 round" ></span>
+                              </label>
+                          <form>
+                          <label id="contStatus7">Status: Start</label>
                           <p class="card-text" id="timer6"><b>Remaining Day(s):</b> 7 Days </p>
                           <p class="card-text" id="temp7"><b>Temperature:</b> N/A</p>
                           <p class="card-text" id="humid7"><b>Humidity:</b> N/A</p>

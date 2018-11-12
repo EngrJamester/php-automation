@@ -8,6 +8,8 @@
     // session_start();// Starting Session
 
     // Storing Session
+
+    $checkLoginStataus = 0;
     if(session_status() == 2){
         if (isset($_POST['login_user']) && !empty($_SESSION['login_user'])){
 
@@ -17,14 +19,25 @@
                $ses_sql = mysqli_query( $db,$user_check_query);
                $row = mysqli_fetch_assoc($ses_sql);
                $login_session =$row['username'];
+               $checkLoginStataus = 1;
                // if(!isset($login_session)){
                //     mysql_close($connection); // Closing Connection
                //     header('Location: index.php'); // Redirecting To Home Page
                // }
          }
-           
-        
+
+       
     }
+
+    if(session_status() == 2){
+        if(!empty($_SESSION['login_user'])){
+            $checkLoginStataus = 1;
+        }else{
+            $checkLoginStataus = 0;
+        }
+    }
+
+    
         
     
    

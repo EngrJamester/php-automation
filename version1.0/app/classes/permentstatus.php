@@ -8,7 +8,7 @@
     
         $db = mysqli_connect( $server,$user_name,$password, $database);
          $currDate = date("Y-m-d");
-                $query = "UPDATE controllers set time_left='$currDate' where name='$name'";
+                $query = "UPDATE controllers set status='$perment_status' where name='$name'";
 
                 $result = mysqli_query($db, $query);     
 
