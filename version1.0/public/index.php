@@ -97,11 +97,7 @@
 
             // if(checkLoginStatus == 1){ }
 
-                    //This is for the buzzer
-                    <?php $setmode21 = shell_exec("/usr/local/bin/gpio -g mode 21 out"); ?>
-
                     
-
                     function UpdateTempAndHumidity()
                     {
                         <?php     
@@ -214,15 +210,37 @@
                                     }
                                 });
                                 timer.stop();
-                                
+                                //for on buzzer
+                                obj = "on-buzz";
+                                $.ajax({
+                                    type: "GET",
+                                    url: '../app/GPIO/buzz.php',
+                                    data: obj,
+                                    success: function (newdata) {
+                                                // alert('Green Light');
+                                                console.log('Execution was OK');
+                                    },
+                                    error: function (request, textStatus, errorThrown) {
+                                        bootbox.alert("AJAX error: " + request.statusText);
+                                    }
+                                });
                                 alert('Box 1 is harvest ready!');
-                                $onbuz = shell_exec("/usr/local/bin/gpio -g write 21 0");
-                                $gpio_buzzer = shell_exec($onbuz);
                                 $('#controller').prop('checked',false);
-                                if($('#controller').prop('checked') == false){
-                                    $onbuz = shell_exec("/usr/local/bin/gpio -g write 21 1");
-                                    $gpio_buzzer = shell_exec($onbuz);
-                                }
+                                obj = "off-buzz";
+                                $.ajax({
+                                    type: "GET",
+                                    url: '../app/GPIO/buzz.php',
+                                    data: obj,
+                                    success: function (newdata) {
+                                                // alert('Green Light');
+                                                console.log('Execution was OK');
+                                    },
+                                    error: function (request, textStatus, errorThrown) {
+                                        bootbox.alert("AJAX error: " + request.statusText);
+                                    }
+                                });
+                                
+                                
                                 $('#contStatus1').text('Status: '+'Start');
                                 
                                 // location.reload();
