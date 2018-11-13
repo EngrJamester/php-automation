@@ -13,7 +13,7 @@
               <h1>Home Automation</h1><br />
               <p class="breadcrumb-item active">This was built with <strong>Php</strong> + <strong>Raspberry PI<strong></p>  
            </ol> -->
-           <div class="well" style="background-color:dimgrey;margin-bottom:10px;">
+           <!-- <div class="well" style="background-color:dimgrey;margin-bottom:10px;">
               <div class="container-fluid">
                 <div class="row" style="margin:auto;">
                     <h1 style="color:snow;">Home Automation</h1><br />
@@ -24,7 +24,7 @@
                   </p>  
                 </div>
               </div>
-           </div>
+           </div> -->
           
           <!-- Icon Cards-->
           <div class="Home">
@@ -52,10 +52,10 @@
                                   
                               </form>
                               <label id="contStatus1">Status: Start</label>
-                              <p class="card-text" id="timer"><b>Remaining Day(s):</b> 7 Days </p>
-                              <p class="card-text" id="temp1"><b>Temperature:</b> N/A</p>
-                              <p class="card-text" id="humid1"><b>Humidity:</b> N/A</p>
-                              <p class="card-text" id="fan1"><b>Fan:</b> Off </p>
+                              <p class="card-text" id="timer" style="font-size:13px;"><b>Remaining Day(s):</b> 7 Days </p>
+                              <p class="card-text" id="temp1" style="font-size:13px;"><b>Temperature:</b> N/A</p>
+                              <p class="card-text" id="humid1" style="font-size:13px;"><b>Humidity:</b> N/A</p>
+                              <p class="card-text" id="fan1" style="font-size:13px;"><b>Fan:</b> Off </p>
                             </div>
                           
                         </div>
@@ -77,10 +77,10 @@
                             </label>
                           </form>
                           <label id="contStatus2">Status: Start</label>
-                          <p class="card-text" id="timer1"><b>Remaining Day(s):</b> 7 Days</p>
-                          <p class="card-text" id="temp2"><b>Temperature:</b> 100 deg </p>
-                          <p class="card-text" id="humid2"><b>Humidity:</b> 100 deg </p>
-                          <p class="card-text" id="fan2"><b>Fan:</b> Off </p>
+                          <p class="card-text" id="timer1" style="font-size:13px;"><b>Remaining Day(s):</b> 7 Days</p>
+                          <p class="card-text" id="temp2" style="font-size:13px;"><b>Temperature:</b> 100 deg </p>
+                          <p class="card-text" id="humid2" style="font-size:13px;"><b>Humidity:</b> 100 deg </p>
+                          <p class="card-text" id="fan2" style="font-size:13px;"><b>Fan:</b> Off </p>
                           <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
                         </div>
                       </div>
@@ -104,10 +104,10 @@
                              </label>
                           </form>
                           <label id="contStatus3">Status: Start</label>
-                          <p class="card-text" id="timer2"><b>Remaining Day(s):</b> 7 Days </p>
-                          <p class="card-text" id="temp3"><b>Temperature:</b> N/A</p>
-                          <p class="card-text" id="humid3"><b>Humidity:</b> N/A</p>
-                          <p class="card-text" id="fan3"><b>Fan:</b> Off </p>
+                          <p class="card-text" id="timer2" style="font-size:13px;"><b>Remaining Day(s):</b> 7 Days </p>
+                          <p class="card-text" id="temp3" style="font-size:13px;"><b>Temperature:</b> N/A</p>
+                          <p class="card-text" id="humid3" style="font-size:13px;"><b>Humidity:</b> N/A</p>
+                          <p class="card-text" id="fan3" style="font-size:13px;"><b>Fan:</b> Off </p>
                           <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
                         </div>
                       </div>
@@ -130,10 +130,10 @@
                               </label>
                           </form>
                           <label id="contStatus4">Status: Start</label>
-                          <p class="card-text" id="timer3"><b>Remaining Day(s):</b> 7 Days </p>
-                          <p class="card-text" id="temp4"><b>Temperature:</b> N/A</p>
-                          <p class="card-text" id="humid4"><b>Humidity:</b> N/A</p>
-                          <p class="card-text" id="fan4"><b>Fan:</b> Off </p>
+                          <p class="card-text" id="timer3" style="font-size:13px;"><b>Remaining Day(s):</b> 7 Days </p>
+                          <p class="card-text" id="temp4" style="font-size:13px;"><b>Temperature:</b> N/A</p>
+                          <p class="card-text" id="humid4" style="font-size:13px;"><b>Humidity:</b> N/A</p>
+                          <p class="card-text" id="fan4" style="font-size:13px;"><b>Fan:</b> Off </p>
                           <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
                         </div>
                       </div>
@@ -156,10 +156,10 @@
                              </label>
                           </form>
                           <label id="contStatus5">Status: Start</label>
-                          <p class="card-text" id="timer4"><b>Remaining Day(s):</b> 7 Days </p>
-                          <p class="card-text" id="temp5"><b>Temperature:</b> N/A</p>
-                          <p class="card-text" id="humid5"><b>Humidity:</b> N/A</p>
-                          <p class="card-text" id="fan5"><b>Fan:</b> Off </p>
+                          <p class="card-text" id="timer4" style="font-size:13px;"><b>Remaining Day(s):</b> 7 Days </p>
+                          <p class="card-text" id="temp5" style="font-size:13px;"><b>Temperature:</b> N/A</p>
+                          <p class="card-text" id="humid5" style="font-size:13px;"><b>Humidity:</b> N/A</p>
+                          <p class="card-text" id="fan5" style="font-size:13px;"><b>Fan:</b> Off </p>
                           
                         </div>
                       </div>
@@ -184,10 +184,10 @@
                           </form>
                           
                           <label id="contStatus6">Status: Start</label>
-                          <p class="card-text" id="timer5"><b>Remaining Day(s):</b> 7 Days </p>
-                          <p class="card-text" id="temp6"><b>Temperature:</b> N/A</p>
-                          <p class="card-text" id="humid6"><b>Humidity:</b> N/A</p>
-                          <p class="card-text" id="fan6"><b>Fan:</b> Off </p>
+                          <p class="card-text" id="timer5" style="font-size:13px;"><b>Remaining Day(s):</b> 7 Days </p>
+                          <p class="card-text" id="temp6" style="font-size:13px;"><b>Temperature:</b> N/A</p>
+                          <p class="card-text" id="humid6" style="font-size:13px;"><b>Humidity:</b> N/A</p>
+                          <p class="card-text" id="fan6" style="font-size:13px;"><b>Fan:</b> Off </p>
                          
                         </div>
                       </div>
@@ -209,10 +209,10 @@
                               </label>
                           <form>
                           <label id="contStatus7">Status: Start</label>
-                          <p class="card-text" id="timer6"><b>Remaining Day(s):</b> 7 Days </p>
-                          <p class="card-text" id="temp7"><b>Temperature:</b> N/A</p>
-                          <p class="card-text" id="humid7"><b>Humidity:</b> N/A</p>
-                          <p class="card-text" id="fan7"><b>Fan:</b> Off </p>
+                          <p class="card-text" id="timer6" style="font-size:13px;"><b>Remaining Day(s):</b> 7 Days </p>
+                          <p class="card-text" id="temp7" style="font-size:13px;"><b>Temperature:</b> N/A</p>
+                          <p class="card-text" id="humid7" style="font-size:13px;"><b>Humidity:</b> N/A</p>
+                          <p class="card-text" id="fan7" style="font-size:13px;"><b>Fan:</b> Off </p>
                          
                         </div>
                       </div>

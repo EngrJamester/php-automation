@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
             
-            <a class="navbar-brand" href="index.php">Php&RaspBerryPi</a>
-
+            <!-- <a class="navbar-brand" href="index.php">Php&RaspBerryPi</a> -->
+            <a class="navbar-brand" href="index.php">Permentation Monitoring System</a>
              <button class="navbar-toggler navbar-toggler-right" 
                      type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -34,14 +34,14 @@
                         </a>
                     </li>
 
-                    <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Logout">
+                    <!-- <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Logout">
                         <a class="nav-link" data-toggle="modal" data-target="#exampleModal" style="font-size:1.5rem;">
-                            <!-- <i class="fa fas fa-user"></i> -->
+                            
                             <i class="fas fa-user-circle" style="font-size:1.5rem;"></i>
                             <span class="nav-link-text">Logout</span>
                         </a>
                             
-                    </li>
+                    </li> -->
                    
                 </ul>
                 <ul class="navbar-nav ml-auto">
@@ -58,10 +58,10 @@
                                 </div>
                             </form>
                         </li> -->
-                        <li class="nav-item">
+                        <!-- <li class="nav-item">
                             <a class="nav-link" data-toggle="modal" data-target="#exampleModal">
                             <i class="far fa-bell"></i> Updates</a>
-                        </li>
+                        </li> -->
                         
                     </ul>
                 </ul>

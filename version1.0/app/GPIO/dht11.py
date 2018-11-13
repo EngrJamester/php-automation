@@ -1,15 +1,11 @@
 import MySQLdb
 import Adafruit_DHT
-import time
+import time as sleep
 import RPi.GPIO as GPIO
 
-fan1 = 25
-fan2 = 8
-fan3 = 7
-fan4 = 12
-fan5 = 16
-fan6 = 20
-fan7 = 21
+fan1 = 7
+fan2 = 20
+fan3 = 16
 
 counter = 0
 
@@ -18,32 +14,24 @@ GPIO.setwarnings(False)
 GPIO.setup(fan1, GPIO.OUT) # Fan1 -> Relay 1
 GPIO.setup(fan2, GPIO.OUT) # Fan2 -> Relay 2
 GPIO.setup(fan3, GPIO.OUT) # Fan3 -> Relay 3
-GPIO.setup(fan4, GPIO.OUT) # Fan4 -> Relay 4
-GPIO.setup(fan5, GPIO.OUT) # Fan5 -> Relay 5
-GPIO.setup(fan6, GPIO.OUT) # Fan6 -> Relay 6
-GPIO.setup(fan7, GPIO.OUT) # Fan7 -> Relay 7
 
 GPIO.output(fan1, GPIO.HIGH) #off
 GPIO.output(fan2, GPIO.HIGH) #off
 GPIO.output(fan3, GPIO.HIGH) #off
-GPIO.output(fan4, GPIO.HIGH) #off
-GPIO.output(fan5, GPIO.HIGH) #off
-GPIO.output(fan6, GPIO.HIGH) #off
-GPIO.output(fan7, GPIO.HIGH) #off
 
 
-while True:
-    
-    con = MySQLdb.connect('localhost','root','root','db_permentation')
-    cursor = con.cursor(MySQLdb.cursors.DictCursor)
+con = MySQLdb.connect('localhost','root','root','db_permentation')
+cursor = con.cursor(MySQLdb.cursors.DictCursor)
+
+def checkSensor():
     
     humidity1,temperature1 = Adafruit_DHT.read_retry(Adafruit_DHT.DHT11, 14)
     humidity2,temperature2 = Adafruit_DHT.read_retry(Adafruit_DHT.DHT11, 15)
     humidity3,temperature3 = Adafruit_DHT.read_retry(Adafruit_DHT.DHT11, 18)
     humidity4,temperature4 = Adafruit_DHT.read_retry(Adafruit_DHT.DHT11, 23)
     humidity5,temperature5 = Adafruit_DHT.read_retry(Adafruit_DHT.DHT11, 24)
-    humidity6,temperature6 = Adafruit_DHT.read_retry(Adafruit_DHT.DHT11, 9)
-    humidity7,temperature7 = Adafruit_DHT.read_retry(Adafruit_DHT.DHT11, 11)
+    humidity6,temperature6 = Adafruit_DHT.read_retry(Adafruit_DHT.DHT11, 25)
+    humidity7,temperature7 = Adafruit_DHT.read_retry(Adafruit_DHT.DHT11, 8)
     
 
     humidity1 = round(humidity1,2)
@@ -107,49 +95,57 @@ while True:
         
         if (float(temp) >= float(thold)) :
             print str(name) + ' Exceeds the threshold'
-            if name == 'controller1' :
+            if name == 'controller1' or name == 'controller2' :
                 GPIO.output(fan1, GPIO.LOW) #on
                 print 'Relay ' + str(cid) + ' is On'
-            if name == 'controller2' :
+            if name == 'controller3' or name == 'controller4' :
                 GPIO.output(fan2, GPIO.LOW) #on
                 print 'Relay ' + str(cid) + ' is On'
-            if name == 'controller3' :
+            if name == 'controller5' or name == 'controller6' or name == 'controller7' :
                 GPIO.output(fan3, GPIO.LOW) #on
                 print 'Relay ' + str(cid) + ' is On'
-            if name == 'controller4' :
-                GPIO.output(fan4, GPIO.LOW) #on
-                print 'Relay ' + str(cid) + ' is On'
-            if name == 'controller5' :
-                GPIO.output(fan5, GPIO.LOW) #on
-                print 'Relay ' + str(cid) + ' is On'
-            if name == 'controller6':
-                GPIO.output(fan6, GPIO.LOW) #on
-                print 'Relay ' + str(cid) + ' is On'
-            if name == 'controller7':
-                GPIO.output(fan7, GPIO.LOW) #on
-                print 'Relay ' + str(cid) + ' is On'            
+##            if name == 'controller4' :
+##                GPIO.output(fan4, GPIO.LOW) #on
+##                print 'Relay ' + str(cid) + ' is On'
+##            if name == 'controller5' :
+##                GPIO.output(fan5, GPIO.LOW) #on
+##                print 'Relay ' + str(cid) + ' is On'
+##            if name == 'controller6':
+##                GPIO.output(fan6, GPIO.LOW) #on
+##                print 'Relay ' + str(cid) + ' is On'
+##            if name == 'controller7':
+##                GPIO.output(fan7, GPIO.LOW) #on
+##                print 'Relay ' + str(cid) + ' is On'            
         else :
-            if name == 'controller1' :
+            if name == 'controller1' and name == 'controller2' :
                 GPIO.output(fan1, GPIO.HIGH) #off
                 print 'Relay ' + str(cid) + ' is Off'
-            if name == 'controller2' :
+            if name == 'controller3' and name == 'controller4' :
                 GPIO.output(fan2, GPIO.HIGH) #off
                 print 'Relay ' + str(cid) + ' is Off'
-            if name == 'controller3' :
+            if name == 'controller5' and name == 'controller6' and name == 'controller7' :
                 GPIO.output(fan3, GPIO.HIGH) #off
                 print 'Relay ' + str(cid) + ' is Off'
-            if name == 'controller4':
-                GPIO.output(fan4, GPIO.HIGH) #off
-                print 'Relay ' + str(cid) + ' is Off'
-            if name == 'controller5':
-                GPIO.output(fan5, GPIO.HIGH) #off
-                print 'Relay ' + str(cid) + ' is Off'
-            if name == 'controller6':
-                GPIO.output(fan6, GPIO.HIGH) #off
-                print 'Relay ' + str(cid) + ' is Off'
-            if name == 'controller7':
-                GPIO.output(fan7, GPIO.HIGH) #off
-                print 'Relay ' + str(cid) + ' is Off'
+##            if name == 'controller4':
+##                GPIO.output(fan4, GPIO.HIGH) #off
+##                print 'Relay ' + str(cid) + ' is Off'
+##            if name == 'controller5':
+##                GPIO.output(fan5, GPIO.HIGH) #off
+##                print 'Relay ' + str(cid) + ' is Off'
+##            if name == 'controller6':
+##                GPIO.output(fan6, GPIO.HIGH) #off
+##                print 'Relay ' + str(cid) + ' is Off'
+##            if name == 'controller7':
+##                GPIO.output(fan7, GPIO.HIGH) #off
+##                print 'Relay ' + str(cid) + ' is Off'
 
     cursor.close
-    con.close
+    checkSensor()
+
+
+
+try:
+    checkSensor()
+except:
+    checkSensor()
+

@@ -27,14 +27,14 @@
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
   <!--ToggleSwitch-->
   <link rel="stylesheet" href="../styles/toggle-button/style/toggleSwitch.css">
-  
+  <!-- style="
+    background-image: url('../images/android.jpg');
+    background-repeat: no-repeat;
+    background-size: 100% 820px;" -->
   
 </head>
 
-<body class="fixed-nav sticky-footer bg-dark" id="page-top" style="
-    background-image: url('../images/android.jpg');
-    background-repeat: no-repeat;
-    background-size: 100% 820px;">
+<body class="fixed-nav sticky-footer bg-dark" id="page-top" >
     <?php 
             $status = "";
             include('../app/GPIO/light.php');
@@ -95,10 +95,22 @@
             <?php include('../app/classes/session.php');?>
             var checkLoginStatus = <?php echo $checkLoginStataus; ?>;
 
-            if(checkLoginStatus == 1){
+            // if(checkLoginStatus == 1){ }
+
+                    //This is for the buzzer
+                    <?php $setmode21 = shell_exec("/usr/local/bin/gpio -g mode 21 out"); ?>
+
+                    
+
                     function UpdateTempAndHumidity()
                     {
-                        
+                        <?php     
+                            $setmode07 = shell_exec("/usr/local/bin/gpio -g mode 7 out");
+                            $setmode20 = shell_exec("/usr/local/bin/gpio -g mode 20 out");
+                            $setmode16 = shell_exec("/usr/local/bin/gpio -g mode 16 out");
+                            
+                        ?>
+
                         var obj = new Object();
                         obj.getTempAndHumidity = 'ok';
 
@@ -113,8 +125,43 @@
                                     if(parseInt(temp.thres) <= parseInt(temp.temp))
                                     {
                                         $('#fan'+temp.id).text('Fan: '+'On');
-                                        console.log();
+                                        if(parseInt(temp.id) == 1 || parseInt(temp.thres) == 2){
+                                            <?php  
+                                                $onred = shell_exec("/usr/local/bin/gpio -g write 7 0");
+                                                $gpio_onred = shell_exec($onred);
+                                            ?>
+                                        }
+                                        if(parseInt(temp.id) == 3 || parseInt(temp.thres) == 4){
+                                            <?php
+                                                $offgreen = shell_exec("/usr/local/bin/gpio -g write 20 0");
+                                                $gpio_offgreen = shell_exec($offgreen);
+                                            ?>
+                                        }
+                                        if(parseInt(temp.id) == 5 || parseInt(temp.thres) == 6 || parseInt(temp.thres) == 7){
+                                            <?php
+                                                $offgreen = shell_exec("/usr/local/bin/gpio -g write 16 0");
+                                                $gpio_offgreen = shell_exec($offgreen);
+                                            ?>
+                                        }
                                     }else{
+                                        if(parseInt(temp.id) == 1 || parseInt(temp.thres) == 2){
+                                            <?php  
+                                                $onred = shell_exec("/usr/local/bin/gpio -g write 7 1");
+                                                $gpio_onred = shell_exec($onred);
+                                            ?>
+                                        }
+                                        if(parseInt(temp.id) == 3 || parseInt(temp.thres) == 4){
+                                            <?php
+                                                $offgreen = shell_exec("/usr/local/bin/gpio -g write 20 1");
+                                                $gpio_offgreen = shell_exec($offgreen);
+                                            ?>
+                                        }
+                                        if(parseInt(temp.id) == 5 || parseInt(temp.thres) == 6 || parseInt(temp.thres) == 7){
+                                            <?php
+                                                $offgreen = shell_exec("/usr/local/bin/gpio -g write 16 1");
+                                                $gpio_offgreen = shell_exec($offgreen);
+                                            ?>
+                                        }
                                         $('#fan'+temp.id).text('Fan: '+'Off');
                                     }
                                     $('#temp'+temp.id).text('Temperature: '+temp.temp).append('&deg;C');
@@ -128,15 +175,27 @@
                             
                             }
                         });
+
+                        
                     }
 
-                
+                    //Timer for the Humidity and temperature
+                    timer_def = new _timerDefault(function(time){
+                        UpdateTempAndHumidity();
+                        if(time == 0){
+                            timer_def.stop();
+                        }
+                    });
+                    timer_def.reset(1);
+                    timer_def.mode(1);
+                    timer_def.start(1000);
+                   
                     //check Box controller box1
                     var DayDiff     = <?php echo 7-$c1_daydiff; ?>; 
                     var controller  = <?php echo $c1_timerVal; ?>;
                     var obj         = new Object();
                     timer = new _timer(function (time) {
-                            UpdateTempAndHumidity();
+                            
                             
                             if (time == 0) {
                                 
@@ -157,8 +216,15 @@
                                 timer.stop();
                                 
                                 alert('Box 1 is harvest ready!');
+                                $onbuz = shell_exec("/usr/local/bin/gpio -g write 21 0");
+                                $gpio_buzzer = shell_exec($onbuz);
                                 $('#controller').prop('checked',false);
+                                if($('#controller').prop('checked') == false){
+                                    $onbuz = shell_exec("/usr/local/bin/gpio -g write 21 1");
+                                    $gpio_buzzer = shell_exec($onbuz);
+                                }
                                 $('#contStatus1').text('Status: '+'Start');
+                                
                                 // location.reload();
                             }
                     });
@@ -198,7 +264,7 @@
                     var c2_DayDiff = <?php echo 7- $c2_daydiff; ?>; 
                     var c2_controller = <?php echo $c2_timerVal; ?>;
                     timer1 = new _timer1(function (time) {
-                        UpdateTempAndHumidity();
+                        
                             if (time == 0) {
                                 obj = "off-controller2";
                                 $.ajax({
@@ -215,6 +281,13 @@
                                 });
                                 timer1.stop();
                                 alert('Box 2 is harvest ready!');
+                                $onbuz = shell_exec("/usr/local/bin/gpio -g write 21 0");
+                                $gpio_buzzer = shell_exec($onbuz);
+                                $('#controller1').prop('checked',false);
+                                if($('#controller1').prop('checked') == false){
+                                    $onbuz = shell_exec("/usr/local/bin/gpio -g write 21 1");
+                                    $gpio_buzzer = shell_exec($onbuz);
+                                }
                                 $('#contStatus2').text('Status: '+'Start');
                                 $('#controller1').prop('checked',false);
                                 // $('#AlertModal').modal('show');
@@ -251,7 +324,14 @@
                             if (time == 0) {
                                 timer2.stop();
                                 alert('Box 3 ready to be harvest !');
+                                $onbuz = shell_exec("/usr/local/bin/gpio -g write 21 0");
+                                $gpio_buzzer = shell_exec($onbuz);
                                 $('#controller2').prop('checked',false);
+                                if($('#controller2').prop('checked') == false){
+                                    $onbuz = shell_exec("/usr/local/bin/gpio -g write 21 1");
+                                    $gpio_buzzer = shell_exec($onbuz);
+                                }
+                                
                                 $('#contStatus3').text('Status: '+'Start');
                                 // alert('Code Expired');
                                 //location.reload();
@@ -287,19 +367,27 @@
                                 });
                             if (time == 0) {
                                 timer_c4.stop();
-                                $('#controller3').prop('checked',true);
-                                $('#contStatus4').text('Status: '+'Start');
+                                $onbuz = shell_exec("/usr/local/bin/gpio -g write 21 0");
+                                $gpio_buzzer = shell_exec($onbuz);
                                 alert('Box 4 ready to be harvest !');
+                                $('#controller3').prop('checked',true);
+                                if($('#controller3').prop('checked') == false){
+                                    $onbuz = shell_exec("/usr/local/bin/gpio -g write 21 1");
+                                    $gpio_buzzer = shell_exec($onbuz);
+                                }
+                                
+                                $('#contStatus4').text('Status: '+'Start');
+                                
                                 //location.reload();
                             }
                     });
                     if(c4_DayDiff >= 0){
-                        $('#controller3').prop('checked',false);
+                        $('#controller3').prop('checked',true);
                         $('#contStatus4').text('Status: '+'On going');
                         timer3.reset(c4_controller);
                         timer3.mode(0);
                         timer3.start(1000);
-                    }else{
+                    }else{     
                         // $('#AlertModal').modal('show');
                         alert('Box 4 ready to be harvest !');
                     }
@@ -323,8 +411,14 @@
                                     }
                                 });
                                 timer4.stop();
+                                $onbuz = shell_exec("/usr/local/bin/gpio -g write 21 0");
+                                $gpio_buzzer = shell_exec($onbuz);
                                 alert('Box 5 ready to be harvest !');
                                 $('#controller4').prop('checked',false);
+                                if($('#controller4').prop('checked') == false){
+                                    $onbuz = shell_exec("/usr/local/bin/gpio -g write 21 1");
+                                    $gpio_buzzer = shell_exec($onbuz);
+                                }
                                 $('#contStatus5').text('Status: '+'Start');
                                 // alert('Code Expired');
                                 //location.reload();
@@ -360,7 +454,13 @@
                                     }
                                 });
                                 timer5.stop();
+                                $onbuz = shell_exec("/usr/local/bin/gpio -g write 21 0");
+                                $gpio_buzzer = shell_exec($onbuz);
                                 $('#controller5').prop('checked',true);
+                                if($('#controller6').prop('checked') == false){
+                                    $onbuz = shell_exec("/usr/local/bin/gpio -g write 21 1");
+                                    $gpio_buzzer = shell_exec($onbuz);
+                                }
                                 $('#contStatus6').text('Status: '+'Start');
                                 alert('Box 6 ready to be harvest !');
                                 // alert('Code Expired');
@@ -397,8 +497,14 @@
                                     }
                                 });
                                 timer_c7.stop();
+                                $onbuz = shell_exec("/usr/local/bin/gpio -g write 21 0");
+                                $gpio_buzzer = shell_exec($onbuz);
                                 alert('Box 7 ready to be harvest !');
                                 $('#controller6').prop('checked',true);
+                                if($('#controller6').prop('checked') == false){
+                                    $onbuz = shell_exec("/usr/local/bin/gpio -g write 21 1");
+                                    $gpio_buzzer = shell_exec($onbuz);
+                                }
                                 $('#contStatus7').text('Status: '+'Start');
                                 // alert('Code Expired');
                                 //location.reload();
@@ -453,7 +559,7 @@
                             console.log('this should stop');
                             // timer.reset(604800);
                             // timer.mode(0);
-                            time = 0 ;
+                            
                             timer.stop();
                             
                         }
@@ -485,17 +591,6 @@
 
                         if($(this).prop('checked') == true)
                         {
-                            // timer1 = new _timer1(function (time) {
-                            
-                            //     if (time == 0) {
-                            //         timer1.stop();
-                                
-                            //         // $('#AlertModal').modal('show');
-                                    
-                            //         alert('Box 2 is harvest ready!');
-                            //         // location.reload();
-                            //     }
-                            // });
                             $('#contStatus2').text('Status: '+'On going');
                             timer1.reset(604800);
                             timer1.mode(0);
@@ -1439,6 +1534,7 @@
                                 minute = (minute < 10) ? '0' + minute : minute;
                                 hour = (hour < 10) ? '0' + hour : hour;
                                 days = (days < 10) ? '0' + days : days;
+                                console.log(days+'(days)'+hour+'(hr)'+ minute +'(min)'+second+'(s)' );
                                 //$('div.timer span.second').html(second);
                                 //$('div.timer span.minute').html(minute);
                                 //$('div.timer span.hour').html(hour);
@@ -1451,7 +1547,7 @@
                     }
 
 
-            }
+            
    
    </script>
 
