@@ -100,12 +100,6 @@
                     
                     function UpdateTempAndHumidity()
                     {
-                        <?php     
-                            $setmode07 = shell_exec("/usr/local/bin/gpio -g mode 7 out");
-                            $setmode20 = shell_exec("/usr/local/bin/gpio -g mode 20 out");
-                            $setmode16 = shell_exec("/usr/local/bin/gpio -g mode 16 out");
-                            
-                        ?>
 
                         var obj = new Object();
                         obj.getTempAndHumidity = 'ok';
@@ -122,41 +116,101 @@
                                     {
                                         $('#fan'+temp.id).text('Fan: '+'On');
                                         if(parseInt(temp.id) == 1 || parseInt(temp.thres) == 2){
-                                            <?php  
-                                                $onred = shell_exec("/usr/local/bin/gpio -g write 7 0");
-                                                $gpio_onred = shell_exec($onred);
-                                            ?>
+                                            var obj_fan = new Object();
+                                            obj_fan = "on-fan1";
+            
+                                            $.ajax({
+                                                type: "GET",
+                                                url: '../app/GPIO/fan.php',
+                                                data: obj_fan,
+                                                success: function (newdata) {
+                                                            // alert('FUCK YEAH');
+                                                },
+                                                error: function (request, textStatus, errorThrown) {
+                                                    bootbox.alert("AJAX error: " + request.statusText);
+                                                }
+                                            });
                                         }
                                         if(parseInt(temp.id) == 3 || parseInt(temp.thres) == 4){
-                                            <?php
-                                                $offgreen = shell_exec("/usr/local/bin/gpio -g write 20 0");
-                                                $gpio_offgreen = shell_exec($offgreen);
-                                            ?>
+                                            var obj_fan = new Object();
+                                            obj_fan = "on-fan2";
+            
+                                            $.ajax({
+                                                type: "GET",
+                                                url: '../app/GPIO/fan.php',
+                                                data: obj_fan,
+                                                success: function (newdata) {
+                                                            // alert('FUCK YEAH');
+                                                },
+                                                error: function (request, textStatus, errorThrown) {
+                                                    bootbox.alert("AJAX error: " + request.statusText);
+                                                }
+                                            });
                                         }
                                         if(parseInt(temp.id) == 5 || parseInt(temp.thres) == 6 || parseInt(temp.thres) == 7){
-                                            <?php
-                                                $offgreen = shell_exec("/usr/local/bin/gpio -g write 16 0");
-                                                $gpio_offgreen = shell_exec($offgreen);
-                                            ?>
+                                            var obj_fan = new Object();
+                                            obj_fan = "on-fan3";
+            
+                                            $.ajax({
+                                                type: "GET",
+                                                url: '../app/GPIO/fan.php',
+                                                data: obj_fan,
+                                                success: function (newdata) {
+                                                            // alert('FUCK YEAH');
+                                                },
+                                                error: function (request, textStatus, errorThrown) {
+                                                    bootbox.alert("AJAX error: " + request.statusText);
+                                                }
+                                            });
                                         }
                                     }else{
                                         if(parseInt(temp.id) == 1 || parseInt(temp.thres) == 2){
-                                            <?php  
-                                                $onred = shell_exec("/usr/local/bin/gpio -g write 7 1");
-                                                $gpio_onred = shell_exec($onred);
-                                            ?>
+                                            var obj_fan = new Object();
+                                            obj_fan = "off-fan1";
+            
+                                            $.ajax({
+                                                type: "GET",
+                                                url: '../app/GPIO/fan.php',
+                                                data: obj_fan,
+                                                success: function (newdata) {
+                                                            // alert('FUCK YEAH');
+                                                },
+                                                error: function (request, textStatus, errorThrown) {
+                                                    bootbox.alert("AJAX error: " + request.statusText);
+                                                }
+                                            });
                                         }
                                         if(parseInt(temp.id) == 3 || parseInt(temp.thres) == 4){
-                                            <?php
-                                                $offgreen = shell_exec("/usr/local/bin/gpio -g write 20 1");
-                                                $gpio_offgreen = shell_exec($offgreen);
-                                            ?>
+                                            var obj_fan = new Object();
+                                            obj_fan = "off-fan2";
+            
+                                            $.ajax({
+                                                type: "GET",
+                                                url: '../app/GPIO/fan.php',
+                                                data: obj_fan,
+                                                success: function (newdata) {
+                                                            // alert('FUCK YEAH');
+                                                },
+                                                error: function (request, textStatus, errorThrown) {
+                                                    bootbox.alert("AJAX error: " + request.statusText);
+                                                }
+                                            });
                                         }
                                         if(parseInt(temp.id) == 5 || parseInt(temp.thres) == 6 || parseInt(temp.thres) == 7){
-                                            <?php
-                                                $offgreen = shell_exec("/usr/local/bin/gpio -g write 16 1");
-                                                $gpio_offgreen = shell_exec($offgreen);
-                                            ?>
+                                            var obj_fan = new Object();
+                                            obj_fan = "off-fan3";
+            
+                                            $.ajax({
+                                                type: "GET",
+                                                url: '../app/GPIO/fan.php',
+                                                data: obj_fan,
+                                                success: function (newdata) {
+                                                            // alert('FUCK YEAH');
+                                                },
+                                                error: function (request, textStatus, errorThrown) {
+                                                    bootbox.alert("AJAX error: " + request.statusText);
+                                                }
+                                            });
                                         }
                                         $('#fan'+temp.id).text('Fan: '+'Off');
                                     }
@@ -191,11 +245,7 @@
                     var controller  = <?php echo $c1_timerVal; ?>;
                     var obj         = new Object();
                     timer = new _timer(function (time) {
-                            
-                            
                             if (time == 0) {
-                                
-                            
                                 obj = "off-controller1";
                                 $.ajax({
                                     type: "GET",
@@ -210,11 +260,12 @@
                                     }
                                 });
                                 timer.stop();
-                                //for on buzzer
+
+                                //Turn On Buzzer
                                 obj = "on-buzz";
                                 $.ajax({
                                     type: "GET",
-                                    url: '../app/GPIO/buzz.php',
+                                    url: '../app/GPIO/buzzer.php',
                                     data: obj,
                                     success: function (newdata) {
                                                 // alert('Green Light');
@@ -224,12 +275,15 @@
                                         bootbox.alert("AJAX error: " + request.statusText);
                                     }
                                 });
+
                                 alert('Box 1 is harvest ready!');
                                 $('#controller').prop('checked',false);
+
+                                //Turn Off Buzzer
                                 obj = "off-buzz";
                                 $.ajax({
                                     type: "GET",
-                                    url: '../app/GPIO/buzz.php',
+                                    url: '../app/GPIO/buzzer.php',
                                     data: obj,
                                     success: function (newdata) {
                                                 // alert('Green Light');
@@ -239,7 +293,6 @@
                                         bootbox.alert("AJAX error: " + request.statusText);
                                     }
                                 });
-                                
                                 
                                 $('#contStatus1').text('Status: '+'Start');
                                 
@@ -282,7 +335,6 @@
                     var c2_DayDiff = <?php echo 7- $c2_daydiff; ?>; 
                     var c2_controller = <?php echo $c2_timerVal; ?>;
                     timer1 = new _timer1(function (time) {
-                        
                             if (time == 0) {
                                 obj = "off-controller2";
                                 $.ajax({
@@ -297,18 +349,43 @@
                                         bootbox.alert("AJAX error: " + request.statusText);
                                     }
                                 });
+
+                                //Turn On Buzzer
+                                obj = "on-buzz";
+                                $.ajax({
+                                    type: "GET",
+                                    url: '../app/GPIO/buzzer.php',
+                                    data: obj,
+                                    success: function (newdata) {
+                                                // alert('Green Light');
+                                                console.log('Execution was OK');
+                                    },
+                                    error: function (request, textStatus, errorThrown) {
+                                        bootbox.alert("AJAX error: " + request.statusText);
+                                    }
+                                });
+
                                 timer1.stop();
                                 alert('Box 2 is harvest ready!');
-                                $onbuz = shell_exec("/usr/local/bin/gpio -g write 21 0");
-                                $gpio_buzzer = shell_exec($onbuz);
                                 $('#controller1').prop('checked',false);
-                                if($('#controller1').prop('checked') == false){
-                                    $onbuz = shell_exec("/usr/local/bin/gpio -g write 21 1");
-                                    $gpio_buzzer = shell_exec($onbuz);
-                                }
+                                
+                                 //Turn Off Buzzer
+                                obj = "off-buzz";
+                                $.ajax({
+                                    type: "GET",
+                                    url: '../app/GPIO/buzzer.php',
+                                    data: obj,
+                                    success: function (newdata) {
+                                                // alert('Green Light');
+                                                console.log('Execution was OK');
+                                    },
+                                    error: function (request, textStatus, errorThrown) {
+                                        bootbox.alert("AJAX error: " + request.statusText);
+                                    }
+                                });
+
                                 $('#contStatus2').text('Status: '+'Start');
-                                $('#controller1').prop('checked',false);
-                                // $('#AlertModal').modal('show');
+                                
                                 //location.reload();
                             }
                     });
@@ -325,7 +402,9 @@
                     //check Box controller3
                     var c3_DayDiff = <?php echo 7-$c3_daydiff; ?>; 
                     var c3_controller = <?php echo $c3_timerVal; ?>;
-                    timer2 = new _timer2(function (time) {
+                    timer2 = new _timer2(function (time) { 
+                            if (time == 0) {
+                                //Turn Off Led
                                 obj = "off-controller3";
                                 $.ajax({
                                     type: "GET",
@@ -339,19 +418,43 @@
                                         bootbox.alert("AJAX error: " + request.statusText);
                                     }
                                 });
-                            if (time == 0) {
+
+                                //Turn On Buzzer
+                                obj = "on-buzz";
+                                $.ajax({
+                                    type: "GET",
+                                    url: '../app/GPIO/buzzer.php',
+                                    data: obj,
+                                    success: function (newdata) {
+                                                // alert('Green Light');
+                                                console.log('Execution was OK');
+                                    },
+                                    error: function (request, textStatus, errorThrown) {
+                                        bootbox.alert("AJAX error: " + request.statusText);
+                                    }
+                                });
+
                                 timer2.stop();
                                 alert('Box 3 ready to be harvest !');
-                                $onbuz = shell_exec("/usr/local/bin/gpio -g write 21 0");
-                                $gpio_buzzer = shell_exec($onbuz);
                                 $('#controller2').prop('checked',false);
-                                if($('#controller2').prop('checked') == false){
-                                    $onbuz = shell_exec("/usr/local/bin/gpio -g write 21 1");
-                                    $gpio_buzzer = shell_exec($onbuz);
-                                }
                                 
+                                //Turn Off Buzzer
+                                obj = "off-buzz";
+                                $.ajax({
+                                    type: "GET",
+                                    url: '../app/GPIO/buzzer.php',
+                                    data: obj,
+                                    success: function (newdata) {
+                                                // alert('Green Light');
+                                                console.log('Execution was OK');
+                                    },
+                                    error: function (request, textStatus, errorThrown) {
+                                        bootbox.alert("AJAX error: " + request.statusText);
+                                    }
+                                });
+
                                 $('#contStatus3').text('Status: '+'Start');
-                                // alert('Code Expired');
+                                
                                 //location.reload();
                             }
                     });
@@ -369,7 +472,10 @@
                     //Check Box Controller 4
                     var c4_DayDiff = <?php echo 7-$c4_daydiff; ?>; 
                     var c4_controller = <?php echo $c4_timerVal; ?>;
-                    timer3 = new _timer3(function (time) {
+                    timer3 = new _timer3(function (time) {                                
+                            if (time == 0) {
+
+                                //Turn LEd Off
                                 obj = "off-controller4";
                                 $.ajax({
                                     type: "GET",
@@ -383,17 +489,41 @@
                                         bootbox.alert("AJAX error: " + request.statusText);
                                     }
                                 });
-                            if (time == 0) {
+
+                                //Turn On Buzzer
+                                obj = "on-buzz";
+                                $.ajax({
+                                    type: "GET",
+                                    url: '../app/GPIO/buzzer.php',
+                                    data: obj,
+                                    success: function (newdata) {
+                                                // alert('Green Light');
+                                                console.log('Execution was OK');
+                                    },
+                                    error: function (request, textStatus, errorThrown) {
+                                        bootbox.alert("AJAX error: " + request.statusText);
+                                    }
+                                });
+
                                 timer_c4.stop();
-                                $onbuz = shell_exec("/usr/local/bin/gpio -g write 21 0");
-                                $gpio_buzzer = shell_exec($onbuz);
                                 alert('Box 4 ready to be harvest !');
-                                $('#controller3').prop('checked',true);
-                                if($('#controller3').prop('checked') == false){
-                                    $onbuz = shell_exec("/usr/local/bin/gpio -g write 21 1");
-                                    $gpio_buzzer = shell_exec($onbuz);
-                                }
-                                
+                                $('#controller3').prop('checked',false);
+                               
+                                //Turn Off Buzzer
+                                obj = "off-buzz";
+                                $.ajax({
+                                    type: "GET",
+                                    url: '../app/GPIO/buzzer.php',
+                                    data: obj,
+                                    success: function (newdata) {
+                                                // alert('Green Light');
+                                                console.log('Execution was OK');
+                                    },
+                                    error: function (request, textStatus, errorThrown) {
+                                        bootbox.alert("AJAX error: " + request.statusText);
+                                    }
+                                });
+
                                 $('#contStatus4').text('Status: '+'Start');
                                 
                                 //location.reload();
@@ -415,6 +545,8 @@
                     var c5_controller = <?php echo $c5_timerVal; ?>;
                     timer4 = new _timer4(function (time) {
                             if (time == 0) {
+
+                                //Turn LED off
                                 obj = "off-controller5";
                                 $.ajax({
                                     type: "GET",
@@ -428,17 +560,43 @@
                                         bootbox.alert("AJAX error: " + request.statusText);
                                     }
                                 });
-                                timer4.stop();
-                                $onbuz = shell_exec("/usr/local/bin/gpio -g write 21 0");
-                                $gpio_buzzer = shell_exec($onbuz);
+
+                                //Turn On Buzzer
+                                obj = "on-buzz";
+                                $.ajax({
+                                    type: "GET",
+                                    url: '../app/GPIO/buzzer.php',
+                                    data: obj,
+                                    success: function (newdata) {
+                                                // alert('Green Light');
+                                                console.log('Execution was OK');
+                                    },
+                                    error: function (request, textStatus, errorThrown) {
+                                        bootbox.alert("AJAX error: " + request.statusText);
+                                    }
+                                });
+
+                                timer4.stop();                              
                                 alert('Box 5 ready to be harvest !');
                                 $('#controller4').prop('checked',false);
-                                if($('#controller4').prop('checked') == false){
-                                    $onbuz = shell_exec("/usr/local/bin/gpio -g write 21 1");
-                                    $gpio_buzzer = shell_exec($onbuz);
-                                }
+                               
+                               //Turn Off Buzzer
+                                obj = "off-buzz";
+                                $.ajax({
+                                    type: "GET",
+                                    url: '../app/GPIO/buzzer.php',
+                                    data: obj,
+                                    success: function (newdata) {
+                                                // alert('Green Light');
+                                                console.log('Execution was OK');
+                                    },
+                                    error: function (request, textStatus, errorThrown) {
+                                        bootbox.alert("AJAX error: " + request.statusText);
+                                    }
+                                });
+
                                 $('#contStatus5').text('Status: '+'Start');
-                                // alert('Code Expired');
+                                
                                 //location.reload();
                             }
                     });
@@ -458,6 +616,7 @@
                     var c6_controller = <?php echo $c6_timerVal; ?>;
                     timer5 = new _timer5(function (time) {
                             if (time == 0) {
+                                //Turn LED Off
                                 obj = "off-controller6";
                                 $.ajax({
                                     type: "GET",
@@ -471,16 +630,42 @@
                                         bootbox.alert("AJAX error: " + request.statusText);
                                     }
                                 });
+
+                                //Turn On Buzzer
+                                obj = "on-buzz";
+                                $.ajax({
+                                    type: "GET",
+                                    url: '../app/GPIO/buzzer.php',
+                                    data: obj,
+                                    success: function (newdata) {
+                                                // alert('Green Light');
+                                                console.log('Execution was OK');
+                                    },
+                                    error: function (request, textStatus, errorThrown) {
+                                        bootbox.alert("AJAX error: " + request.statusText);
+                                    }
+                                });
+
                                 timer5.stop();
-                                $onbuz = shell_exec("/usr/local/bin/gpio -g write 21 0");
-                                $gpio_buzzer = shell_exec($onbuz);
-                                $('#controller5').prop('checked',true);
-                                if($('#controller6').prop('checked') == false){
-                                    $onbuz = shell_exec("/usr/local/bin/gpio -g write 21 1");
-                                    $gpio_buzzer = shell_exec($onbuz);
-                                }
+                                alert('Box 6 ready to be harvest !');                              
+                                $('#controller5').prop('checked',false);
+                               
+                                 //Turn Off Buzzer
+                                obj = "off-buzz";
+                                $.ajax({
+                                    type: "GET",
+                                    url: '../app/GPIO/buzzer.php',
+                                    data: obj,
+                                    success: function (newdata) {
+                                                // alert('Green Light');
+                                                console.log('Execution was OK');
+                                    },
+                                    error: function (request, textStatus, errorThrown) {
+                                        bootbox.alert("AJAX error: " + request.statusText);
+                                    }
+                                });
                                 $('#contStatus6').text('Status: '+'Start');
-                                alert('Box 6 ready to be harvest !');
+                                
                                 // alert('Code Expired');
                                 //location.reload();
                             }
@@ -501,6 +686,7 @@
                     var c7_controller = <?php echo $c7_timerVal; ?>;
                     timer6 = new _timer6(function (time) {
                             if (time == 0) {
+                                //Turn Led off
                                 obj = "off-controller7";
                                 $.ajax({
                                     type: "GET",
@@ -514,17 +700,42 @@
                                         bootbox.alert("AJAX error: " + request.statusText);
                                     }
                                 });
+
+                                 //Turn On Buzzer
+                                obj = "on-buzz";
+                                $.ajax({
+                                    type: "GET",
+                                    url: '../app/GPIO/buzzer.php',
+                                    data: obj,
+                                    success: function (newdata) {
+                                                // alert('Green Light');
+                                                console.log('Execution was OK');
+                                    },
+                                    error: function (request, textStatus, errorThrown) {
+                                        bootbox.alert("AJAX error: " + request.statusText);
+                                    }
+                                });
+
                                 timer_c7.stop();
-                                $onbuz = shell_exec("/usr/local/bin/gpio -g write 21 0");
-                                $gpio_buzzer = shell_exec($onbuz);
                                 alert('Box 7 ready to be harvest !');
-                                $('#controller6').prop('checked',true);
-                                if($('#controller6').prop('checked') == false){
-                                    $onbuz = shell_exec("/usr/local/bin/gpio -g write 21 1");
-                                    $gpio_buzzer = shell_exec($onbuz);
-                                }
+                                $('#controller6').prop('checked',false);
+                                
+                                //Turn Off Buzzer
+                                obj = "off-buzz";
+                                $.ajax({
+                                    type: "GET",
+                                    url: '../app/GPIO/buzzer.php',
+                                    data: obj,
+                                    success: function (newdata) {
+                                                // alert('Green Light');
+                                                console.log('Execution was OK');
+                                    },
+                                    error: function (request, textStatus, errorThrown) {
+                                        bootbox.alert("AJAX error: " + request.statusText);
+                                    }
+                                });
                                 $('#contStatus7').text('Status: '+'Start');
-                                // alert('Code Expired');
+                                
                                 //location.reload();
                             }
                         });
@@ -566,8 +777,8 @@
                         if($(this).prop('checked') == true)
                         {
 
-                        //day = 86400(s)
-                        //7 days = 604800
+                            //day = 86400(s)
+                            //7 days = 604800
                             $('#contStatus1').text('Status: '+'On going');
                             timer.reset(604800);
                             timer.mode(0);

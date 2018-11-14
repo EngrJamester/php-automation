@@ -76,28 +76,28 @@
          $c3_timerVal = $c3_daydiff_total * 86400;
 
         //controller4
-         $c4_interval = $dateNow->diff($c3_datetime);
+         $c4_interval = $dateNow->diff($c4_datetime);
         //  $c4_datediff = $c4_interval->format('%d days');
          $c4_daydiff = $c4_interval->format('%d');
          $c4_daydiff_total = 7- $c4_daydiff;
          $c4_timerVal = $c4_daydiff_total * 86400;
 
         //controller5
-         $c5_interval = $dateNow->diff($c3_datetime);
+         $c5_interval = $dateNow->diff($c5_datetime);
         //  $datediff=$c5_interval->format('%d days');
          $c5_daydiff = $c5_interval->format('%d');
          $c5_daydiff_total = 7- $c5_daydiff;
          $c5_timerVal = $c5_daydiff_total * 86400;
 
         //controller6
-         $c6_interval = $dateNow->diff($c3_datetime);
+         $c6_interval = $dateNow->diff($c6_datetime);
         //  $c6_datediff = $c6_interval->format('%d days');
          $c6_daydiff = $c6_interval->format('%d');
          $c6_daydiff_total = 7- $c6_daydiff;
          $c6_timerVal = $c6_daydiff_total * 86400;
 
         //controller7
-         $c7_interval = $dateNow->diff($c3_datetime);
+         $c7_interval = $dateNow->diff($c7_datetime);
         //  $datediff=$c7_interval->format('%d days');
          $c7_daydiff = $c7_interval->format('%d');
          $c7_daydiff_total = 7- $c7_daydiff;
