@@ -1206,7 +1206,7 @@
                                 //$('div.timer span.minute').html(minute);
                                 //$('div.timer span.hour').html(hour);
 
-                                $('#timer').html('<span><strong> Remaining Days :  </strong >' +days+'day(s):'+hour+'hr(s)'+second+'</span >');
+                                $('#timer').html('<span><strong> Remaining Days :  </strong >' +days+'day(s):'+hour+'hr(s)</span >');
                                 // $('#timer').html('<span><strong> Remaining Days :  </strong >' +days+'day(s)'+hour+'hr(s):'+minute+'min(s)'+second+'sec(s)</span >');
                             
                             }
