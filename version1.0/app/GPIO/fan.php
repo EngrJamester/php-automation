@@ -13,10 +13,10 @@
             }      
 
             if(isset($_GET['on-fan2'])){
-                $OnFan = shell_exec("/usr/local/bin/gpio -g write 20 0");
+                $OnFan = shell_exec("/usr/local/bin/gpio -g write 12 0");
                 $gpio_OnFan = shell_exec($OnFan);
             }else if(isset($_GET['off-fan2'])){
-                $off_fan = shell_exec("/usr/local/bin/gpio -g write 20 1");
+                $off_fan = shell_exec("/usr/local/bin/gpio -g write 12 1");
                 $gpio_off_fan = shell_exec($off_fan);
             }
 

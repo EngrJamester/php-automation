@@ -115,7 +115,7 @@
                                     if(parseInt(temp.thres) <= parseInt(temp.temp))
                                     {
                                         $('#fan'+temp.id).text('Fan: '+'On');
-                                        if(parseInt(temp.id) == 1 || parseInt(temp.thres) == 2){
+                                        if(parseInt(temp.id) == 1 || parseInt(temp.id) == 2){
                                             var obj_fan = new Object();
                                             obj_fan = "on-fan1";
             
@@ -131,7 +131,7 @@
                                                 }
                                             });
                                         }
-                                        if(parseInt(temp.id) == 3 || parseInt(temp.thres) == 4){
+                                        if(parseInt(temp.id) == 3 || parseInt(temp.id) == 4){
                                             var obj_fan = new Object();
                                             obj_fan = "on-fan2";
             
@@ -147,7 +147,7 @@
                                                 }
                                             });
                                         }
-                                        if(parseInt(temp.id) == 5 || parseInt(temp.thres) == 6 || parseInt(temp.thres) == 7){
+                                        if(parseInt(temp.id) == 5 || parseInt(temp.id) == 6 || parseInt(temp.id) == 7){
                                             var obj_fan = new Object();
                                             obj_fan = "on-fan3";
             
