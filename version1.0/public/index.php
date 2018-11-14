@@ -112,110 +112,110 @@
                             success : function(data){
                                 
                                 $.each(data.data,function(index,temp){
-                                    if(parseInt(temp.thres) <= parseInt(temp.temp))
-                                    {
-                                        $('#fan'+temp.id).text('Fan: '+'On');
-                                        if(parseInt(temp.id) == 1 || parseInt(temp.id) == 2){
-                                            var obj_fan = new Object();
-                                            obj_fan = "on-fan1";
+                                    // if(parseInt(temp.thres) <= parseInt(temp.temp))
+                                    // {
+                                    //     $('#fan'+temp.id).text('Fan: '+'On');
+                                    //     if(parseInt(temp.id) == 1 || parseInt(temp.id) == 2){
+                                    //         var obj_fan = new Object();
+                                    //         obj_fan = "on-fan1";
             
-                                            $.ajax({
-                                                type: "GET",
-                                                url: '../app/GPIO/fan.php',
-                                                data: obj_fan,
-                                                success: function (newdata) {
-                                                    console.log('Send Fan 1 & 2 instruction');
-                                                },
-                                                error: function (request, textStatus, errorThrown) {
-                                                    // bootbox.alert("AJAX error: " + request.statusText);
-                                                    console.log("Fan 1 & 2 AJAX error: " + request.statusText);
-                                                }
-                                            });
-                                        }
-                                        if(parseInt(temp.id) == 3 || parseInt(temp.id) == 4){
-                                            var obj_fan = new Object();
-                                            obj_fan = "on-fan2";
+                                    //         $.ajax({
+                                    //             type: "GET",
+                                    //             url: '../app/GPIO/fan.php',
+                                    //             data: obj_fan,
+                                    //             success: function (newdata) {
+                                    //                 console.log('Send Fan 1 & 2 instruction');
+                                    //             },
+                                    //             error: function (request, textStatus, errorThrown) {
+                                    //                 // bootbox.alert("AJAX error: " + request.statusText);
+                                    //                 console.log("Fan 1 & 2 AJAX error: " + request.statusText);
+                                    //             }
+                                    //         });
+                                    //     }
+                                    //     if(parseInt(temp.id) == 3 || parseInt(temp.id) == 4){
+                                    //         var obj_fan = new Object();
+                                    //         obj_fan = "on-fan2";
             
-                                            $.ajax({
-                                                type: "GET",
-                                                url: '../app/GPIO/fan.php',
-                                                data: obj_fan,
-                                                success: function (newdata) {
-                                                    console.log('Send Fan 3 & 4 instruction');
-                                                },
-                                                error: function (request, textStatus, errorThrown) {
-                                                    // bootbox.alert("AJAX error: " + request.statusText);
-                                                    console.log("Fan 3 & 4 AJAX error: " + request.statusText);
-                                                }
-                                            });
-                                        }
-                                        if(parseInt(temp.id) == 5 || parseInt(temp.id) == 6 || parseInt(temp.id) == 7){
-                                            var obj_fan = new Object();
-                                            obj_fan = "on-fan3";
+                                    //         $.ajax({
+                                    //             type: "GET",
+                                    //             url: '../app/GPIO/fan.php',
+                                    //             data: obj_fan,
+                                    //             success: function (newdata) {
+                                    //                 console.log('Send Fan 3 & 4 instruction');
+                                    //             },
+                                    //             error: function (request, textStatus, errorThrown) {
+                                    //                 // bootbox.alert("AJAX error: " + request.statusText);
+                                    //                 console.log("Fan 3 & 4 AJAX error: " + request.statusText);
+                                    //             }
+                                    //         });
+                                    //     }
+                                    //     if(parseInt(temp.id) == 5 || parseInt(temp.id) == 6 || parseInt(temp.id) == 7){
+                                    //         var obj_fan = new Object();
+                                    //         obj_fan = "on-fan3";
             
-                                            $.ajax({
-                                                type: "GET",
-                                                url: '../app/GPIO/fan.php',
-                                                data: obj_fan,
-                                                success: function (newdata) {
-                                                            // alert('FUCK YEAH');
-                                                },
-                                                error: function (request, textStatus, errorThrown) {
-                                                    bootbox.alert("AJAX error: " + request.statusText);
-                                                }
-                                            });
-                                        }
-                                    }else {
-                                        if(parseInt(temp.id) == 1 || parseInt(temp.id) == 2){
-                                            var obj_fan = new Object();
-                                            obj_fan = "off-fan1";
+                                    //         $.ajax({
+                                    //             type: "GET",
+                                    //             url: '../app/GPIO/fan.php',
+                                    //             data: obj_fan,
+                                    //             success: function (newdata) {
+                                    //                         // alert('FUCK YEAH');
+                                    //             },
+                                    //             error: function (request, textStatus, errorThrown) {
+                                    //                 bootbox.alert("AJAX error: " + request.statusText);
+                                    //             }
+                                    //         });
+                                    //     }
+                                    // }else {
+                                    //     if(parseInt(temp.id) == 1 || parseInt(temp.id) == 2){
+                                    //         var obj_fan = new Object();
+                                    //         obj_fan = "off-fan1";
             
-                                            $.ajax({
-                                                type: "GET",
-                                                url: '../app/GPIO/fan.php',
-                                                data: obj_fan,
-                                                success: function (newdata) {
-                                                            // alert('FUCK YEAH');
-                                                },
-                                                error: function (request, textStatus, errorThrown) {
-                                                    // bootbox.alert("AJAX error: " + request.statusText);
-                                                }
-                                            });
-                                        }
-                                        if(parseInt(temp.id) == 3 || parseInt(temp.id) == 4){
-                                            var obj_fan = new Object();
-                                            obj_fan = "off-fan2";
+                                    //         $.ajax({
+                                    //             type: "GET",
+                                    //             url: '../app/GPIO/fan.php',
+                                    //             data: obj_fan,
+                                    //             success: function (newdata) {
+                                    //                         // alert('FUCK YEAH');
+                                    //             },
+                                    //             error: function (request, textStatus, errorThrown) {
+                                    //                 // bootbox.alert("AJAX error: " + request.statusText);
+                                    //             }
+                                    //         });
+                                    //     }
+                                    //     if(parseInt(temp.id) == 3 || parseInt(temp.id) == 4){
+                                    //         var obj_fan = new Object();
+                                    //         obj_fan = "off-fan2";
             
-                                            $.ajax({
-                                                type: "GET",
-                                                url: '../app/GPIO/fan.php',
-                                                data: obj_fan,
-                                                success: function (newdata) {
-                                                            // alert('FUCK YEAH');
-                                                },
-                                                error: function (request, textStatus, errorThrown) {
-                                                    bootbox.alert("AJAX error: " + request.statusText);
-                                                }
-                                            });
-                                        }
-                                        if(parseInt(temp.id) == 5 || parseInt(temp.id) == 6 || parseInt(temp.id) == 7){
-                                            var obj_fan = new Object();
-                                            obj_fan = "off-fan3";
+                                    //         $.ajax({
+                                    //             type: "GET",
+                                    //             url: '../app/GPIO/fan.php',
+                                    //             data: obj_fan,
+                                    //             success: function (newdata) {
+                                    //                         // alert('FUCK YEAH');
+                                    //             },
+                                    //             error: function (request, textStatus, errorThrown) {
+                                    //                 bootbox.alert("AJAX error: " + request.statusText);
+                                    //             }
+                                    //         });
+                                    //     }
+                                    //     if(parseInt(temp.id) == 5 || parseInt(temp.id) == 6 || parseInt(temp.id) == 7){
+                                    //         var obj_fan = new Object();
+                                    //         obj_fan = "off-fan3";
             
-                                            $.ajax({
-                                                type: "GET",
-                                                url: '../app/GPIO/fan.php',
-                                                data: obj_fan,
-                                                success: function (newdata) {
-                                                            // alert('FUCK YEAH');
-                                                },
-                                                error: function (request, textStatus, errorThrown) {
-                                                    bootbox.alert("AJAX error: " + request.statusText);
-                                                }
-                                            });
-                                        }
-                                        $('#fan'+temp.id).text('Fan: '+'Off');
-                                    }
+                                    //         $.ajax({
+                                    //             type: "GET",
+                                    //             url: '../app/GPIO/fan.php',
+                                    //             data: obj_fan,
+                                    //             success: function (newdata) {
+                                    //                         // alert('FUCK YEAH');
+                                    //             },
+                                    //             error: function (request, textStatus, errorThrown) {
+                                    //                 bootbox.alert("AJAX error: " + request.statusText);
+                                    //             }
+                                    //         });
+                                    //     }
+                                    //     $('#fan'+temp.id).text('Fan: '+'Off');
+                                    // }
                                     $('#temp'+temp.id).text('Temperature: '+temp.temp).append('&deg;C');
                                     $('#humid'+temp.id).text('Humidity: '+temp.humid+'%');
                                     
