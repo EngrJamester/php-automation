@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
             
             <!-- <a class="navbar-brand" href="index.php">Php&RaspBerryPi</a> -->
-            <a class="navbar-brand" href="index.php">Permentation Monitoring System</a>
+            <a class="navbar-brand" href="index.php">Fermentation Monitoring System</a>
              <button class="navbar-toggler navbar-toggler-right" 
                      type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>

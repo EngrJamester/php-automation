@@ -47,7 +47,7 @@
                                   <!-- <input type="checkbox" id="controller" name="time_left" value="yes"checked data-toggle="toggle" data-onstyle="success" data-offstyle="danger"> -->
                                   <label class="switch">
                                     <input type="checkbox" id="controller">
-                                    <span class="slider2 round" data-on="start" data-off="stop"></span>
+                                    <span class="slider round" data-on="start" data-off="stop"></span>
                                   </label>
                                   
                               </form>
@@ -73,7 +73,7 @@
                           <!-- <input type="checkbox" id="controller1" checked data-toggle="toggle" data-onstyle="success" data-offstyle="danger"> -->
                             <label class="switch">
                                     <input type="checkbox" id="controller1">
-                                    <span class="slider2 round" ></span>
+                                    <span class="slider round" ></span>
                             </label>
                           </form>
                           <label id="contStatus2">Status: Start</label>
@@ -100,7 +100,7 @@
                              <!-- <input type="checkbox" id="controller2" checked data-toggle="toggle" data-onstyle="success" data-offstyle="danger"> -->
                              <label class="switch">
                                     <input type="checkbox" id="controller2">
-                                    <span class="slider2 round" ></span>
+                                    <span class="slider round" ></span>
                              </label>
                           </form>
                           <label id="contStatus3">Status: Start</label>
@@ -126,7 +126,7 @@
                           <!-- <input type="checkbox" id="controller3" checked data-toggle="toggle" data-onstyle="success" data-offstyle="danger"> -->
                               <label class="switch">
                                     <input type="checkbox" id="controller3">
-                                    <span class="slider2 round" ></span>
+                                    <span class="slider round" ></span>
                               </label>
                           </form>
                           <label id="contStatus4">Status: Start</label>
@@ -152,7 +152,7 @@
                              <!-- <input type="checkbox" id="controller4" checked data-toggle="toggle" data-onstyle="success" data-offstyle="danger"> -->
                              <label class="switch">
                                     <input type="checkbox" id="controller4">
-                                    <span class="slider2 round" ></span>
+                                    <span class="slider round" ></span>
                              </label>
                           </form>
                           <label id="contStatus5">Status: Start</label>
@@ -179,7 +179,7 @@
                               <!-- <input type="checkbox" id="controller5" checked data-toggle="toggle" data-onstyle="success" data-offstyle="danger"> -->
                               <label class="switch">
                                     <input type="checkbox" id="controller5">
-                                    <span class="slider2 round" ></span>
+                                    <span class="slider round" ></span>
                               </label>
                           </form>
                           
@@ -205,7 +205,7 @@
                           <!-- <input type="checkbox" id="controller6" checked data-toggle="toggle" data-onstyle="success" data-offstyle="danger"> -->
                               <label class="switch">
                                     <input type="checkbox" id="controller6">
-                                    <span class="slider2 round" ></span>
+                                    <span class="slider round" ></span>
                               </label>
                           <form>
                           <label id="contStatus7">Status: Start</label>

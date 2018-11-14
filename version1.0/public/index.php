@@ -258,8 +258,7 @@
                                     error: function (request, textStatus, errorThrown) {
                                         bootbox.alert("AJAX error: " + request.statusText);
                                     }
-                                });
-                                timer.stop();
+                                }); 
 
                                 //Turn On Buzzer
                                 obj = "on-buzz";
@@ -276,6 +275,7 @@
                                     }
                                 });
 
+                                timer.stop();
                                 alert('Box 1 is harvest ready!');
                                 $('#controller').prop('checked',false);
 
@@ -327,8 +327,20 @@
                         timer.mode(0);
                         timer.start(1000);
                     }else{
-                        // $('#AlertModal').modal('show');
-                        alert('Box 1 ready to be harvest !');
+                        // alert('Box 1 ready to be harvest !');
+                        obj = "off-controller1";
+                                $.ajax({
+                                    type: "GET",
+                                    url: '../app/GPIO/light.php',
+                                    data: obj,
+                                    success: function (newdata) {
+                                                // alert('Green Light');
+                                                console.log('Execution was OK');
+                                    },
+                                    error: function (request, textStatus, errorThrown) {
+                                        bootbox.alert("AJAX error: " + request.statusText);
+                                    }
+                                }); 
                     }
 
                     //check Box controller2
@@ -396,7 +408,20 @@
                         timer1.mode(0);
                         timer1.start(1000);
                     }else{
-                        alert('Box 2 ready to be harvest !');
+                        // alert('Box 2 is harvest ready!');
+                        obj = "off-controller2";
+                                $.ajax({
+                                    type: "GET",
+                                    url: '../app/GPIO/light.php',
+                                    data: obj,
+                                    success: function (newdata) {
+                                                // alert('Green Light');
+                                                console.log('Execution was OK');
+                                    },
+                                    error: function (request, textStatus, errorThrown) {
+                                        bootbox.alert("AJAX error: " + request.statusText);
+                                    }
+                                });
                     }
 
                     //check Box controller3
@@ -465,8 +490,20 @@
                         timer2.mode(0);
                         timer2.start(1000);
                     }else{
-                        // $('#AlertModal').modal('show');
-                        alert('Box 3 ready to be harvest !');
+                        // alert('Box 3 ready to be harvest !');
+                        obj = "off-controller3";
+                                $.ajax({
+                                    type: "GET",
+                                    url: '../app/GPIO/light.php',
+                                    data: obj,
+                                    success: function (newdata) {
+                                                // alert('Green Light');
+                                                console.log('Execution was OK');
+                                    },
+                                    error: function (request, textStatus, errorThrown) {
+                                        bootbox.alert("AJAX error: " + request.statusText);
+                                    }
+                                });
                     }
 
                     //Check Box Controller 4
@@ -536,8 +573,21 @@
                         timer3.mode(0);
                         timer3.start(1000);
                     }else{     
-                        // $('#AlertModal').modal('show');
-                        alert('Box 4 ready to be harvest !');
+                        // alert('Box 4 ready to be harvest !');
+                        //Turn LEd Green
+                        obj = "off-controller4";
+                                $.ajax({
+                                    type: "GET",
+                                    url: '../app/GPIO/light.php',
+                                    data: obj,
+                                    success: function (newdata) {
+                                                // alert('Green Light');
+                                                console.log('Execution was OK');
+                                    },
+                                    error: function (request, textStatus, errorThrown) {
+                                        bootbox.alert("AJAX error: " + request.statusText);
+                                    }
+                                });
                     }
 
                     //Check Box Controller 5
@@ -607,8 +657,21 @@
                         timer4.mode(0);
                         timer4.start(1000);
                     }else{
-                        // $('#AlertModal').modal('show');
-                        alert('Box 5 ready to be harvest !');
+                        // alert('Box 5 ready to be harvest !');
+                        //Turn LED Green
+                                obj = "off-controller5";
+                                $.ajax({
+                                    type: "GET",
+                                    url: '../app/GPIO/light.php',
+                                    data: obj,
+                                    success: function (newdata) {
+                                                // alert('Green Light');
+                                                console.log('Execution was OK');
+                                    },
+                                    error: function (request, textStatus, errorThrown) {
+                                        bootbox.alert("AJAX error: " + request.statusText);
+                                    }
+                                });
                     }
 
                     //Check Controller 6
@@ -677,8 +740,21 @@
                         timer5.mode(0);
                         timer5.start(1000);
                     }else{
-                        // $('#AlertModal').modal('show');
-                        alert('Box 6 ready to be harvest !');
+                        // alert('Box 6 ready to be harvest !');
+                        //Turn LED Off
+                        obj = "off-controller6";
+                                $.ajax({
+                                    type: "GET",
+                                    url: '../app/GPIO/light.php',
+                                    data: obj,
+                                    success: function (newdata) {
+                                                // alert('Green Light');
+                                                console.log('Execution was OK');
+                                    },
+                                    error: function (request, textStatus, errorThrown) {
+                                        bootbox.alert("AJAX error: " + request.statusText);
+                                    }
+                                });
                     }
 
                     // Check Controller 7
@@ -746,7 +822,21 @@
                         timer6.mode(0);
                         timer6.start(1000);
                     }else{
-                        alert('Box 7 ready to be harvest !');
+                        // alert('Box 7 ready to be harvest !');
+                         //Turn Led off
+                         obj = "off-controller7";
+                                $.ajax({
+                                    type: "GET",
+                                    url: '../app/GPIO/light.php',
+                                    data: obj,
+                                    success: function (newdata) {
+                                                // alert('Green Light');
+                                                console.log('Execution was OK');
+                                    },
+                                    error: function (request, textStatus, errorThrown) {
+                                        bootbox.alert("AJAX error: " + request.statusText);
+                                    }
+                                });
                     }
                 
                     

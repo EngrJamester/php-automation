@@ -18,8 +18,8 @@
 
     if(isset($_GET['on-controller1'])){
         $name="controller1";
-        $perment_status = 1;
-        require_once $_SERVER['DOCUMENT_ROOT'].'/php-automation/version1.0/app/classes/permentstatus.php';
+        $ferment_status = 1;
+        // require_once $_SERVER['DOCUMENT_ROOT'].'/php-automation/version1.0/app/classes/permentstatus.php';
         require_once $_SERVER['DOCUMENT_ROOT'].'/php-automation/version1.0/app/classes/savetimer.php';
 
 		//This is to turn LED Red On
@@ -32,10 +32,10 @@
     }
     else if(isset($_GET['off-controller1'])){
         $name="controller1";
-        $perment_status = 0;
+        $ferment_status = 0;
         // echo "<script type='text/javascript'>console.log('This was executed');</script>";
         require_once $_SERVER['DOCUMENT_ROOT'].'/php-automation/version1.0/app/classes/savetimer.php';
-        require_once $_SERVER['DOCUMENT_ROOT'].'/php-automation/version1.0/app/classes/permentstatus.php';
+        // require_once $_SERVER['DOCUMENT_ROOT'].'/php-automation/version1.0/app/classes/permentstatus.php';
 
 		//This is to turn GREEN  On
         $onred = shell_exec("/usr/local/bin/gpio -g write 17 0");
@@ -54,7 +54,7 @@
 
     if(isset($_GET['on-controller2'])){
         $name="controller2";
-        // $perment_status = 1;
+        $ferment_status = 1;
         // require_once $_SERVER['DOCUMENT_ROOT'].'/php-automation/version1.0/app/classes/permentstatus.php';
         require_once $_SERVER['DOCUMENT_ROOT'].'/php-automation/version1.0/app/classes/savetimer.php';
         
@@ -67,7 +67,7 @@
         
     }else if(isset($_GET['off-controller2'])){
         $name="controller2";
-        // $perment_status = 0;
+        $ferment_status = 0;
         // require_once $_SERVER['DOCUMENT_ROOT'].'/php-automation/version1.0/app/classes/permentstatus.php';
         require_once $_SERVER['DOCUMENT_ROOT'].'/php-automation/version1.0/app/classes/savetimer.php';
         
@@ -81,8 +81,8 @@
 
     if(isset($_GET['on-controller3'])){
         $name="controller3";
-        $perment_status = 1;
-        require_once $_SERVER['DOCUMENT_ROOT'].'/php-automation/version1.0/app/classes/permentstatus.php';
+        $ferment_status = 1;
+        // require_once $_SERVER['DOCUMENT_ROOT'].'/php-automation/version1.0/app/classes/permentstatus.php';
         require_once $_SERVER['DOCUMENT_ROOT'].'/php-automation/version1.0/app/classes/savetimer.php';
 
         //This is to turn LED Red On
@@ -94,8 +94,8 @@
 
     }else if(isset($_GET['off-controller3'])){
         $name="controller3";
-        $perment_status = 0;
-        require_once $_SERVER['DOCUMENT_ROOT'].'/php-automation/version1.0/app/classes/permentstatus.php';
+        $ferment_status = 0;
+        // require_once $_SERVER['DOCUMENT_ROOT'].'/php-automation/version1.0/app/classes/permentstatus.php';
         require_once $_SERVER['DOCUMENT_ROOT'].'/php-automation/version1.0/app/classes/savetimer.php';
 
         //This is to turn LED GREEN On
@@ -114,11 +114,11 @@
 
     if(isset($_GET['on-controller4'])){
         $name="controller4";
-        $perment_status = 1;
-        require_once $_SERVER['DOCUMENT_ROOT'].'/php-automation/version1.0/app/classes/permentstatus.php';
+        $ferment_status = 1;
+        // require_once $_SERVER['DOCUMENT_ROOT'].'/php-automation/version1.0/app/classes/permentstatus.php';
         require_once $_SERVER['DOCUMENT_ROOT'].'/php-automation/version1.0/app/classes/savetimer.php';
 	
-	//This is to turn LED Red On
+	    //This is to turn LED Red On
         $onred = shell_exec("/usr/local/bin/gpio -g write 0 1");
         $gpio_onred = shell_exec($onred);
         $offgreen = shell_exec("/usr/local/bin/gpio -g write 1 0");
@@ -127,11 +127,11 @@
 
     }else if(isset($_GET['off-controller4'])){
         $name="controller4";
-        $perment_status = 0;
-        require_once $_SERVER['DOCUMENT_ROOT'].'/php-automation/version1.0/app/classes/permentstatus.php';
+        $ferment_status = 0;
+        // require_once $_SERVER['DOCUMENT_ROOT'].'/php-automation/version1.0/app/classes/permentstatus.php';
         require_once $_SERVER['DOCUMENT_ROOT'].'/php-automation/version1.0/app/classes/savetimer.php';
 
-	//This is to turn LED Green On
+	    //This is to turn LED Green On
         $onred = shell_exec("/usr/local/bin/gpio -g write 1 1");
         $gpio_onred = shell_exec($onred);
         $offgreen = shell_exec("/usr/local/bin/gpio -g write 0 0");
@@ -147,11 +147,11 @@
 
     if(isset($_GET['on-controller5'])){
         $name="controller5";
-        // $perment_status = 1;
+        $ferment_status = 1;
         // require_once $_SERVER['DOCUMENT_ROOT'].'/php-automation/version1.0/app/classes/permentstatus.php';
         require_once $_SERVER['DOCUMENT_ROOT'].'/php-automation/version1.0/app/classes/savetimer.php';
 
-	//This is to turn LED Red On
+	    //This is to turn LED Red On
         $onred = shell_exec("/usr/local/bin/gpio -g write 5 1");
         $gpio_onred = shell_exec($onred);
         $offgreen = shell_exec("/usr/local/bin/gpio -g write 6 0");
@@ -160,11 +160,11 @@
 
     }else if(isset($_GET['off-controller5'])){
         $name="controller5";
-        // $perment_status = 0;
+        $ferment_status = 0;
         // require_once $_SERVER['DOCUMENT_ROOT'].'/php-automation/version1.0/app/classes/permentstatus.php';
         require_once $_SERVER['DOCUMENT_ROOT'].'/php-automation/version1.0/app/classes/savetimer.php';
 
-	//This is to turn LED GREEN On
+	    //This is to turn LED GREEN On
         $onred = shell_exec("/usr/local/bin/gpio -g write 6 1");
         $gpio_onred = shell_exec($onred);
         $offgreen = shell_exec("/usr/local/bin/gpio -g write 5 0");
@@ -180,11 +180,11 @@
 
     if(isset($_GET['on-controller6'])){
         $name="controller6";
-        // $perment_status = 1;
+        $ferment_status = 1;
         // require_once $_SERVER['DOCUMENT_ROOT'].'/php-automation/version1.0/app/classes/permentstatus.php';
         require_once $_SERVER['DOCUMENT_ROOT'].'/php-automation/version1.0/app/classes/savetimer.php';
 
-	//This is to turn LED Red On
+	    //This is to turn LED Red On
         $onred = shell_exec("/usr/local/bin/gpio -g write 13 1");
         $gpio_onred = shell_exec($onred);
         $offgreen = shell_exec("/usr/local/bin/gpio -g write 19 0");
@@ -193,11 +193,11 @@
 
     }else if(isset($_GET['off-controller6'])){
         $name="controller6";
-        // $perment_status = 0;
+        $ferment_status = 0;
         // require_once $_SERVER['DOCUMENT_ROOT'].'/php-automation/version1.0/app/classes/permentstatus.php';
         require_once $_SERVER['DOCUMENT_ROOT'].'/php-automation/version1.0/app/classes/savetimer.php';
 
-	//This is to turn LED Red On
+	    //This is to turn LED Red On
         $onred = shell_exec("/usr/local/bin/gpio -g write 19 1");
         $gpio_onred = shell_exec($onred);
         $offgreen = shell_exec("/usr/local/bin/gpio -g write 13 0");
@@ -214,11 +214,11 @@
 
     if(isset($_GET['on-controller7'])){
         $name="controller7";
-        // $perment_status = 1;
+        $ferment_status = 1;
         // require_once $_SERVER['DOCUMENT_ROOT'].'/php-automation/version1.0/app/classes/permentstatus.php';
         require_once $_SERVER['DOCUMENT_ROOT'].'/php-automation/version1.0/app/classes/savetimer.php';
 	
-	//This is to turn LED Red On
+	    //This is to turn LED Red On
         $onred = shell_exec("/usr/local/bin/gpio -g write 26 1");
         $gpio_onred = shell_exec($onred);
         $offgreen = shell_exec("/usr/local/bin/gpio -g write 20 0");
@@ -227,11 +227,11 @@
 
     }else if(isset($_GET['off-controller7'])){
         $name="controller7";
-        // $perment_status = 0;
+        $ferment_status = 0;
         // require_once $_SERVER['DOCUMENT_ROOT'].'/php-automation/version1.0/app/classes/permentstatus.php';
         require_once $_SERVER['DOCUMENT_ROOT'].'/php-automation/version1.0/app/classes/savetimer.php';
 
-	//This is to turn LED Red On
+	    //This is to turn LED Red On
         $onred = shell_exec("/usr/local/bin/gpio -g write 20 1");
         $gpio_onred = shell_exec($onred);
         $offgreen = shell_exec("/usr/local/bin/gpio -g write 26 0");

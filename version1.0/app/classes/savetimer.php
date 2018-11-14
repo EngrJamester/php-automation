@@ -8,8 +8,13 @@
     
         $db = mysqli_connect( $server,$user_name,$password, $database);
          $currDate = date("Y-m-d");
+         if($ferment_status == 1){
                 $query = "UPDATE controllers set time_left='$currDate' where name='$name'";
+         }else if($ferment_status == 0){
+                $query = "UPDATE controllers set time_left='2000-01-01' where name='$name'";
+         }
+                
 
-                $result = mysqli_query($db, $query);     
+        $result = mysqli_query($db, $query);     
 
 ?>
