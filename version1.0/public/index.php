@@ -37,7 +37,7 @@
 <body class="fixed-nav sticky-footer bg-dark" id="page-top" >
     <?php 
             $status = "";
-            include('../app/GPIO/light.php');
+            // include('../app/GPIO/light.php');
             include('../app/common/status-modal.php');
             require_once('../routes.php');
             include('../app/classes/tempandhumidity.php');
@@ -542,8 +542,8 @@
                                     }
                                 });
 
-                                timer_c4.stop();
-                                alert('Box 4 ready to be harvest !');
+                                timer3.stop();
+                                alert('Box 4 ready to be harvest!');
                                 $('#controller3').prop('checked',false);
                                
                                 //Turn Off Buzzer
@@ -792,7 +792,7 @@
                                     }
                                 });
 
-                                timer_c7.stop();
+                                timer6.stop();
                                 alert('Box 7 ready to be harvest !');
                                 $('#controller6').prop('checked',false);
                                 
