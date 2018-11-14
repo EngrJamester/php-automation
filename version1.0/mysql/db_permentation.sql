@@ -53,7 +53,7 @@ select time_left,threshold,temperature from controllers;
 
 select * from controllers;	
 
-update controllers set time_left='2018-11-04' ;
+update controllers set time_left='2018-11-14' where id=1;
 update controllers set threshold='100';
 SET SQL_SAFE_UPDATES=0;
 

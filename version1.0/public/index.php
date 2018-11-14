@@ -37,7 +37,7 @@
 <body class="fixed-nav sticky-footer bg-dark" id="page-top" >
     <?php 
             $status = "";
-            // include('../app/GPIO/light.php');
+            include('../app/GPIO/light.php');
             include('../app/common/status-modal.php');
             require_once('../routes.php');
             include('../app/classes/tempandhumidity.php');
@@ -60,14 +60,14 @@
     <!-- Core plugin JavaScript-->
     <script src="../styles/vendor/jquery-easing/jquery.easing.min.js"></script>
     <!-- Page level plugin JavaScript-->
-    <script src="../styles/vendor/chart.js/Chart.min.js"></script>
+    <!-- <script src="../styles/vendor/chart.js/Chart.min.js"></script> -->
     <script src="../styles/vendor/datatables/jquery.dataTables.js"></script>
     <script src="../styles/vendor/datatables/dataTables.bootstrap4.js"></script>
     <!-- Custom scripts for all pages-->
     <script src="../styles/js/sb-admin.min.js"></script>
     <!-- Custom scripts for this page-->
     <script src="../styles/js/sb-admin-datatables.min.js"></script>
-    <script src="../styles/js/sb-admin-charts.min.js"></script>
+    <!-- <script src="../styles/js/sb-admin-charts.min.js"></script> -->
     <!--p5.js Library-->
     <!-- <script src="../p5.min.js"></script>
     <script src="../addons/p5.dom.min.js"></script>
@@ -92,8 +92,8 @@
             
             
             <?php include('../app/classes/load.php');?>
-            <?php include('../app/classes/session.php');?>
-            var checkLoginStatus = <?php echo $checkLoginStataus; ?>;
+        
+           
 
             // if(checkLoginStatus == 1){ }
 
@@ -124,10 +124,11 @@
                                                 url: '../app/GPIO/fan.php',
                                                 data: obj_fan,
                                                 success: function (newdata) {
-                                                            // alert('FUCK YEAH');
+                                                    console.log('Send Fan 1 & 2 instruction');
                                                 },
                                                 error: function (request, textStatus, errorThrown) {
-                                                    bootbox.alert("AJAX error: " + request.statusText);
+                                                    // bootbox.alert("AJAX error: " + request.statusText);
+                                                    console.log("Fan 1 & 2 AJAX error: " + request.statusText);
                                                 }
                                             });
                                         }
@@ -140,10 +141,11 @@
                                                 url: '../app/GPIO/fan.php',
                                                 data: obj_fan,
                                                 success: function (newdata) {
-                                                            // alert('FUCK YEAH');
+                                                    console.log('Send Fan 3 & 4 instruction');
                                                 },
                                                 error: function (request, textStatus, errorThrown) {
-                                                    bootbox.alert("AJAX error: " + request.statusText);
+                                                    // bootbox.alert("AJAX error: " + request.statusText);
+                                                    console.log("Fan 3 & 4 AJAX error: " + request.statusText);
                                                 }
                                             });
                                         }
@@ -163,8 +165,8 @@
                                                 }
                                             });
                                         }
-                                    }else{
-                                        if(parseInt(temp.id) == 1 || parseInt(temp.thres) == 2){
+                                    }else {
+                                        if(parseInt(temp.id) == 1 || parseInt(temp.id) == 2){
                                             var obj_fan = new Object();
                                             obj_fan = "off-fan1";
             
@@ -176,11 +178,11 @@
                                                             // alert('FUCK YEAH');
                                                 },
                                                 error: function (request, textStatus, errorThrown) {
-                                                    bootbox.alert("AJAX error: " + request.statusText);
+                                                    // bootbox.alert("AJAX error: " + request.statusText);
                                                 }
                                             });
                                         }
-                                        if(parseInt(temp.id) == 3 || parseInt(temp.thres) == 4){
+                                        if(parseInt(temp.id) == 3 || parseInt(temp.id) == 4){
                                             var obj_fan = new Object();
                                             obj_fan = "off-fan2";
             
@@ -196,7 +198,7 @@
                                                 }
                                             });
                                         }
-                                        if(parseInt(temp.id) == 5 || parseInt(temp.thres) == 6 || parseInt(temp.thres) == 7){
+                                        if(parseInt(temp.id) == 5 || parseInt(temp.id) == 6 || parseInt(temp.id) == 7){
                                             var obj_fan = new Object();
                                             obj_fan = "off-fan3";
             
@@ -221,7 +223,7 @@
                             },
                             
                             error: function (request, textStatus, errorThrown) {
-                                console.log('EpicFail');
+                                console.log("TempAndHumid AJAX error: " + request.statusText);
                             
                             }
                         });
@@ -252,11 +254,11 @@
                                     url: '../app/GPIO/light.php',
                                     data: obj,
                                     success: function (newdata) {
-                                                // alert('Green Light');
-                                                console.log('Execution was OK');
+                                        console.log('Box 1 Turn Green LED');
                                     },
                                     error: function (request, textStatus, errorThrown) {
-                                        bootbox.alert("AJAX error: " + request.statusText);
+                                        // bootbox.alert("AJAX error: " + request.statusText);
+                                        console.log("AJAX error: " + request.statusText);
                                     }
                                 }); 
 
@@ -268,10 +270,11 @@
                                     data: obj,
                                     success: function (newdata) {
                                                 // alert('Green Light');
-                                                console.log('Execution was OK');
+                                        console.log('Box 1 turn Green LED');
                                     },
                                     error: function (request, textStatus, errorThrown) {
-                                        bootbox.alert("AJAX error: " + request.statusText);
+                                        // bootbox.alert("AJAX error: " + request.statusText);
+                                        console.log("AJAX error: " + request.statusText);
                                     }
                                 });
 
@@ -286,11 +289,11 @@
                                     url: '../app/GPIO/buzzer.php',
                                     data: obj,
                                     success: function (newdata) {
-                                                // alert('Green Light');
-                                                console.log('Execution was OK');
+                                        console.log('Box 1 Turn on Buzzer');
                                     },
                                     error: function (request, textStatus, errorThrown) {
-                                        bootbox.alert("AJAX error: " + request.statusText);
+                                        // bootbox.alert("AJAX error: " + request.statusText);
+                                        console.log("AJAX error: " + request.statusText);
                                     }
                                 });
                                 
@@ -301,33 +304,32 @@
                     });
                     if(DayDiff >= 0){
                         
-                        if($('#controller').prop('checked')){
-                                    obj = "on-controller1";
-                                    // alert('On'); 
-                        }
-                        else{
-                                    obj = "off-controller1";
-                                    // alert('On');
-                        }
+                        // if($('#controller').prop('checked')){
+                        //     obj = "on-controller1";
+                        // }
+                        // else{
+                        //             obj = "off-controller1";
+                        //             // alert('On');
+                        // }
 
-                        $.ajax({
-                            type: "GET",
-                            url: '../app/GPIO/light.php',
-                            data: obj,
-                            success: function (newdata) {
-                                        // alert('Red Light');
-                            },
-                            error: function (request, textStatus, errorThrown) {
-                                bootbox.alert("AJAX error: " + request.statusText);
-                            }
-                        });
+                        // $.ajax({
+                        //     type: "GET",
+                        //     url: '../app/GPIO/light.php',
+                        //     data: obj,
+                        //     success: function (newdata) {
+                        //         console.log('Box 1 load data');
+                        //     },
+                        //     error: function (request, textStatus, errorThrown) {
+                        //         bootbox.alert("AJAX error: " + request.statusText);
+                        //     }
+                        // });
                         $('#controller').prop('checked',true);
                         $('#contStatus1').text('Status: '+'On going');
                         timer.reset(controller);
                         timer.mode(0);
                         timer.start(1000);
                     }else{
-                        // alert('Box 1 ready to be harvest !');
+                        console.log('Box 1 Load if 0');
                         obj = "off-controller1";
                                 $.ajax({
                                     type: "GET",
@@ -335,10 +337,11 @@
                                     data: obj,
                                     success: function (newdata) {
                                                 // alert('Green Light');
-                                                console.log('Execution was OK');
+                                                console.log('Box 1 Turn On Green if equal to 0');
                                     },
                                     error: function (request, textStatus, errorThrown) {
-                                        bootbox.alert("AJAX error: " + request.statusText);
+                                        // bootbox.alert("AJAX error: " + request.statusText);
+                                        console.log("AJAX error: " + request.statusText);
                                     }
                                 }); 
                     }
@@ -354,8 +357,7 @@
                                     url: '../app/GPIO/light.php',
                                     data: obj,
                                     success: function (newdata) {
-                                                // alert('Green Light');
-                                                console.log('Execution was OK');
+                                            console.log('Box 2 Turn On Green Light');
                                     },
                                     error: function (request, textStatus, errorThrown) {
                                         bootbox.alert("AJAX error: " + request.statusText);
@@ -369,8 +371,7 @@
                                     url: '../app/GPIO/buzzer.php',
                                     data: obj,
                                     success: function (newdata) {
-                                                // alert('Green Light');
-                                                console.log('Execution was OK');
+                                         console.log('Box 2 Turn On Buzzer');
                                     },
                                     error: function (request, textStatus, errorThrown) {
                                         bootbox.alert("AJAX error: " + request.statusText);
@@ -388,8 +389,7 @@
                                     url: '../app/GPIO/buzzer.php',
                                     data: obj,
                                     success: function (newdata) {
-                                                // alert('Green Light');
-                                                console.log('Execution was OK');
+                                        console.log('Box 2 turn off buzzer');
                                     },
                                     error: function (request, textStatus, errorThrown) {
                                         bootbox.alert("AJAX error: " + request.statusText);
@@ -409,17 +409,18 @@
                         timer1.start(1000);
                     }else{
                         // alert('Box 2 is harvest ready!');
+                        console.log('Box 2 Load if 0');
                         obj = "off-controller2";
                                 $.ajax({
                                     type: "GET",
                                     url: '../app/GPIO/light.php',
                                     data: obj,
                                     success: function (newdata) {
-                                                // alert('Green Light');
-                                                console.log('Execution was OK');
+                                        console.log('Box 2 Turn Green LED when 0');
                                     },
                                     error: function (request, textStatus, errorThrown) {
-                                        bootbox.alert("AJAX error: " + request.statusText);
+                                        // bootbox.alert("AJAX error: " + request.statusText);
+                                        console.log("AJAX error: " + request.statusText);
                                     }
                                 });
                     }
@@ -436,8 +437,7 @@
                                     url: '../app/GPIO/light.php',
                                     data: obj,
                                     success: function (newdata) {
-                                                // alert('Green Light');
-                                                console.log('Execution was OK');
+                                        console.log('Box 3 turn Red Led');
                                     },
                                     error: function (request, textStatus, errorThrown) {
                                         bootbox.alert("AJAX error: " + request.statusText);
@@ -451,8 +451,7 @@
                                     url: '../app/GPIO/buzzer.php',
                                     data: obj,
                                     success: function (newdata) {
-                                                // alert('Green Light');
-                                                console.log('Execution was OK');
+                                        console.log('Box 3 Turn Buzzer On');
                                     },
                                     error: function (request, textStatus, errorThrown) {
                                         bootbox.alert("AJAX error: " + request.statusText);
@@ -470,8 +469,7 @@
                                     url: '../app/GPIO/buzzer.php',
                                     data: obj,
                                     success: function (newdata) {
-                                                // alert('Green Light');
-                                                console.log('Execution was OK');
+                                        console.log('Box 3 turn off buzzer');
                                     },
                                     error: function (request, textStatus, errorThrown) {
                                         bootbox.alert("AJAX error: " + request.statusText);
@@ -491,6 +489,7 @@
                         timer2.start(1000);
                     }else{
                         // alert('Box 3 ready to be harvest !');
+                        console.log('Box 3 Load if 0');
                         obj = "off-controller3";
                                 $.ajax({
                                     type: "GET",
@@ -498,10 +497,11 @@
                                     data: obj,
                                     success: function (newdata) {
                                                 // alert('Green Light');
-                                                console.log('Execution was OK');
+                                        console.log('Bo 3 Turn Green LED when 0');
                                     },
                                     error: function (request, textStatus, errorThrown) {
-                                        bootbox.alert("AJAX error: " + request.statusText);
+                                        // bootbox.alert("AJAX error: " + request.statusText);
+                                        console.log("AJAX error: " + request.statusText);
                                     }
                                 });
                     }
@@ -519,8 +519,7 @@
                                     url: '../app/GPIO/light.php',
                                     data: obj,
                                     success: function (newdata) {
-                                                // alert('Green Light');
-                                                console.log('Execution was OK');
+                                        console.log('Box 4 Turn On Green Light');
                                     },
                                     error: function (request, textStatus, errorThrown) {
                                         bootbox.alert("AJAX error: " + request.statusText);
@@ -534,8 +533,7 @@
                                     url: '../app/GPIO/buzzer.php',
                                     data: obj,
                                     success: function (newdata) {
-                                                // alert('Green Light');
-                                                console.log('Execution was OK');
+                                        console.log('Box 4 Turn Buzzer On');
                                     },
                                     error: function (request, textStatus, errorThrown) {
                                         bootbox.alert("AJAX error: " + request.statusText);
@@ -553,8 +551,7 @@
                                     url: '../app/GPIO/buzzer.php',
                                     data: obj,
                                     success: function (newdata) {
-                                                // alert('Green Light');
-                                                console.log('Execution was OK');
+                                        console.log('Box 4 Turn Off Buzzer');
                                     },
                                     error: function (request, textStatus, errorThrown) {
                                         bootbox.alert("AJAX error: " + request.statusText);
@@ -574,6 +571,7 @@
                         timer3.start(1000);
                     }else{     
                         // alert('Box 4 ready to be harvest !');
+                        console.log('Box 4 Load if 0');
                         //Turn LEd Green
                         obj = "off-controller4";
                                 $.ajax({
@@ -581,8 +579,7 @@
                                     url: '../app/GPIO/light.php',
                                     data: obj,
                                     success: function (newdata) {
-                                                // alert('Green Light');
-                                                console.log('Execution was OK');
+                                        console.log('Box 4 Turn Green LED when 0');
                                     },
                                     error: function (request, textStatus, errorThrown) {
                                         bootbox.alert("AJAX error: " + request.statusText);
@@ -603,11 +600,11 @@
                                     url: '../app/GPIO/light.php',
                                     data: obj,
                                     success: function (newdata) {
-                                                // alert('Green Light');
-                                                console.log('Execution was OK');
+                                        console.log('Box 5 Led Green Execution was OK');
                                     },
                                     error: function (request, textStatus, errorThrown) {
-                                        bootbox.alert("AJAX error: " + request.statusText);
+                                        // bootbox.alert("AJAX error: " + request.statusText);
+                                        console.log("AJAX error: " + request.statusText);
                                     }
                                 });
 
@@ -618,11 +615,11 @@
                                     url: '../app/GPIO/buzzer.php',
                                     data: obj,
                                     success: function (newdata) {
-                                                // alert('Green Light');
-                                                console.log('Execution was OK');
+                                        console.log('Box 5 Turn On Buzzer Execution was OK');
                                     },
                                     error: function (request, textStatus, errorThrown) {
-                                        bootbox.alert("AJAX error: " + request.statusText);
+                                        // bootbox.alert("AJAX error: " + request.statusText);
+                                        console.log("AJAX error: " + request.statusText);
                                     }
                                 });
 
@@ -637,11 +634,11 @@
                                     url: '../app/GPIO/buzzer.php',
                                     data: obj,
                                     success: function (newdata) {
-                                                // alert('Green Light');
-                                                console.log('Execution was OK');
+                                        console.log('Box 5 Stop Buzzer Execution was OK');
                                     },
                                     error: function (request, textStatus, errorThrown) {
-                                        bootbox.alert("AJAX error: " + request.statusText);
+                                        // bootbox.alert("AJAX error: " + request.statusText);
+                                        console.log("AJAX error: " + request.statusText);
                                     }
                                 });
 
@@ -658,6 +655,7 @@
                         timer4.start(1000);
                     }else{
                         // alert('Box 5 ready to be harvest !');
+                        console.log('Box 5 Load if 0');
                         //Turn LED Green
                                 obj = "off-controller5";
                                 $.ajax({
@@ -665,11 +663,11 @@
                                     url: '../app/GPIO/light.php',
                                     data: obj,
                                     success: function (newdata) {
-                                                // alert('Green Light');
-                                                console.log('Execution was OK');
+                                        console.log('Box 5 turn Green LED when 0');
                                     },
                                     error: function (request, textStatus, errorThrown) {
-                                        bootbox.alert("AJAX error: " + request.statusText);
+                                        // bootbox.alert("AJAX error: " + request.statusText);
+                                        console.log("AJAX error: " + request.statusText);
                                     }
                                 });
                     }
@@ -686,11 +684,11 @@
                                     url: '../app/GPIO/light.php',
                                     data: obj,
                                     success: function (newdata) {
-                                                // alert('Green Light');
-                                                console.log('Execution was OK');
+                                        console.log('Box 6 turn Green LED');
                                     },
                                     error: function (request, textStatus, errorThrown) {
-                                        bootbox.alert("AJAX error: " + request.statusText);
+                                        // bootbox.alert("AJAX error: " + request.statusText);
+                                        console.log("AJAX error: " + request.statusText);
                                     }
                                 });
 
@@ -701,11 +699,11 @@
                                     url: '../app/GPIO/buzzer.php',
                                     data: obj,
                                     success: function (newdata) {
-                                                // alert('Green Light');
-                                                console.log('Execution was OK');
+                                        console.log('Box 6 Turn On Buzzer');
                                     },
                                     error: function (request, textStatus, errorThrown) {
-                                        bootbox.alert("AJAX error: " + request.statusText);
+                                        // bootbox.alert("AJAX error: " + request.statusText);
+                                        console.log("AJAX error: " + request.statusText);
                                     }
                                 });
 
@@ -720,11 +718,11 @@
                                     url: '../app/GPIO/buzzer.php',
                                     data: obj,
                                     success: function (newdata) {
-                                                // alert('Green Light');
-                                                console.log('Execution was OK');
+                                        console.log('Box 6 Turn Off Buzzer');
                                     },
                                     error: function (request, textStatus, errorThrown) {
-                                        bootbox.alert("AJAX error: " + request.statusText);
+                                        // bootbox.alert("AJAX error: " + request.statusText);
+                                        console.log("AJAX error: " + request.statusText);
                                     }
                                 });
                                 $('#contStatus6').text('Status: '+'Start');
@@ -741,6 +739,7 @@
                         timer5.start(1000);
                     }else{
                         // alert('Box 6 ready to be harvest !');
+                        console.log('Box 6 Load if 0');
                         //Turn LED Off
                         obj = "off-controller6";
                                 $.ajax({
@@ -749,10 +748,11 @@
                                     data: obj,
                                     success: function (newdata) {
                                                 // alert('Green Light');
-                                                console.log('Execution was OK');
+                                        console.log('Box 6 turn Green LED when 0');
                                     },
                                     error: function (request, textStatus, errorThrown) {
-                                        bootbox.alert("AJAX error: " + request.statusText);
+                                        // bootbox.alert("AJAX error: " + request.statusText);
+                                        console.log("AJAX error: " + request.statusText);
                                     }
                                 });
                     }
@@ -769,11 +769,11 @@
                                     url: '../app/GPIO/light.php',
                                     data: obj,
                                     success: function (newdata) {
-                                                // alert('Green Light');
-                                                console.log('Execution was OK');
+                                        console.log('Box 7 Turn On Green LED');
                                     },
                                     error: function (request, textStatus, errorThrown) {
-                                        bootbox.alert("AJAX error: " + request.statusText);
+                                        // bootbox.alert("AJAX error: " + request.statusText);
+                                        console.log("AJAX error: " + request.statusText);
                                     }
                                 });
 
@@ -784,11 +784,11 @@
                                     url: '../app/GPIO/buzzer.php',
                                     data: obj,
                                     success: function (newdata) {
-                                                // alert('Green Light');
-                                                console.log('Execution was OK');
+                                        console.log('Box 7 turn Buzzer On');
                                     },
                                     error: function (request, textStatus, errorThrown) {
-                                        bootbox.alert("AJAX error: " + request.statusText);
+                                        // bootbox.alert("AJAX error: " + request.statusText);
+                                        console.log("AJAX error: " + request.statusText);
                                     }
                                 });
 
@@ -803,11 +803,11 @@
                                     url: '../app/GPIO/buzzer.php',
                                     data: obj,
                                     success: function (newdata) {
-                                                // alert('Green Light');
-                                                console.log('Execution was OK');
+                                        console.log('Box 7 Turn Buzzer Off');
                                     },
                                     error: function (request, textStatus, errorThrown) {
-                                        bootbox.alert("AJAX error: " + request.statusText);
+                                        // bootbox.alert("AJAX error: " + request.statusText);
+                                        console.log("AJAX error: " + request.statusText);
                                     }
                                 });
                                 $('#contStatus7').text('Status: '+'Start');
@@ -823,6 +823,7 @@
                         timer6.start(1000);
                     }else{
                         // alert('Box 7 ready to be harvest !');
+                        console.log('Box 7 Load if 0');
                          //Turn Led off
                          obj = "off-controller7";
                                 $.ajax({
@@ -830,24 +831,26 @@
                                     url: '../app/GPIO/light.php',
                                     data: obj,
                                     success: function (newdata) {
-                                                // alert('Green Light');
-                                                console.log('Execution was OK');
+                                        console.log('Box 7 Turn Green LED when 0');
                                     },
                                     error: function (request, textStatus, errorThrown) {
-                                        bootbox.alert("AJAX error: " + request.statusText);
+                                        // bootbox.alert("AJAX error: " + request.statusText);
+                                        console.log("AJAX error: " + request.statusText);
                                     }
                                 });
                     }
                 
                     
                     $("#controller").change(function(){
+
                         var obj = new Object();
                         if($('#controller').prop('checked')){
-                                    obj = "on-controller1";
-                                    // alert('On'); 
+                            obj = "on-controller1";
+                            console.log('Box 1 was checked');
                         }
                         else{
-                                    obj = "off-controller1";
+                            obj = "off-controller1";
+                            console.log('Box 1 was checked');
                                     // alert('On');
                         }
 
@@ -856,17 +859,18 @@
                             url: '../app/GPIO/light.php',
                             data: obj,
                             success: function (newdata) {
-                                        // alert('FUCK YEAH');
+                                console.log('Box 1 sent signal to light.php and savetimer.php');
                             },
                             error: function (request, textStatus, errorThrown) {
-                                bootbox.alert("AJAX error: " + request.statusText);
+                                // bootbox.alert("AJAX error: " + request.statusText);
+                                console.log("Box 1AJAX error: " + request.statusText);
                             }
                         });
             
                     
                         if($(this).prop('checked') == true)
                         {
-
+                            console.log('Box 1 was started');
                             //day = 86400(s)
                             //7 days = 604800
                             $('#contStatus1').text('Status: '+'On going');
@@ -980,17 +984,6 @@
                         });
                         if($(this).prop('checked') == true)
                         {
-                            // timer3 = new _timer3(function (time) {
-                            
-                            //     if (time == 0) {
-                            //         timer3.stop();
-                                
-                            //         $('#AlertModal').modal('show');
-                                    
-                            //         // alert('Code Expired');
-                            //         // location.reload();
-                            //     }
-                            // });
                             $('#contStatus4').text('Status: '+'On going');
                             timer3.reset(604800);
                             timer3.mode(0);
@@ -1026,17 +1019,6 @@
                         });
                         if($(this).prop('checked') == true)
                         {
-                            // timer4 = new _timer4(function (time) {
-                            
-                            //     if (time == 0) {
-                            //         timer4.stop();
-                                
-                            //         $('#AlertModal').modal('show');
-                                    
-                            //         // alert('Code Expired');
-                            //         // location.reload();
-                            //     }
-                            // });
                             $('#contStatus5').text('Status: '+'On going');
                             timer4.reset(604800);
                             timer4.mode(0);
@@ -1853,7 +1835,7 @@
                                 minute = (minute < 10) ? '0' + minute : minute;
                                 hour = (hour < 10) ? '0' + hour : hour;
                                 days = (days < 10) ? '0' + days : days;
-                                console.log(days+'(days)'+hour+'(hr)'+ minute +'(min)'+second+'(s)' );
+                                // console.log(days+'(days)'+hour+'(hr)'+ minute +'(min)'+second+'(s)' );
                                 //$('div.timer span.second').html(second);
                                 //$('div.timer span.minute').html(minute);
                                 //$('div.timer span.hour').html(hour);
