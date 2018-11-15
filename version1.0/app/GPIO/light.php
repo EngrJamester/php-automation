@@ -1,19 +1,19 @@
 <?php 
 
-    // $setmode17 = shell_exec("/usr/local/bin/gpio -g mode 17 out");
-    // $setmode27 = shell_exec("/usr/local/bin/gpio -g mode 27 out");
-    // $setmode22 = shell_exec("/usr/local/bin/gpio -g mode 22 out");
-    // $setmode16 = shell_exec("/usr/local/bin/gpio -g mode 10 out");
-    // $setmode9 = shell_exec("/usr/local/bin/gpio -g mode 9 out");
-    // $setmode11 = shell_exec("/usr/local/bin/gpio -g mode 11 out");
-    // $setmode0 = shell_exec("/usr/local/bin/gpio -g mode 0 out");
-    // $setmode1 = shell_exec("/usr/local/bin/gpio -g mode 1 out");
-    // $setmode5 = shell_exec("/usr/local/bin/gpio -g mode 5 out");
-    // $setmode6 = shell_exec("/usr/local/bin/gpio -g mode 6 out");
-    // $setmode13 = shell_exec("/usr/local/bin/gpio -g mode 13 out");
-    // $setmode19 = shell_exec("/usr/local/bin/gpio -g mode 19 out");
-    // $setmode26 = shell_exec("/usr/local/bin/gpio -g mode 26 out");
-    // $setmode20 = shell_exec("/usr/local/bin/gpio -g mode 20 out");
+    $setmode17 = shell_exec("/usr/local/bin/gpio -g mode 17 out");
+    $setmode27 = shell_exec("/usr/local/bin/gpio -g mode 27 out");
+    $setmode22 = shell_exec("/usr/local/bin/gpio -g mode 22 out");
+    $setmode16 = shell_exec("/usr/local/bin/gpio -g mode 10 out");
+    $setmode9 = shell_exec("/usr/local/bin/gpio -g mode 9 out");
+    $setmode11 = shell_exec("/usr/local/bin/gpio -g mode 11 out");
+    $setmode0 = shell_exec("/usr/local/bin/gpio -g mode 0 out");
+    $setmode1 = shell_exec("/usr/local/bin/gpio -g mode 1 out");
+    $setmode5 = shell_exec("/usr/local/bin/gpio -g mode 5 out");
+    $setmode6 = shell_exec("/usr/local/bin/gpio -g mode 6 out");
+    $setmode13 = shell_exec("/usr/local/bin/gpio -g mode 13 out");
+    $setmode19 = shell_exec("/usr/local/bin/gpio -g mode 19 out");
+    $setmode26 = shell_exec("/usr/local/bin/gpio -g mode 26 out");
+    $setmode20 = shell_exec("/usr/local/bin/gpio -g mode 20 out");
     
 
     if(isset($_GET['on-controller1'])){
