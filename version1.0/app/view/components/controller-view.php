@@ -37,8 +37,7 @@
                             <div class="card-header" >
                               <h5 class="card-title">
                                 <i class="fas fa-spa"style="margin:auto;" ></i>
-                                Box 1
-                               
+                                Box 1                        
                               </h5>
                               
                             </div>
@@ -49,13 +48,13 @@
                                     <input type="checkbox" id="controller">
                                     <span class="slider round" data-on="start" data-off="stop"></span>
                                   </label>
-                                  
+                                  <label id="contStatus1">Status: Start</label>
                               </form>
-                              <label id="contStatus1">Status: Start</label>
-                              <p class="card-text" id="timer" style="font-size:13px;"><b>Remaining Day(s):</b> 7 Days </p>
+                              
+                              <p class="card-text" id="timer" style="font-size:13px;"><b>No Day(s) Left:</b> 7 Days </p>
                               <p class="card-text" id="temp1" style="font-size:13px;"><b>Temperature:</b> N/A</p>
                               <p class="card-text" id="humid1" style="font-size:13px;"><b>Humidity:</b> N/A</p>
-                              <p class="card-text" id="fan1" style="font-size:13px;"><b>Fan:</b> Off </p>
+                              <p class="card-text" id="fan1" style="font-size:13px;" onchange="UpdateFan()"><b>Fan:</b> Off </p>
                             </div>
                           
                         </div>
@@ -75,12 +74,13 @@
                                     <input type="checkbox" id="controller1">
                                     <span class="slider round" ></span>
                             </label>
+                            <label id="contStatus2">Status: Start</label>
                           </form>
-                          <label id="contStatus2">Status: Start</label>
-                          <p class="card-text" id="timer1" style="font-size:13px;"><b>Remaining Day(s):</b> 7 Days</p>
+                         
+                          <p class="card-text" id="timer1" style="font-size:13px;"><b>No Day(s) Left:</b> 7 Days</p>
                           <p class="card-text" id="temp2" style="font-size:13px;"><b>Temperature:</b> 100 deg </p>
                           <p class="card-text" id="humid2" style="font-size:13px;"><b>Humidity:</b> 100 deg </p>
-                          <p class="card-text" id="fan2" style="font-size:13px;"><b>Fan:</b> Off </p>
+                          <p class="card-text" id="fan2" style="font-size:13px;" onchange="UpdateFan()"><b>Fan:</b> Off </p>
                           <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
                         </div>
                       </div>
@@ -102,9 +102,10 @@
                                     <input type="checkbox" id="controller2">
                                     <span class="slider round" ></span>
                              </label>
+                             <label id="contStatus3">Status: Start</label>
                           </form>
-                          <label id="contStatus3">Status: Start</label>
-                          <p class="card-text" id="timer2" style="font-size:13px;"><b>Remaining Day(s):</b> 7 Days </p>
+                          
+                          <p class="card-text" id="timer2" style="font-size:13px;"><b>No Day(s) Left:</b> 7 Days </p>
                           <p class="card-text" id="temp3" style="font-size:13px;"><b>Temperature:</b> N/A</p>
                           <p class="card-text" id="humid3" style="font-size:13px;"><b>Humidity:</b> N/A</p>
                           <p class="card-text" id="fan3" style="font-size:13px;"><b>Fan:</b> Off </p>
@@ -128,9 +129,10 @@
                                     <input type="checkbox" id="controller3">
                                     <span class="slider round" ></span>
                               </label>
+                              <label id="contStatus4">Status: Start</label>
                           </form>
-                          <label id="contStatus4">Status: Start</label>
-                          <p class="card-text" id="timer3" style="font-size:13px;"><b>Remaining Day(s):</b> 7 Days </p>
+                          
+                          <p class="card-text" id="timer3" style="font-size:13px;"><b>No Day(s) Left:</b> 7 Days </p>
                           <p class="card-text" id="temp4" style="font-size:13px;"><b>Temperature:</b> N/A</p>
                           <p class="card-text" id="humid4" style="font-size:13px;"><b>Humidity:</b> N/A</p>
                           <p class="card-text" id="fan4" style="font-size:13px;"><b>Fan:</b> Off </p>
@@ -154,9 +156,10 @@
                                     <input type="checkbox" id="controller4">
                                     <span class="slider round" ></span>
                              </label>
+                             <label id="contStatus5">Status: Start</label>
                           </form>
-                          <label id="contStatus5">Status: Start</label>
-                          <p class="card-text" id="timer4" style="font-size:13px;"><b>Remaining Day(s):</b> 7 Days </p>
+                         
+                          <p class="card-text" id="timer4" style="font-size:13px;"><b>No Day(s) Left:</b> 7 Days </p>
                           <p class="card-text" id="temp5" style="font-size:13px;"><b>Temperature:</b> N/A</p>
                           <p class="card-text" id="humid5" style="font-size:13px;"><b>Humidity:</b> N/A</p>
                           <p class="card-text" id="fan5" style="font-size:13px;"><b>Fan:</b> Off </p>
@@ -181,10 +184,11 @@
                                     <input type="checkbox" id="controller5">
                                     <span class="slider round" ></span>
                               </label>
+                              <label id="contStatus6">Status: Start</label>
                           </form>
                           
-                          <label id="contStatus6">Status: Start</label>
-                          <p class="card-text" id="timer5" style="font-size:13px;"><b>Remaining Day(s):</b> 7 Days </p>
+                         
+                          <p class="card-text" id="timer5" style="font-size:13px;"><b>No Day(s) Left:</b> 7 Days </p>
                           <p class="card-text" id="temp6" style="font-size:13px;"><b>Temperature:</b> N/A</p>
                           <p class="card-text" id="humid6" style="font-size:13px;"><b>Humidity:</b> N/A</p>
                           <p class="card-text" id="fan6" style="font-size:13px;"><b>Fan:</b> Off </p>
@@ -207,9 +211,11 @@
                                     <input type="checkbox" id="controller6">
                                     <span class="slider round" ></span>
                               </label>
+                              <label id="contStatus7">Status: Start</label>
                           <form>
-                          <label id="contStatus7">Status: Start</label>
-                          <p class="card-text" id="timer6" style="font-size:13px;"><b>Remaining Day(s):</b> 7 Days </p>
+
+                         
+                          <p class="card-text" id="timer6" style="font-size:13px;"><b>No Day(s) Left:</b> 7 Days </p>
                           <p class="card-text" id="temp7" style="font-size:13px;"><b>Temperature:</b> N/A</p>
                           <p class="card-text" id="humid7" style="font-size:13px;"><b>Humidity:</b> N/A</p>
                           <p class="card-text" id="fan7" style="font-size:13px;"><b>Fan:</b> Off </p>
@@ -225,8 +231,13 @@
 
     <footer class="sticky-footer">
       <div class="container">
-        <div class="text-center">
-          <small>Copyright © Your Website 2018</small>
+        <div class="text-center" style="margin-top:-21px;">
+
+            <img src="../../version1.0/images/BSU_logo.png" alt="BSU Logo" style="width:50px;height:38px;">
+            
+             <small> K. Madrid | G.M Pasajol | M.A Sabaulan
+            </small>
+
         </div>
       </div>
     </footer>

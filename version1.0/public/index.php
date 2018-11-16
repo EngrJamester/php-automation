@@ -96,7 +96,6 @@
            
 
             // if(checkLoginStatus == 1){ }
-
                     
                     function UpdateTempAndHumidity()
                     {
@@ -112,110 +111,22 @@
                             success : function(data){
                                 
                                 $.each(data.data,function(index,temp){
-                                    // if(parseInt(temp.thres) <= parseInt(temp.temp))
-                                    // {
-                                    //     $('#fan'+temp.id).text('Fan: '+'On');
-                                    //     if(parseInt(temp.id) == 1 || parseInt(temp.id) == 2){
-                                    //         var obj_fan = new Object();
-                                    //         obj_fan = "on-fan1";
-            
-                                    //         $.ajax({
-                                    //             type: "GET",
-                                    //             url: '../app/GPIO/fan.php',
-                                    //             data: obj_fan,
-                                    //             success: function (newdata) {
-                                    //                 console.log('Send Fan 1 & 2 instruction');
-                                    //             },
-                                    //             error: function (request, textStatus, errorThrown) {
-                                    //                 // bootbox.alert("AJAX error: " + request.statusText);
-                                    //                 console.log("Fan 1 & 2 AJAX error: " + request.statusText);
-                                    //             }
-                                    //         });
-                                    //     }
-                                    //     if(parseInt(temp.id) == 3 || parseInt(temp.id) == 4){
-                                    //         var obj_fan = new Object();
-                                    //         obj_fan = "on-fan2";
-            
-                                    //         $.ajax({
-                                    //             type: "GET",
-                                    //             url: '../app/GPIO/fan.php',
-                                    //             data: obj_fan,
-                                    //             success: function (newdata) {
-                                    //                 console.log('Send Fan 3 & 4 instruction');
-                                    //             },
-                                    //             error: function (request, textStatus, errorThrown) {
-                                    //                 // bootbox.alert("AJAX error: " + request.statusText);
-                                    //                 console.log("Fan 3 & 4 AJAX error: " + request.statusText);
-                                    //             }
-                                    //         });
-                                    //     }
-                                    //     if(parseInt(temp.id) == 5 || parseInt(temp.id) == 6 || parseInt(temp.id) == 7){
-                                    //         var obj_fan = new Object();
-                                    //         obj_fan = "on-fan3";
-            
-                                    //         $.ajax({
-                                    //             type: "GET",
-                                    //             url: '../app/GPIO/fan.php',
-                                    //             data: obj_fan,
-                                    //             success: function (newdata) {
-                                    //                         // alert('FUCK YEAH');
-                                    //             },
-                                    //             error: function (request, textStatus, errorThrown) {
-                                    //                 bootbox.alert("AJAX error: " + request.statusText);
-                                    //             }
-                                    //         });
-                                    //     }
-                                    // }else {
-                                    //     if(parseInt(temp.id) == 1 || parseInt(temp.id) == 2){
-                                    //         var obj_fan = new Object();
-                                    //         obj_fan = "off-fan1";
-            
-                                    //         $.ajax({
-                                    //             type: "GET",
-                                    //             url: '../app/GPIO/fan.php',
-                                    //             data: obj_fan,
-                                    //             success: function (newdata) {
-                                    //                         // alert('FUCK YEAH');
-                                    //             },
-                                    //             error: function (request, textStatus, errorThrown) {
-                                    //                 // bootbox.alert("AJAX error: " + request.statusText);
-                                    //             }
-                                    //         });
-                                    //     }
-                                    //     if(parseInt(temp.id) == 3 || parseInt(temp.id) == 4){
-                                    //         var obj_fan = new Object();
-                                    //         obj_fan = "off-fan2";
-            
-                                    //         $.ajax({
-                                    //             type: "GET",
-                                    //             url: '../app/GPIO/fan.php',
-                                    //             data: obj_fan,
-                                    //             success: function (newdata) {
-                                    //                         // alert('FUCK YEAH');
-                                    //             },
-                                    //             error: function (request, textStatus, errorThrown) {
-                                    //                 bootbox.alert("AJAX error: " + request.statusText);
-                                    //             }
-                                    //         });
-                                    //     }
-                                    //     if(parseInt(temp.id) == 5 || parseInt(temp.id) == 6 || parseInt(temp.id) == 7){
-                                    //         var obj_fan = new Object();
-                                    //         obj_fan = "off-fan3";
-            
-                                    //         $.ajax({
-                                    //             type: "GET",
-                                    //             url: '../app/GPIO/fan.php',
-                                    //             data: obj_fan,
-                                    //             success: function (newdata) {
-                                    //                         // alert('FUCK YEAH');
-                                    //             },
-                                    //             error: function (request, textStatus, errorThrown) {
-                                    //                 bootbox.alert("AJAX error: " + request.statusText);
-                                    //             }
-                                    //         });
-                                    //     }
-                                    //     $('#fan'+temp.id).text('Fan: '+'Off');
-                                    // }
+                                    if(parseInt(temp.thres) <= parseInt(temp.temp))
+                                    {
+                                        if(parseInt(temp.id)==1 || parseInt(temp.id)==2)
+                                        { $('#fan'+1).text('Fan: '+'On');$('#fan'+2).text('Fan: '+'On'); }
+                                        if(parseInt(temp.id)==3 || parseInt(temp.id)==4)
+                                        { $('#fan'+3).text('Fan: '+'On');$('#fan'+4).text('Fan: '+'On'); }
+                                        if(parseInt(temp.id)==5 || parseInt(temp.id)==6 || parseInt(temp.id)==7)
+                                        { $('#fan'+5).text('Fan: '+'On');$('#fan'+6).text('Fan: '+'On');$('#fan'+7).text('Fan: '+'On'); }
+                                    }else {
+                                        if(parseInt(temp.id)==1 || parseInt(temp.id)==2)
+                                        { $('#fan'+1).text('Fan: '+'Off');$('#fan'+2).text('Fan: '+'Off'); }
+                                        if(parseInt(temp.id)==3 || parseInt(temp.id)==4)
+                                        { $('#fan'+3).text('Fan: '+'Off');$('#fan'+4).text('Fan: '+'Off'); }
+                                        if(parseInt(temp.id)==5 || parseInt(temp.id)==6 || parseInt(temp.id)==7)
+                                        { $('#fan'+5).text('Fan: '+'Off');$('#fan'+6).text('Fan: '+'Off');$('#fan'+7).text('Fan: '+'Off'); }
+                                    }
                                     $('#temp'+temp.id).text('Temperature: '+temp.temp).append('&deg;C');
                                     $('#humid'+temp.id).text('Humidity: '+temp.humid+'%');
                                     
@@ -1183,14 +1094,14 @@
                                 second = (second < 10) ? '0' + second : second;
                                 minute = (minute < 10) ? '0' + minute : minute;
                                 hour = (hour < 10) ? '0' + hour : hour;
+                                hour = (hour > 24) ? Math.floor(hour/2) : hour;
                                 days = (days < 10) ? '0' + days : days;
-                                //$('div.timer span.second').html(second);
-                                //$('div.timer span.minute').html(minute);
-                                //$('div.timer span.hour').html(hour);
-
-                                $('#timer').html('<span><strong> Remaining Days :  </strong >' +days+'day(s):'+hour+'hr(s)</span >');
+                                
+                                // console.log('Box 1'+hour);
+                                
+                                // $('#timer').html('<span><strong> Remaining Days :  </strong >' +days+'day(s):'+hour+'hr(s)</span >');
                                 // $('#timer').html('<span><strong> Remaining Days :  </strong >' +days+'day(s)'+hour+'hr(s):'+minute+'min(s)'+second+'sec(s)</span >');
-                            
+                                $('#timer').html('<span><strong> No Day(s) Left:  </strong >' +days+'day(s)</span >');
                             }
                             
                     }
@@ -1277,14 +1188,14 @@
                                 second = (second < 10) ? '0' + second : second;
                                 minute = (minute < 10) ? '0' + minute : minute;
                                 hour = (hour < 10) ? '0' + hour : hour;
+                                hour = (hour > 24) ? Math.floor(hour/2) : hour;
                                 days = (days < 10) ? '0' + days : days;
 
-                                //$('div.timer span.second').html(second);
-                                //$('div.timer span.minute').html(minute);
-                                //$('div.timer span.hour').html(hour);
-                                
-                                $('#timer1').html('<span><strong> Remaining Days : </strong >' +days+'day(s):'+hour+'hr(s)</span >');
+                                // console.log('Box 2'+hour);
+
+                                // $('#timer1').html('<span><strong> Remaining Days : </strong >' +days+'day(s):'+hour+'hr(s)</span >');
                                 // $('#timer1').html('<span><strong> Remaining Days :  </strong >' +days+'day(s)'+hour+'hr(s):'+minute+'min(s)'+second+'sec(s)</span >');
+                                $('#timer1').html('<span><strong> No Day(s) Left : </strong >' +days+'day(s)</span >');
                             }
                     }
 
@@ -1370,14 +1281,12 @@
                                 second = (second < 10) ? '0' + second : second;
                                 minute = (minute < 10) ? '0' + minute : minute;
                                 hour = (hour < 10) ? '0' + hour : hour;
+                                hour = (hour > 24) ? Math.floor(hour/2) : hour;
                                 days = (days < 10) ? '0' + days : days;
-
-                                //$('div.timer span.second').html(second);
-                                //$('div.timer span.minute').html(minute);
-                                //$('div.timer span.hour').html(hour);
                                 
-                                $('#timer2').html('<span><strong> Remaining Days :   </strong >' +days+'day(s):'+hour+'hr(s)</span >');
+                                // $('#timer2').html('<span><strong> Remaining Days :   </strong >' +days+'day(s):'+hour+'hr(s)</span >');
                                 // $('#timer2').html('<span><strong> Remaining Days :  </strong >' +days+hour+'hr(s):'+minute+'min(s)'+second+'sec(s)</span >');
+                                $('#timer2').html('<span><strong> No Day(s) Left :   </strong >' +days+'day(s)</span >');
                             }
                     }
 
@@ -1463,13 +1372,11 @@
                                 second = (second < 10) ? '0' + second : second;
                                 minute = (minute < 10) ? '0' + minute : minute;
                                 hour = (hour < 10) ? '0' + hour : hour;
+                                hour = (hour > 24) ? Math.floor(hour/2) : hour;
                                 days = (days < 10) ? '0' + days : days;
 
-                                //$('div.timer span.second').html(second);
-                                //$('div.timer span.minute').html(minute);
-                                //$('div.timer span.hour').html(hour);
-                                
-                                $('#timer3').html('<span><strong> Remaining Days :  </strong >' +days+'day(s):'+hour+'hr(s)</span >');
+                                // $('#timer3').html('<span><strong> Remaining Days :  </strong >' +days+'day(s):'+hour+'hr(s)</span >');
+                                $('#timer3').html('<span><strong> No Day(s) Left :  </strong >' +days+'day(s)</span >');
                             }
                     }
 
@@ -1556,12 +1463,9 @@
                                 minute = (minute < 10) ? '0' + minute : minute;
                                 hour = (hour < 10) ? '0' + hour : hour;
                                 days = (days < 10) ? '0' + days : days;
-
-                                //$('div.timer span.second').html(second);
-                                //$('div.timer span.minute').html(minute);
-                                //$('div.timer span.hour').html(hour);
                                 
-                                $('#timer4').html('<span><strong> Remaining Days :   </strong >' +days+'day(s):'+hour+'hr(s)</span >');
+                                // $('#timer4').html('<span><strong> Remaining Days :   </strong >' +days+'day(s):'+hour+'hr(s)</span >');
+                                $('#timer4').html('<span><strong> No Day(s) Left :   </strong >' +days+'day(s):</span >');
                             }
                     }
 
@@ -1647,13 +1551,11 @@
                                 second = (second < 10) ? '0' + second : second;
                                 minute = (minute < 10) ? '0' + minute : minute;
                                 hour = (hour < 10) ? '0' + hour : hour;
+                                hour = (hour > 24) ? Math.floor(hour/2) : hour;
                                 days = (days < 10) ? '0' + days : days;
-
-                                //$('div.timer span.second').html(second);
-                                //$('div.timer span.minute').html(minute);
-                                //$('div.timer span.hour').html(hour);
                                 
-                                $('#timer5').html('<span><strong> Remaining Days :   </strong >' +days+'day(s):'+hour+'hr(s)</span >');
+                                // $('#timer5').html('<span><strong> Remaining Days :   </strong >' +days+'day(s):'+hour+'hr(s)</span >');
+                                $('#timer5').html('<span><strong> No Day(s) Left :   </strong >' +days+'day(s)</span >');
                             }
                     }
 
@@ -1739,13 +1641,11 @@
                                 second = (second < 10) ? '0' + second : second;
                                 minute = (minute < 10) ? '0' + minute : minute;
                                 hour = (hour < 10) ? '0' + hour : hour;
+                                hour = (hour > 24) ? Math.floor(hour/2) : hour;
                                 days = (days < 10) ? '0' + days : days;
-
-                                //$('div.timer span.second').html(second);
-                                //$('div.timer span.minute').html(minute);
-                                //$('div.timer span.hour').html(hour);
                                 
-                                $('#timer6').html('<span><strong> Remaining Days :  </strong >' +days+'day(s):'+hour+'hr(s)</span >');
+                                // $('#timer6').html('<span><strong> Remaining Days :  </strong >' +days+'day(s):'+hour+'hr(s)</span >');
+                                $('#timer6').html('<span><strong> No Day(s) Left :  </strong >' +days+'day(s)</span >');
                             }
                     }
 

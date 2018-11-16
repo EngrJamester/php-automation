@@ -8,12 +8,12 @@
     <div class="container-fluid">
           <!-- Breadcrumbs-->
           <ol class="breadcrumb">
-            <li class="breadcrumb-item">
+            <li>
                 <a href="settings">Controller Settings</a>
             </li>
-            <li class="breadcrumb-item active">
+            <!-- <li class="breadcrumb-item active">
                 <a href="change-password">Change User password</a>
-            </li>
+            </li> -->
           </ol>
           <!-- <div class="row" >
             <div class="col-md-3" style="margin-bottom:10px;">
@@ -315,10 +315,14 @@
           
     </div>
 
-    <footer class="sticky-footer">
+   <footer class="sticky-footer">
       <div class="container">
-        <div class="text-center">
-          <small>Copyright © Your Website 2018</small>
+        <div class="text-center" style="margin-top:-21px;">
+            <img src="../../version1.0/images/BSU_logo.png" alt="BSU Logo" style="width:50px;height:38px;">
+            <div>
+                <small>B.S MECHANTRONICS ENGINEERING</small>
+                <small>K. Madrid | G.M Pasajol | M.A Sabaulan</small>
+            </div>
         </div>
       </div>
     </footer>
