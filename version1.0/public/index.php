@@ -24,9 +24,11 @@
   <!-- Custom styles for this template-->
   <link href="../styles/css/sb-admin.css" rel="stylesheet">
   <!--fontawesome-->
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+  <!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous"> -->
+  <link rel="stylesheet" href="../styles/fontawesome-free-5.5.0-web/css/all.css" >
   <!--ToggleSwitch-->
   <link rel="stylesheet" href="../styles/toggle-button/style/toggleSwitch.css">
+
   <!-- style="
     background-image: url('../images/android.jpg');
     background-repeat: no-repeat;
@@ -79,7 +81,8 @@
     <!--bootStrap Toggle-->
     <script src="../styles/toggle-button/doc/script.js"></script>
     <script src="../styles/toggle-button/js/bootstrap-toggle.js"></script>
-    
+
+
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.3/highlight.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script> -->
     <script src="../styles/"></script>
