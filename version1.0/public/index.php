@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
-  <title>Php & Raspberry Pi</title>
+  <title>Organic Extractor Machine</title>
   <!--BootStrap-Toggle-->
   <link href="../styles/toggle-button/style/bootstrap-toggle.css" rel="stylesheet">
   <link href="../styles/toggle-button/doc/stylesheet.css" rel="stylesheet">
@@ -89,15 +89,15 @@
     <!--Timer Script-->
     <!-- <script src="../javascript/timer.js"></script> -->
     <script type="text/javascript">
-            
+
             var timer;
             var timer1;
             
+            var Box1_check_Timeleft;
+           
             
             <?php include('../app/classes/load.php');?>
-        
-           
-
+            
             // if(checkLoginStatus == 1){ }
                     
                     function UpdateTempAndHumidity()
@@ -162,6 +162,7 @@
                     var obj         = new Object();
                     timer = new _timer(function (time) {
                             if (time == 0) {
+								Box1_check_Timeleft = 0;
                                 obj = "off-controller1";
                                 $.ajax({
                                     type: "GET",
@@ -218,30 +219,78 @@
                     });
                     if(DayDiff >= 0){
                         
-                        // if($('#controller').prop('checked')){
-                        //     obj = "on-controller1";
-                        // }
-                        // else{
-                        //             obj = "off-controller1";
-                        //             // alert('On');
-                        // }
+                        if(controller !== 0){
+							 obj = "on-controller1-strt";
+									$.ajax({
+										type: "GET",
+										url: '../app/GPIO/light.php',
+										data: obj,
+										success: function (newdata) {
+													// alert('Green Light');
+													console.log('Box 1 Turn On Green if equal to 0');
+										},
+										error: function (request, textStatus, errorThrown) {
+											// bootbox.alert("AJAX error: " + request.statusText);
+											console.log("AJAX error: " + request.statusText);
+										}
+									}); 
+							$('#controller').prop('checked',true);
+							$('#contStatus1').text('Status: '+'On going');
+							timer.reset(controller);
+							timer.mode(0);
+							timer.start(1000);
+						}else{
+							console.log('Box 1 Load if 0');
+							obj = "off-controller1";
+                                $.ajax({
+                                    type: "GET",
+                                    url: '../app/GPIO/light.php',
+                                    data: obj,
+                                    success: function (newdata) {
+                                                // alert('Green Light');
+                                                console.log('Box 1 Turn On Green if equal to 0');
+                                    },
+                                    error: function (request, textStatus, errorThrown) {
+                                        // bootbox.alert("AJAX error: " + request.statusText);
+                                        console.log("AJAX error: " + request.statusText);
+                                    }
+                                }); 
+                                
+                                 //Turn On Buzzer
+                                obj = "on-buzz";
+                                $.ajax({
+                                    type: "GET",
+                                    url: '../app/GPIO/buzzer.php',
+                                    data: obj,
+                                    success: function (newdata) {
+                                                // alert('Green Light');
+                                        console.log('Box 1 turn Green LED');
+                                    },
+                                    error: function (request, textStatus, errorThrown) {
+                                        // bootbox.alert("AJAX error: " + request.statusText);
+                                        console.log("AJAX error: " + request.statusText);
+                                    }
+                                });
 
-                        // $.ajax({
-                        //     type: "GET",
-                        //     url: '../app/GPIO/light.php',
-                        //     data: obj,
-                        //     success: function (newdata) {
-                        //         console.log('Box 1 load data');
-                        //     },
-                        //     error: function (request, textStatus, errorThrown) {
-                        //         bootbox.alert("AJAX error: " + request.statusText);
-                        //     }
-                        // });
-                        $('#controller').prop('checked',true);
-                        $('#contStatus1').text('Status: '+'On going');
-                        timer.reset(controller);
-                        timer.mode(0);
-                        timer.start(1000);
+                                
+                                alert('Box 1 is harvest ready!');
+                                
+
+                                //Turn Off Buzzer
+                                obj = "off-buzz";
+                                $.ajax({
+                                    type: "GET",
+                                    url: '../app/GPIO/buzzer.php',
+                                    data: obj,
+                                    success: function (newdata) {
+                                        console.log('Box 1 Turn on Buzzer');
+                                    },
+                                    error: function (request, textStatus, errorThrown) {
+                                        // bootbox.alert("AJAX error: " + request.statusText);
+                                        console.log("AJAX error: " + request.statusText);
+                                    }
+                                });
+						}
                     }else{
                         console.log('Box 1 Load if 0');
                         obj = "off-controller1";
@@ -261,7 +310,7 @@
                     }
 
                     //check Box controller2
-                    var c2_DayDiff = <?php echo 7- $c2_daydiff; ?>; 
+                    var c2_DayDiff = <?php echo 7 - $c2_daydiff; ?>; 
                     var c2_controller = <?php echo $c2_timerVal; ?>;
                     timer1 = new _timer1(function (time) {
                             if (time == 0) {
@@ -316,14 +365,80 @@
                             }
                     });
                     if(c2_DayDiff >= 0){
-                        $('#controller1').prop('checked',true);
-                        $('#contStatus2').text('Status: '+'On going');
-                        timer1.reset(c2_controller);
-                        timer1.mode(0);
-                        timer1.start(1000);
+						if(c2_controller !== 0){
+							obj = "on-controller2-strt";
+									$.ajax({
+										type: "GET",
+										url: '../app/GPIO/light.php',
+										data: obj,
+										success: function (newdata) {
+													// alert('Green Light');
+													console.log('Box 2 Turn On Green if equal to 0');
+										},
+										error: function (request, textStatus, errorThrown) {
+											// bootbox.alert("AJAX error: " + request.statusText);
+											console.log("AJAX error: " + request.statusText);
+										}
+									}); 
+							$('#controller1').prop('checked',true);
+							$('#contStatus2').text('Status: '+'On going');
+							timer1.reset(c2_controller);
+							timer1.mode(0);
+							timer1.start(1000);
+                       }else{
+						   // alert('Box 2 is harvest ready!');
+							console.log('Box 2 Load if 0');
+							obj = "off-controller2";
+							$.ajax({
+								type: "GET",
+								url: '../app/GPIO/light.php',
+								data: obj,
+								success: function (newdata) {
+									console.log('Box 2 Turn Green LED when 0');
+								},
+								error: function (request, textStatus, errorThrown) {
+									// bootbox.alert("AJAX error: " + request.statusText);
+										console.log("AJAX error: " + request.statusText);
+								}
+							});
+							
+							//Turn On Buzzer
+                                obj = "on-buzz";
+                                $.ajax({
+                                    type: "GET",
+                                    url: '../app/GPIO/buzzer.php',
+                                    data: obj,
+                                    success: function (newdata) {
+                                         console.log('Box 2 Turn On Buzzer');
+                                    },
+                                    error: function (request, textStatus, errorThrown) {
+                                        bootbox.alert("AJAX error: " + request.statusText);
+                                    }
+                                });
+
+                                
+                                alert('Box 2 is harvest ready!');
+                                
+                                
+                                 //Turn Off Buzzer
+                                obj = "off-buzz";
+                                $.ajax({
+                                    type: "GET",
+                                    url: '../app/GPIO/buzzer.php',
+                                    data: obj,
+                                    success: function (newdata) {
+                                        console.log('Box 2 turn off buzzer');
+                                    },
+                                    error: function (request, textStatus, errorThrown) {
+                                        bootbox.alert("AJAX error: " + request.statusText);
+                                    }
+                                });
+						}
                     }else{
+                       
                         // alert('Box 2 is harvest ready!');
                         console.log('Box 2 Load if 0');
+                        //$('#controller1').prop('checked',false);
                         obj = "off-controller2";
                                 $.ajax({
                                     type: "GET",
@@ -396,11 +511,77 @@
                             }
                     });
                     if(c3_DayDiff >= 0){
-                        $('#controller2').prop('checked',true);
-                        $('#contStatus3').text('Status: '+'On going');
-                        timer2.reset(c3_controller);
-                        timer2.mode(0);
-                        timer2.start(1000);
+						if(c3_controller !== 0){
+							obj = "on-controller3-strt";
+							$.ajax({
+								type: "GET",
+								url: '../app/GPIO/light.php',
+								data: obj,
+								success: function (newdata) {
+								// alert('Green Light');
+									console.log('Box 3 Turn On Green if equal to 0');
+								},
+								error: function (request, textStatus, errorThrown) {
+										// bootbox.alert("AJAX error: " + request.statusText);
+									console.log("AJAX error: " + request.statusText);
+								}
+							}); 
+							$('#controller2').prop('checked',true);
+							$('#contStatus3').text('Status: '+'On going');
+							timer2.reset(c3_controller);
+							timer2.mode(0);
+							timer2.start(1000);
+						}else{
+							// alert('Box 3 ready to be harvest !');
+							console.log('Box 3 Load if 0');
+							obj = "off-controller3";
+                                $.ajax({
+                                    type: "GET",
+                                    url: '../app/GPIO/light.php',
+                                    data: obj,
+                                    success: function (newdata) {
+                                                // alert('Green Light');
+                                        console.log('Bo 3 Turn Green LED when 0');
+                                    },
+                                    error: function (request, textStatus, errorThrown) {
+                                        // bootbox.alert("AJAX error: " + request.statusText);
+                                        console.log("AJAX error: " + request.statusText);
+                                    }
+                                });
+                                
+                                
+                                 //Turn On Buzzer
+                                obj = "on-buzz";
+                                $.ajax({
+                                    type: "GET",
+                                    url: '../app/GPIO/buzzer.php',
+                                    data: obj,
+                                    success: function (newdata) {
+                                        console.log('Box 3 Turn Buzzer On');
+                                    },
+                                    error: function (request, textStatus, errorThrown) {
+                                        bootbox.alert("AJAX error: " + request.statusText);
+                                    }
+                                });
+
+                                
+                                alert('Box 3 ready to be harvest !');
+                                
+                                
+                                //Turn Off Buzzer
+                                obj = "off-buzz";
+                                $.ajax({
+                                    type: "GET",
+                                    url: '../app/GPIO/buzzer.php',
+                                    data: obj,
+                                    success: function (newdata) {
+                                        console.log('Box 3 turn off buzzer');
+                                    },
+                                    error: function (request, textStatus, errorThrown) {
+                                        bootbox.alert("AJAX error: " + request.statusText);
+                                    }
+                                });
+						}
                     }else{
                         // alert('Box 3 ready to be harvest !');
                         console.log('Box 3 Load if 0');
@@ -478,11 +659,75 @@
                             }
                     });
                     if(c4_DayDiff >= 0){
-                        $('#controller3').prop('checked',true);
-                        $('#contStatus4').text('Status: '+'On going');
-                        timer3.reset(c4_controller);
-                        timer3.mode(0);
-                        timer3.start(1000);
+						if(c4_controller !== 0){
+							obj = "on-controller4-strt";
+									$.ajax({
+										type: "GET",
+										url: '../app/GPIO/light.php',
+										data: obj,
+										success: function (newdata) {
+													// alert('Green Light');
+													console.log('Box 4 Turn On Green if equal to 0');
+										},
+										error: function (request, textStatus, errorThrown) {
+											// bootbox.alert("AJAX error: " + request.statusText);
+											console.log("AJAX error: " + request.statusText);
+										}
+									}); 
+							$('#controller3').prop('checked',true);
+							$('#contStatus4').text('Status: '+'On going');
+							timer3.reset(c4_controller);
+							timer3.mode(0);
+							timer3.start(1000);
+						}else{
+							 
+							console.log('Box 4 Load if 0');
+							//Turn LEd Green
+							obj = "off-controller4";
+                                $.ajax({
+                                    type: "GET",
+                                    url: '../app/GPIO/light.php',
+                                    data: obj,
+                                    success: function (newdata) {
+                                        console.log('Box 4 Turn Green LED when 0');
+                                    },
+                                    error: function (request, textStatus, errorThrown) {
+                                        bootbox.alert("AJAX error: " + request.statusText);
+                                    }
+                                });
+                                
+                                //Turn On Buzzer
+                                obj = "on-buzz";
+                                $.ajax({
+                                    type: "GET",
+                                    url: '../app/GPIO/buzzer.php',
+                                    data: obj,
+                                    success: function (newdata) {
+                                        console.log('Box 4 Turn Buzzer On');
+                                    },
+                                    error: function (request, textStatus, errorThrown) {
+                                        bootbox.alert("AJAX error: " + request.statusText);
+                                    }
+                                });
+
+                                
+                                alert('Box 4 ready to be harvest!');
+                                
+                               
+                                //Turn Off Buzzer
+                                obj = "off-buzz";
+                                $.ajax({
+                                    type: "GET",
+                                    url: '../app/GPIO/buzzer.php',
+                                    data: obj,
+                                    success: function (newdata) {
+                                        console.log('Box 4 Turn Off Buzzer');
+                                    },
+                                    error: function (request, textStatus, errorThrown) {
+                                        bootbox.alert("AJAX error: " + request.statusText);
+                                    }
+                                });
+						}	
                     }else{     
                         // alert('Box 4 ready to be harvest !');
                         console.log('Box 4 Load if 0');
@@ -562,11 +807,77 @@
                             }
                     });
                     if(c5_DayDiff >= 0){
-                        $('#controller4').prop('checked',true);
-                        $('#contStatus5').text('Status: '+'On going');
-                        timer4.reset(c5_controller);
-                        timer4.mode(0);
-                        timer4.start(1000);
+						if(c5_controller !== 0){
+							obj = "on-controller5-strt";
+									$.ajax({
+										type: "GET",
+										url: '../app/GPIO/light.php',
+										data: obj,
+										success: function (newdata) {
+													// alert('Green Light');
+													console.log('Box 5 Turn On Green if equal to 0');
+										},
+										error: function (request, textStatus, errorThrown) {
+											// bootbox.alert("AJAX error: " + request.statusText);
+											console.log("AJAX error: " + request.statusText);
+										}
+									}); 
+							$('#controller4').prop('checked',true);
+							$('#contStatus5').text('Status: '+'On going');
+							timer4.reset(c5_controller);
+							timer4.mode(0);
+							timer4.start(1000);
+						}else{
+							 // alert('Box 5 ready to be harvest !');
+							console.log('Box 5 Load if 0');
+							//Turn LED Green
+                                obj = "off-controller5";
+                                $.ajax({
+                                    type: "GET",
+                                    url: '../app/GPIO/light.php',
+                                    data: obj,
+                                    success: function (newdata) {
+                                        console.log('Box 5 turn Green LED when 0');
+                                    },
+                                    error: function (request, textStatus, errorThrown) {
+                                        // bootbox.alert("AJAX error: " + request.statusText);
+                                        console.log("AJAX error: " + request.statusText);
+                                    }
+                                });
+                             //Turn On Buzzer
+                                obj = "on-buzz";
+                                $.ajax({
+                                    type: "GET",
+                                    url: '../app/GPIO/buzzer.php',
+                                    data: obj,
+                                    success: function (newdata) {
+                                        console.log('Box 5 Turn On Buzzer Execution was OK');
+                                    },
+                                    error: function (request, textStatus, errorThrown) {
+                                        // bootbox.alert("AJAX error: " + request.statusText);
+                                        console.log("AJAX error: " + request.statusText);
+                                    }
+                                });
+
+                                                    
+                                alert('Box 5 ready to be harvest !');
+                                
+                               
+                               //Turn Off Buzzer
+                                obj = "off-buzz";
+                                $.ajax({
+                                    type: "GET",
+                                    url: '../app/GPIO/buzzer.php',
+                                    data: obj,
+                                    success: function (newdata) {
+                                        console.log('Box 5 Stop Buzzer Execution was OK');
+                                    },
+                                    error: function (request, textStatus, errorThrown) {
+                                        // bootbox.alert("AJAX error: " + request.statusText);
+                                        console.log("AJAX error: " + request.statusText);
+                                    }
+                                });
+						}
                     }else{
                         // alert('Box 5 ready to be harvest !');
                         console.log('Box 5 Load if 0');
@@ -646,11 +957,75 @@
                             }
                         });
                     if(c6_DayDiff >= 0){
-                        $('#controller5').prop('checked',true);
-                        $('#contStatus6').text('Status: '+'On going');
-                        timer5.reset(c5_controller);
-                        timer5.mode(0);
-                        timer5.start(1000);
+						if(c6_controller !== 0){
+							obj = "on-controller6-strt";
+									$.ajax({
+										type: "GET",
+										url: '../app/GPIO/light.php',
+										data: obj,
+										success: function (newdata) {
+													// alert('Green Light');
+													console.log('Box 6 Turn On Green if equal to 0');
+										},
+										error: function (request, textStatus, errorThrown) {
+											// bootbox.alert("AJAX error: " + request.statusText);
+											console.log("AJAX error: " + request.statusText);
+										}
+									}); 
+							$('#controller5').prop('checked',true);
+							$('#contStatus6').text('Status: '+'On going');
+							timer5.reset(c5_controller);
+							timer5.mode(0);
+							timer5.start(1000);
+						}else{
+							console.log('Box 6 Load if 0');
+							//Turn LED Off
+							obj = "off-controller6";
+                                $.ajax({
+                                    type: "GET",
+                                    url: '../app/GPIO/light.php',
+                                    data: obj,
+                                    success: function (newdata) {
+                                                // alert('Green Light');
+                                        console.log('Box 6 turn Green LED when 0');
+                                    },
+                                    error: function (request, textStatus, errorThrown) {
+                                        // bootbox.alert("AJAX error: " + request.statusText);
+                                        console.log("AJAX error: " + request.statusText);
+                                    }
+                                });
+                             //Turn On Buzzer
+                                obj = "on-buzz";
+                                $.ajax({
+                                    type: "GET",
+                                    url: '../app/GPIO/buzzer.php',
+                                    data: obj,
+                                    success: function (newdata) {
+                                        console.log('Box 6 Turn On Buzzer');
+                                    },
+                                    error: function (request, textStatus, errorThrown) {
+                                        // bootbox.alert("AJAX error: " + request.statusText);
+                                        console.log("AJAX error: " + request.statusText);
+                                    }
+                                });
+
+                                alert('Box 6 ready to be harvest !');                              
+                                
+                                 //Turn Off Buzzer
+                                obj = "off-buzz";
+                                $.ajax({
+                                    type: "GET",
+                                    url: '../app/GPIO/buzzer.php',
+                                    data: obj,
+                                    success: function (newdata) {
+                                        console.log('Box 6 Turn Off Buzzer');
+                                    },
+                                    error: function (request, textStatus, errorThrown) {
+                                        // bootbox.alert("AJAX error: " + request.statusText);
+                                        console.log("AJAX error: " + request.statusText);
+                                    }
+                                });
+						}
                     }else{
                         // alert('Box 6 ready to be harvest !');
                         console.log('Box 6 Load if 0');
@@ -730,11 +1105,78 @@
                             }
                         });
                     if(c7_DayDiff >= 0){
-                        $('#controller6').prop('checked',true);
-                        $('#contStatus7').text('Status: '+'On going');
-                        timer6.reset(c7_controller);
-                        timer6.mode(0);
-                        timer6.start(1000);
+						if(c7_controller !== 0){
+							obj = "on-controller7-strt";
+									$.ajax({
+										type: "GET",
+										url: '../app/GPIO/light.php',
+										data: obj,
+										success: function (newdata) {
+													// alert('Green Light');
+													console.log('Box 7 Turn On Green if equal to 0');
+										},
+										error: function (request, textStatus, errorThrown) {
+											// bootbox.alert("AJAX error: " + request.statusText);
+											console.log("AJAX error: " + request.statusText);
+										}
+									}); 
+							$('#controller6').prop('checked',true);
+							$('#contStatus7').text('Status: '+'On going');
+							timer6.reset(c7_controller);
+							timer6.mode(0);
+							timer6.start(1000);
+						}else{
+							// alert('Box 7 ready to be harvest !');
+							console.log('Box 7 Load if 0');
+							 //Turn Led off
+							 obj = "off-controller7";
+                                $.ajax({
+                                    type: "GET",
+                                    url: '../app/GPIO/light.php',
+                                    data: obj,
+                                    success: function (newdata) {
+                                        console.log('Box 7 Turn Green LED when 0');
+                                    },
+                                    error: function (request, textStatus, errorThrown) {
+                                        // bootbox.alert("AJAX error: " + request.statusText);
+                                        console.log("AJAX error: " + request.statusText);
+                                    }
+                                });
+                              
+                                //Turn On Buzzer
+                                obj = "on-buzz";
+                                $.ajax({
+                                    type: "GET",
+                                    url: '../app/GPIO/buzzer.php',
+                                    data: obj,
+                                    success: function (newdata) {
+                                        console.log('Box 7 turn Buzzer On');
+                                    },
+                                    error: function (request, textStatus, errorThrown) {
+                                        // bootbox.alert("AJAX error: " + request.statusText);
+                                        console.log("AJAX error: " + request.statusText);
+                                    }
+                                });
+
+                                
+                                alert('Box 7 ready to be harvest !');
+                       
+                                
+                                //Turn Off Buzzer
+                                obj = "off-buzz";
+                                $.ajax({
+                                    type: "GET",
+                                    url: '../app/GPIO/buzzer.php',
+                                    data: obj,
+                                    success: function (newdata) {
+                                        console.log('Box 7 Turn Buzzer Off');
+                                    },
+                                    error: function (request, textStatus, errorThrown) {
+                                        // bootbox.alert("AJAX error: " + request.statusText);
+                                        console.log("AJAX error: " + request.statusText);
+                                    }
+                                });
+						}
                     }else{
                         // alert('Box 7 ready to be harvest !');
                         console.log('Box 7 Load if 0');
@@ -1102,9 +1544,10 @@
                                 
                                 // console.log('Box 1'+hour);
                                 
-                                // $('#timer').html('<span><strong> Remaining Days :  </strong >' +days+'day(s):'+hour+'hr(s)</span >');
+                                //$('#timer').html('<span><strong> Remaining Days :  </strong >' +days+'day(s):'+hour+'hr(s)</span >');
                                 // $('#timer').html('<span><strong> Remaining Days :  </strong >' +days+'day(s)'+hour+'hr(s):'+minute+'min(s)'+second+'sec(s)</span >');
-                                $('#timer').html('<span><strong> No Day(s) Left:  </strong >' +days+'day(s)</span >');
+                                $('#timer').html('<span><strong> Remaining Days :  </strong >' +days+'day(s):'+hour+'hr(s):'+minute+'min(s)</span >');
+                                //$('#timer').html('<span><strong> No of Day(s) Left:  </strong >' +days+'day(s)</span >');
                             }
                             
                     }
@@ -1195,10 +1638,11 @@
                                 days = (days < 10) ? '0' + days : days;
 
                                 // console.log('Box 2'+hour);
-
-                                // $('#timer1').html('<span><strong> Remaining Days : </strong >' +days+'day(s):'+hour+'hr(s)</span >');
+								box1_sec_left = second;
+                                 //$('#timer1').html('<span><strong> Remaining Days : </strong >' +days+'day(s):'+hour+'hr(s)</span >');
                                 // $('#timer1').html('<span><strong> Remaining Days :  </strong >' +days+'day(s)'+hour+'hr(s):'+minute+'min(s)'+second+'sec(s)</span >');
-                                $('#timer1').html('<span><strong> No Day(s) Left : </strong >' +days+'day(s)</span >');
+                                $('#timer1').html('<span><strong> Remaining Days :  </strong >' +days+'day(s):'+hour+'hr(s):'+minute+'min(s)</span >');
+                                //$('#timer1').html('<span><strong> No Day(s) Left : </strong >' +days+'day(s)</span >');
                             }
                     }
 
@@ -1287,9 +1731,10 @@
                                 hour = (hour > 24) ? Math.floor(hour/2) : hour;
                                 days = (days < 10) ? '0' + days : days;
                                 
-                                // $('#timer2').html('<span><strong> Remaining Days :   </strong >' +days+'day(s):'+hour+'hr(s)</span >');
+                                //$('#timer2').html('<span><strong> Remaining Days :   </strong >' +days+'day(s):'+hour+'hr(s)</span >');
                                 // $('#timer2').html('<span><strong> Remaining Days :  </strong >' +days+hour+'hr(s):'+minute+'min(s)'+second+'sec(s)</span >');
-                                $('#timer2').html('<span><strong> No Day(s) Left :   </strong >' +days+'day(s)</span >');
+                                $('#timer2').html('<span><strong> Remaining Days :  </strong >' +days+'day(s):'+hour+'hr(s):'+minute+'min(s)</span >');
+                                //$('#timer2').html('<span><strong> No of Day(s) Left :   </strong >' +days+'day(s)</span >');
                             }
                     }
 
@@ -1378,8 +1823,9 @@
                                 hour = (hour > 24) ? Math.floor(hour/2) : hour;
                                 days = (days < 10) ? '0' + days : days;
 
-                                // $('#timer3').html('<span><strong> Remaining Days :  </strong >' +days+'day(s):'+hour+'hr(s)</span >');
-                                $('#timer3').html('<span><strong> No Day(s) Left :  </strong >' +days+'day(s)</span >');
+                                //$('#timer3').html('<span><strong> Remaining Days :  </strong >' +days+'day(s):'+hour+'hr(s)</span >');
+                                //$('#timer3').html('<span><strong> No of Day(s) Left :  </strong >' +days+'day(s)</span >');
+                                $('#timer3').html('<span><strong> Remaining Days :  </strong >' +days+'day(s):'+hour+'hr(s):'+minute+'min(s)</span >');
                             }
                     }
 
@@ -1467,8 +1913,9 @@
                                 hour = (hour < 10) ? '0' + hour : hour;
                                 days = (days < 10) ? '0' + days : days;
                                 
-                                // $('#timer4').html('<span><strong> Remaining Days :   </strong >' +days+'day(s):'+hour+'hr(s)</span >');
-                                $('#timer4').html('<span><strong> No Day(s) Left :   </strong >' +days+'day(s):</span >');
+                                //$('#timer4').html('<span><strong> Remaining Days :   </strong >' +days+'day(s):'+hour+'hr(s)</span >');
+                                $('#timer4').html('<span><strong> Remaining Days :   </strong >' +days+'day(s):'+hour+'hr(s):'+minute+'mins(s)</span >');
+                                //$('#timer4').html('<span><strong> No of Day(s) Left :   </strong >' +days+'day(s):</span >');
                             }
                     }
 
@@ -1557,8 +2004,9 @@
                                 hour = (hour > 24) ? Math.floor(hour/2) : hour;
                                 days = (days < 10) ? '0' + days : days;
                                 
-                                // $('#timer5').html('<span><strong> Remaining Days :   </strong >' +days+'day(s):'+hour+'hr(s)</span >');
-                                $('#timer5').html('<span><strong> No Day(s) Left :   </strong >' +days+'day(s)</span >');
+                                $//('#timer5').html('<span><strong> Remaining Days :   </strong >' +days+'day(s):'+hour+'hr(s)</span >');
+                                $('#timer5').html('<span><strong> Remaining Days :   </strong >' +days+'day(s):'+hour+'hr(s):'+minute+'min(s)</span >');
+                                //$('#timer5').html('<span><strong> No of Day(s) Left :   </strong >' +days+'day(s)</span >');
                             }
                     }
 
@@ -1647,8 +2095,9 @@
                                 hour = (hour > 24) ? Math.floor(hour/2) : hour;
                                 days = (days < 10) ? '0' + days : days;
                                 
-                                // $('#timer6').html('<span><strong> Remaining Days :  </strong >' +days+'day(s):'+hour+'hr(s)</span >');
-                                $('#timer6').html('<span><strong> No Day(s) Left :  </strong >' +days+'day(s)</span >');
+                                $('#timer6').html('<span><strong> Remaining Days :  </strong >' +days+'day(s):'+hour+'hr(s):'+minute+'min(s)</span >');
+                                //$('#timer6').html('<span><strong> Remaining Days :  </strong >' +days+'day(s):'+hour+'hr(s)</span >');
+                                //$('#timer6').html('<span><strong> No of Day(s) Left :  </strong >' +days+'day(s)</span >');
                             }
                     }
 
@@ -1755,7 +2204,18 @@
    
    </script>
 
-  
+  <script type="text/javascript">
+			$(document).ready(function(e){
+				window.setInterval(getDateTimeNow,1000);
+			});
+			
+			function getDateTimeNow()
+			{
+				var d = new Date();
+				var options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+				document.getElementById("lbldatetimenow").innerHTML = ' <strong>Date :</strong>' + d.toLocaleDateString("en-US", options) + '<strong>	Time :</strong>' + d.toLocaleTimeString();
+			}
+  </script>
                                            
   </div>
 </body>

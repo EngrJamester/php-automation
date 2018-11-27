@@ -20,7 +20,9 @@
 
           if($result == 1)
           {
+			  $c1_threshold = $threshold_val;
               echo"<script>alert('Threshold Updated Success');</script>";
+				 //echo"<script>$('#AlertModal').modal('show');</script>";
           }else{
               echo"<script>alert('Threshold Updated Failed');</script>";
           }

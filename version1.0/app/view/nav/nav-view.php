@@ -22,7 +22,7 @@
                         <a class="nav-link" href="controller" style="font-size:1.5rem;">
                             <!-- <i class="fa fa-check-gamepad"></i> -->
                             <i class="fas fa-desktop"></i>
-                            <span class="nav-link-text">Monitor System</span>
+                            <span class="nav-link-text">Monitoring</span>
                         </a>
                     </li>
 
@@ -31,6 +31,14 @@
                             <!-- <i class="fa fas fa-user"></i> -->
                             <i class="fas fa-cogs"></i>
                             <span class="nav-link-text">Settings</span>
+                        </a>
+                    </li>
+                    
+                    <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Shutdown">
+                        <a class="nav-link" href="../app/view/components/shutdown.php" style="font-size:1.5rem;">
+                            <!-- <i class="fa fas fa-user"></i> -->
+                            <i class="fas fa-power-off"></i>
+                            <span class="nav-link-text">Shutdown</span>
                         </a>
                     </li>
 

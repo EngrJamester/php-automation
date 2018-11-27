@@ -276,7 +276,7 @@
                     <div class="card" style="max-width: 25rem;margin-top:20px;margin:auto;">
                         <i class="fas fa-spa" style="margin:auto;font-size:6rem;margin-top:5px;"></i>
                         <div class="card-body">
-                        <h5 class="card-title">Threshold Value for Temperature</h5>
+                        <center><h5 class="card-title">Threshold Value for Temperature</h5></center>
                 
                         <div style="margin:auto;">
                             <script>
@@ -293,17 +293,34 @@
                                     document.getElementById("editBtn").disabled = false;
                                     // document.getElementById("editBtn1").style.visibility = "visible";
                                     // document.getElementById("saveBtn1").hidden = true;
-                                } 
+                                }
+                                
+                                
                                 
                                
                             </script>
-                            <label>Threshold (degrees)</label>
+                            <center><label>Threshold (degrees)</label></center>
                                 <div>
                                     <form method="post">
+										
+                                        <div class="row">
+											<div class="col-sm-4"></div>
+											<div class="col-sm-4">
+												<input class="form-control" style="font-size:25px" type="number" min="0" max="100" step="1"  id="ThresField" name="ThresField_val" value="<?php echo $c1_threshold; ?>">
+											</div>
+											<div class="col-sm-4"></div>
+                                        </div>
+                                        <br/>
+                                        <div class="row">
+											<div class="col-sm-4"></div>
+											<div class="col-sm-4">
+													<!-- <button type="submit"  onclick="myFunction()" id="editBtn" ><span class="fas fa-edit"></span></button> -->
+												<button type="submit" class="form-control btn btn-primary" name="box1_threshold"  id="saveBtn" ><span class="fas fa-save">&nbsp;Update</span></button>
+											</div>
+											<div class="col-sm-4"></div>
+                                        </div>
                                         
-                                        <input type="number" min="0" max="100" step="1"  id="ThresField" name="ThresField_val" value="<?php echo $c1_threshold; ?>">
-                                        <!-- <button type="submit"  onclick="myFunction()" id="editBtn" ><span class="fas fa-edit"></span></button> -->
-                                        <button type="submit"   name="box1_threshold"  id="saveBtn" ><span class="fas fa-save"></span></button>
+                                        
                                     </form>
                                 </div>
                             </div>
@@ -318,10 +335,12 @@
    <footer class="sticky-footer">
       <div class="container">
         <div class="text-center" style="margin-top:-21px;">
-            <img src="../../version1.0/images/BSU_logo.png" alt="BSU Logo" style="width:50px;height:38px;">
-            <div>
+            <img src="../../version1.0/images/BSU_logo.png" alt="BSU Logo" style="width:45px;height:38px;">
+            <div style='margin-top:-15px'>
                 <small>B.S MECHANTRONICS ENGINEERING</small>
-                <small>K. Madrid | G.M Pasajol | M.A Sabaulan</small>
+            </div>
+            <div style='margin-top:-35px'>
+				<small>K. Madrid | G.M Pasajol | M.A Sabaulan</small>
             </div>
         </div>
       </div>

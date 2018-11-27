@@ -252,7 +252,84 @@
         // </script>';
     }
 
+	//For Start Up
+   if(isset($_GET['on-controller1-strt'])){
 
+        echo "<script type='text/javascript'>console.log('Box 1 start Set On');</script>";
+
+		//This is to turn LED Red On
+        $onred = shell_exec("/usr/local/bin/gpio -g write 17 1");
+        $gpio_onred = shell_exec($onred);
+        $offgreen = shell_exec("/usr/local/bin/gpio -g write 27 0");
+        $gpio_offgreen = shell_exec($offgreen);
+        echo "On";
+
+    }
+
+   if(isset($_GET['on-controller2-strt'])){
+        echo "<script type='text/javascript'>console.log('Box 2 Set On');</script>";
+        //This is to turn LED Red On
+        $onred = shell_exec("/usr/local/bin/gpio -g write 22 1");
+        $gpio_onred = shell_exec($onred);
+        $offgreen = shell_exec("/usr/local/bin/gpio -g write 10 0");
+        $gpio_offgreen = shell_exec($offgreen);
+        echo "On"; 
+    }
+
+   if(isset($_GET['on-controller3-strt'])){
+
+        //This is to turn LED Red On
+        $onred = shell_exec("/usr/local/bin/gpio -g write 9 1");
+        $gpio_onred = shell_exec($onred);
+        $offgreen = shell_exec("/usr/local/bin/gpio -g write 11 0");
+        $gpio_offgreen = shell_exec($offgreen);
+        
+
+    }
+
+   if(isset($_GET['on-controller4-strt'])){
+	    //This is to turn LED Red On
+        $onred = shell_exec("/usr/local/bin/gpio -g write 0 1");
+        $gpio_onred = shell_exec($onred);
+        $offgreen = shell_exec("/usr/local/bin/gpio -g write 1 0");
+        $gpio_offgreen = shell_exec($offgreen);
+        echo "On";
+
+    }
+    
+   if(isset($_GET['on-controller5-strt'])){
+
+	    //This is to turn LED Red On
+        $onred = shell_exec("/usr/local/bin/gpio -g write 5 1");
+        $gpio_onred = shell_exec($onred);
+        $offgreen = shell_exec("/usr/local/bin/gpio -g write 6 0");
+        $gpio_offgreen = shell_exec($offgreen);
+        echo "On";
+
+    }
+    
+   if(isset($_GET['on-controller6-strt'])){
+        echo "<script type='text/javascript'>console.log('Box 6 Set On');</script>";
+
+	    //This is to turn LED Red On
+        $onred = shell_exec("/usr/local/bin/gpio -g write 13 1");
+        $gpio_onred = shell_exec($onred);
+        $offgreen = shell_exec("/usr/local/bin/gpio -g write 19 0");
+        $gpio_offgreen = shell_exec($offgreen);
+        echo "On";
+
+    }
+    
+   if(isset($_GET['on-controller7-strt'])){
+
+	    //This is to turn LED Red On
+        $onred = shell_exec("/usr/local/bin/gpio -g write 26 1");
+        $gpio_onred = shell_exec($onred);
+        $offgreen = shell_exec("/usr/local/bin/gpio -g write 20 0");
+        $gpio_offgreen = shell_exec($offgreen);
+        echo "On";
+
+    }
 function offRG($pinRed,$pinGreen)
 {
 	$offRed = shell_exec("/usr/local/bin/gpio -g write $pinRed 0");
