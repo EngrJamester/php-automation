@@ -218,25 +218,21 @@
                     });
                     if(DayDiff >= 0){
                         
-                        // if($('#controller').prop('checked')){
-                        //     obj = "on-controller1";
-                        // }
-                        // else{
-                        //             obj = "off-controller1";
-                        //             // alert('On');
-                        // }
+                        obj = "on-controller1";
 
-                        // $.ajax({
-                        //     type: "GET",
-                        //     url: '../app/GPIO/light.php',
-                        //     data: obj,
-                        //     success: function (newdata) {
-                        //         console.log('Box 1 load data');
-                        //     },
-                        //     error: function (request, textStatus, errorThrown) {
-                        //         bootbox.alert("AJAX error: " + request.statusText);
-                        //     }
-                        // });
+                            $.ajax({
+                                type: "GET",
+                                url: '../app/GPIO/light.php',
+                                data: obj,
+                                success: function (newdata) {
+                                            // alert('Green Light');
+                                            console.log('Box 1 Turn On Green if equal to 0');
+                                },
+                                error: function (request, textStatus, errorThrown) {
+                                    // bootbox.alert("AJAX error: " + request.statusText);
+                                    console.log("AJAX error: " + request.statusText);
+                                }
+                            }); 
                         $('#controller').prop('checked',true);
                         $('#contStatus1').text('Status: '+'On going');
                         timer.reset(controller);
