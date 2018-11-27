@@ -219,6 +219,7 @@
                     });
                     if(DayDiff >= 0){
                         
+<<<<<<< HEAD
                         if(controller !== 0){
 							 obj = "on-controller1-strt";
 									$.ajax({
@@ -291,6 +292,28 @@
                                     }
                                 });
 						}
+=======
+                        obj = "on-controller1";
+
+                            $.ajax({
+                                type: "GET",
+                                url: '../app/GPIO/light.php',
+                                data: obj,
+                                success: function (newdata) {
+                                            // alert('Green Light');
+                                            console.log('Box 1 Turn On Green if equal to 0');
+                                },
+                                error: function (request, textStatus, errorThrown) {
+                                    // bootbox.alert("AJAX error: " + request.statusText);
+                                    console.log("AJAX error: " + request.statusText);
+                                }
+                            }); 
+                        $('#controller').prop('checked',true);
+                        $('#contStatus1').text('Status: '+'On going');
+                        timer.reset(controller);
+                        timer.mode(0);
+                        timer.start(1000);
+>>>>>>> 1b045a8da52286972e3422820517edf371bfb79e
                     }else{
                         console.log('Box 1 Load if 0');
                         obj = "off-controller1";
